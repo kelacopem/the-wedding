@@ -5,67 +5,43 @@
 <title>Kiara & Nana</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Inter&display=swap" rel="stylesheet">
 
 <style>
 body {
   margin: 0;
+  background: #0d0d0d;
+  color: white;
   font-family: 'Inter', sans-serif;
-  background-color: #0d0d0d;
-  color: #f5f5f5;
 }
 
-/* HERO */
 header {
   height: 100vh;
-  background-color: #0d0d0d;
   display: flex;
-  align-items: center;
   justify-content: center;
-  text-align: center;
+  align-items: center;
 }
 
-.hero-content {
-  border: 1px solid #d4af37;
+.box {
+  border: 1px solid gold;
   padding: 40px;
-}
-
-.monogram {
-  font-family: 'Playfair Display', serif;
-  font-size: 40px;
-  letter-spacing: 6px;
+  text-align: center;
 }
 
 h1 {
   font-family: 'Playfair Display', serif;
-  font-size: 48px;
 }
 
-/* COUNTDOWN */
 #countdown {
   display: flex;
+  gap: 10px;
   justify-content: center;
-  gap: 15px;
   margin-top: 20px;
 }
 
-.box {
-  border: 1px solid #d4af37;
+#countdown div {
+  border: 1px solid gold;
   padding: 10px;
-}
-
-/* GALLERY */
-.gallery {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 10px;
-  padding: 40px;
-}
-
-.gallery img {
-  width: 100%;
-  height: 250px;
-  object-fit: cover;
 }
 </style>
 </head>
@@ -73,23 +49,17 @@ h1 {
 <body>
 
 <header>
-  <div class="hero-content">
-    <div class="monogram">NK</div>
+  <div class="box">
     <h1>Kiara & [Partner]</h1>
 
     <div id="countdown">
-      <div class="box"><span id="days"></span>Days</div>
-      <div class="box"><span id="hours"></span>Hours</div>
-      <div class="box"><span id="minutes"></span>Minutes</div>
-      <div class="box"><span id="seconds"></span>Seconds</div>
+      <div><span id="days"></span>Days</div>
+      <div><span id="hours"></span>Hours</div>
+      <div><span id="minutes"></span>Minutes</div>
+      <div><span id="seconds"></span>Seconds</div>
     </div>
   </div>
 </header>
-
-<section class="gallery">
-  <img src="photo1.jpg">
-  <img src="photo2.jpg">
-</section>
 
 <script>
 const weddingDate = new Date("July 15, 2026 16:00:00").getTime();
