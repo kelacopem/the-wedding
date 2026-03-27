@@ -1,79 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta charset="UTF-8">
-<title>Kiara & Nana</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Inter&display=swap" rel="stylesheet">
-
 <style>
 body {
-  margin: 0;
-  background: #0d0d0d;
+  background-color: black;
   color: white;
-  font-family: 'Inter', sans-serif;
-}
-
-header {
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.box {
-  border: 1px solid gold;
-  padding: 40px;
   text-align: center;
-}
-
-h1 {
-  font-family: 'Playfair Display', serif;
-}
-
-#countdown {
-  display: flex;
-  gap: 10px;
-  justify-content: center;
-  margin-top: 20px;
-}
-
-#countdown div {
-  border: 1px solid gold;
-  padding: 10px;
+  font-size: 40px;
 }
 </style>
 </head>
 
 <body>
-
-<header>
-  <div class="box">
-    <h1>Kiara & [Partner]</h1>
-
-    <div id="countdown">
-      <div><span id="days"></span>Days</div>
-      <div><span id="hours"></span>Hours</div>
-      <div><span id="minutes"></span>Minutes</div>
-      <div><span id="seconds"></span>Seconds</div>
-    </div>
-  </div>
-</header>
-
-<script>
-const weddingDate = new Date("July 15, 2026 16:00:00").getTime();
-
-setInterval(() => {
-  const now = new Date().getTime();
-  const d = weddingDate - now;
-
-  document.getElementById("days").innerText = Math.floor(d / (1000*60*60*24));
-  document.getElementById("hours").innerText = Math.floor((d/(1000*60*60))%24);
-  document.getElementById("minutes").innerText = Math.floor((d/(1000*60))%60);
-  document.getElementById("seconds").innerText = Math.floor((d/1000)%60);
-}, 1000);
-</script>
-
+HELLO LUXURY ✨
 </body>
 </html>
