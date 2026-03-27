@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Kiara & [Partner]</title>
+<title>Kiara & Nana</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <!-- Fonts -->
@@ -26,7 +26,7 @@ body {
 /* HERO */
 header {
   height: 100vh;
-  background: linear-gradient(rgba(10,10,10,0.6), rgba(10,10,10,0.8)),
+  background: linear-gradient(rgba(10,10,10,0.6), rgba(10,10,10,0.85)),
               url('https://images.unsplash.com/photo-1529634896145-d3d4a9e5f3b4') center/cover no-repeat;
   display: flex;
   justify-content: center;
@@ -37,7 +37,8 @@ header {
 .hero-box {
   padding: 50px;
   border: 1px solid var(--cherry);
-  background: rgba(0,0,0,0.4);
+  background: rgba(0,0,0,0.5);
+  max-width: 90%;
 }
 
 .monogram {
@@ -48,13 +49,14 @@ header {
 
 h1 {
   font-family: 'Playfair Display', serif;
-  font-size: 48px;
+  font-size: 42px;
   margin: 10px 0;
 }
 
 .date {
   letter-spacing: 3px;
   color: var(--violet);
+  margin-bottom:10px;
 }
 
 /* COUNTDOWN */
@@ -62,17 +64,19 @@ h1 {
   display: flex;
   justify-content: center;
   gap: 15px;
+  flex-wrap: wrap;
   margin-top: 25px;
 }
 
 .time {
   border: 1px solid var(--violet);
   padding: 10px 15px;
+  font-size:14px;
 }
 
 /* SECTIONS */
 section {
-  padding: 80px 20px;
+  padding: 60px 20px;
   text-align: center;
 }
 
@@ -84,21 +88,21 @@ h2 {
 
 /* DETAILS */
 .details p {
-  margin: 8px 0;
+  margin: 6px 0;
 }
 
 /* GALLERY */
 .gallery {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 15px;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 12px;
 }
 
 .gallery img {
   width: 100%;
-  height: 300px;
+  height: 250px;
   object-fit: cover;
-  transition: 0.4s;
+  transition: 0.3s ease;
   filter: brightness(90%);
 }
 
@@ -124,7 +128,7 @@ h2 {
 
 /* FOOTER */
 footer {
-  padding: 30px;
+  padding: 25px;
   font-size: 12px;
   letter-spacing: 2px;
   color: #aaa;
@@ -138,8 +142,8 @@ footer {
 <header>
   <div class="hero-box">
     <div class="monogram">NK</div>
-    <h1>Kiara & [Partner]</h1>
-    <div class="date">JULY XX, 2026</div>
+    <h1>Kiara & Nana</h1>
+    <div class="date">AUGUST 14, 2026</div>
 
     <div id="countdown">
       <div class="time"><span id="days"></span>Days</div>
@@ -154,9 +158,9 @@ footer {
 <section>
   <h2>The Details</h2>
   <div class="details">
-    <p>Ceremony: Venue Name</p>
-    <p>Location: City, State</p>
-    <p>Time: 4:00 PM</p>
+    <p>Ceremony: The View at Bluemont</p>
+    <p>Location: Bluemont, Virginia</p>
+    <p>Time: 5:00 PM</p>
   </div>
 </section>
 
@@ -164,17 +168,17 @@ footer {
 <section>
   <h2>Our Story</h2>
   <div class="gallery">
-    <img src="photo1.jpg">
-    <img src="photo2.jpg">
-    <img src="photo3.jpg">
-    <img src="photo4.jpg">
+    <img src="photo1.jpg" alt="Photo 1">
+    <img src="photo2.jpg" alt="Photo 2">
+    <img src="photo3.jpg" alt="Photo 3">
+    <img src="photo4.jpg" alt="Photo 4">
   </div>
 </section>
 
 <!-- RSVP -->
 <section class="rsvp">
   <h2>RSVP</h2>
-  <p>Please respond by June 2026</p>
+  <p>Please respond by May 31, 2026</p>
   <a href="#">Respond Here</a>
 </section>
 
@@ -183,7 +187,7 @@ footer {
 </footer>
 
 <script>
-const weddingDate = new Date("July 15, 2026 16:00:00").getTime();
+const weddingDate = new Date("August 14, 2026 17:00:00").getTime();
 
 setInterval(() => {
   const now = new Date().getTime();
