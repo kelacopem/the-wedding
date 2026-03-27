@@ -34,7 +34,18 @@ header {
   align-items: center;
   text-align: center;
 }
+.monogram-banner {
+  width: 100%;
+  text-align: center;
+  padding: 20px 0;
+  background-color: var(--soft-white); /* or black if you want contrast */
+}
 
+.monogram-banner img {
+  width: 90px; /* adjust size */
+  height: auto;
+  
+}
 .hero-box {
   padding: 25px;
   border: 1px solid var(--cherry);
@@ -146,6 +157,12 @@ footer {
 </head>
 
 <body>
+
+<!-- MONOGRAM BANNER -->
+<div class="monogram-banner">
+  <img src="monogram.png" alt="Monogram">
+</div>
+
 <!-- VIDEO SECTION -->
 <section class="video-section">
   <video autoplay muted loop playsinline controls>
