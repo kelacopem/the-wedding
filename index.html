@@ -156,6 +156,29 @@ h1 {
   font-size: 12px;
   margin-top: 10px;
 }
+/* Wrapper */
+.wreath-wrapper {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Wreath image */
+.wreath {
+  position: absolute;
+  width: 420px; /* adjust size */
+  z-index: 1;
+  opacity: 0.9;
+}
+
+/* Password box sits on top */
+.password-box {
+  position: relative;
+  z-index: 2;
+  background: white;
+  padding: 50px 40px;  
+}
 /* COUNTDOWN */
 #countdown {
   display: flex;
@@ -244,7 +267,11 @@ footer {
 
 <!-- PASSWORD TO ENTER WEDDING WEBSITE-->
 <div id="password-screen">
-  <div class="password-box">
+  <div class="wreath-rapper">
+
+    <img src="orchid-wreath.png" class="wreath">
+    
+    <div class="password-box">
     <h2>Welcome</h2>
     <p>Please enter the password to view our wedding site</p>
     <input type="password" id="password-input" placeholder="Enter Password">
