@@ -64,15 +64,28 @@ h1 {
 #countdown {
   display: flex;
   justify-content: center;
-  gap: 15px;
-  flex-wrap: wrap;
-  margin-top: 25px;
+  gap: 25px;
+  margin-top: 30px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(0,0,0,0.1);
 }
 
 .time {
-  border: 1px solid var(--violet);
-  padding: 10px 15px;
-  font-size:14px;
+  text-align: center;
+  min-width:70px;
+}
+.time span {
+  display: block;
+  font-size: 28px;
+  font-family: 'Playfair Display', serif;
+  color: var(--soft-black);
+}
+
+  .time small {
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #888;
 }
 
 /* SECTIONS */
@@ -118,6 +131,7 @@ footer {
   font-size: 12px;
   letter-spacing: 2px;
   color: #aaa;
+  text-align: center;
 }
 </style>
 </head>
@@ -127,17 +141,29 @@ footer {
 <!-- HERO -->
 <header>
   <div class="hero-box">
-    <div class="monogram">NK</div>
+    <!-- MONOGRAM AT TOP -->
+    <img src="monogram.png" alt="Monogram" class="monogram-img">
+    
     <h1>Kiara & Nana</h1>
     <div class="date">AUGUST 14, 2026</div>
 
     <div id="countdown">
-      <div class="time"><span id="days"></span>Days</div>
-      <div class="time"><span id="hours"></span>Hours</div>
-      <div class="time"><span id="minutes"></span>Minutes</div>
-      <div class="time"><span id="seconds"></span>Seconds</div>
-    </div>
-  </div>
+      <div class="time">
+        <span id="days"></span>
+        <small>Days</small>
+      </div>
+      <div class="time">
+        <span id="hours"></span>
+        <small>Hours</small>
+      </div>
+      <div class="time">
+        <span id="minutes"></span>
+        <small>Minutes</small>
+      </div>
+      <div class="time">
+        <span id="seconds"></span>
+        <small>Seconds</small>    
+      </div>
 </header>
 
 <!-- DETAILS -->
@@ -145,17 +171,6 @@ footer {
   <h2>The Details</h2>
   <div class="details">
     <p>Location: Bluemont, Virginia</p>
-  </div>
-</section>
-
-<!-- GALLERY -->
-<section>
-  <h2>Our Story</h2>
-  <div class="gallery">
-    <img src="photo1.jpg" alt="Photo 1">
-    <img src="photo2.jpg" alt="Photo 2">
-    <img src="photo3.jpg" alt="Photo 3">
-    <img src="photo4.jpg" alt="Photo 4">
   </div>
 </section>
 
