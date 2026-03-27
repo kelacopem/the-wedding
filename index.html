@@ -87,25 +87,68 @@ h1 {
 
 .password-box {
   text-align: center;
-  border: 1px solid var(--cherry);
-  padding: 40px;
+  padding: 50px 40px;
+  border: 1px solid rgba(0,0,0,0.1);
   background: white;
+  max-width: 320px;
+  width: 90%;
 }
 
+/* Monogram */
+.password-monogram {
+  width: 70px;
+  margin-bottom: 20px;
+  opacity: 0.9;
+}
+
+/* Names */
+.password-box h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 26px;
+  margin-bottom: 10px;
+  color: var(--soft-black);
+}
+
+/* Subtitle */
+.subtitle {
+  font-size: 13px;
+  letter-spacing: 1px;
+  color: #777;
+  margin-bottom: 25px;
+}
+
+/* Input */
 .password-box input {
-  padding: 10px;
-  margin-top: 10px;
-  border: 1px solid #ccc;
-  width: 200px;
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ddd;
+  margin-bottom: 15px;
+  font-family: 'Inter', sans-serif;
 }
 
+/* Button */
 .password-box button {
-  margin-top: 15px;
-  padding: 10px 20px;
+  width: 100%;
+  padding: 12px;
   border: 1px solid var(--cherry);
   background: none;
+  color: var(--soft-black);
   cursor: pointer;
+  transition: 0.3s ease;
 }
+
+/* Hover */
+.password-box button:hover {
+  background: var(--cherry);
+  color: white;
+}
+
+/* Error */
+#error-message {
+  color: #b00020;
+  font-size: 12px;
+  margin-top: 10px;
+}}
 
 #error-message {
   color: red;
@@ -274,11 +317,17 @@ setInterval(() => {
 }, 1000);
 
 function checkPassword() {
-  const correctPassword = "NK2026"; // 
+  const correctPassword = "NK2026";
   const userInput = document.getElementById("password-input").value;
 
   if (userInput === correctPassword) {
-    document.getElementById("password-screen").style.display = "none";
+    const screen = document.getElementById("password-screen");
+    screen.style.opacity = "0";
+    screen.style.transition = "opacity 0.6s ease";
+
+    setTimeout(() => {
+      screen.style.display = "none";
+    }, 600);
   } else {
     document.getElementById("error-message").innerText = "Incorrect password";
   }
