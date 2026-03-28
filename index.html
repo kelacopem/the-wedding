@@ -375,6 +375,15 @@
        </nav>
     </div>
 
+         <!-- VIDEO SECTION -->
+     <section class="video-section">
+      <video id="weddingvideo" autoplay muted loop playsinline>
+        <source src="your-video.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+
+      <button class="unmute-btn" onclick="toggleSound()">Tap to Unmute</button>
+    </section>
 <script>
 function checkPartyAccess() {
   const input = document.getElementById("party-password").value;
@@ -393,16 +402,7 @@ function checkPartyAccess() {
     document.getElementById("error").innerText = "Incorrect password";
   }
 }
-  <!-- VIDEO SECTION -->
-     <section class="video-section">
-      <video id="weddingvideo" autoplay muted loop playsinline>
-        <source src="your-video.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-      </video>
-
-      <button class="unmute-btn" onclick="toggleSound()">Tap to Unmute</button>
-    </section>
-    </script>      
+   </script>      
     </body>
     </html>
     
