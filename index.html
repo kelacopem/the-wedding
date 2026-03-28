@@ -85,20 +85,32 @@ h1 {
   z-index: 9999;
 }
 
-.password-box {
-  text-align: center;
-  padding: 50px 40px;
-  border: 1px solid rgba(0,0,0,0.1);
-  background: white;
-  max-width: 420px;
-  width: 90%;
+/* LAYOUT */
+.password-wrapper {
+  position: relative;
+  width: 600px; /* gives room for orchid */
+  display: flex;
+  align-items: center;
 }
 
-/* Monogram */
-.password-monogram {
-  width: 70px;
-  margin-bottom: 20px;
-  opacity: 0.9;
+/* BOX */
+.password-box {
+  background: white;
+  padding: 50px 40px;
+  border: 1px solid rgba(0,0,0,0.1);
+  width: 320px;
+  text-align: center;
+  z-index: 2;
+}
+
+/* ORCHID */
+.orchid-img {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 200px;
+  z-index: 1;
 }
 
 /* Names */
@@ -156,21 +168,6 @@ h1 {
   font-size: 12px;
   margin-top: 10px;
 }
-.password-wrapper {
-  position: relative;
-  width: 500px;
-  display: flex;
-  align-items: center;
-}
-
-.orchid-img {
-  position: absolute;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 180px;
-  z-index: 1;
-}}
 
 /* Password box sits on top */
 .password-box {
