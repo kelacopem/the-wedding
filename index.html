@@ -1,194 +1,501 @@
-<!-- Website designed and developed by Kiara -->
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-<meta charset="UTF-8">
-<title>Kiara & Nana</title>
-<link rel="icon" type="image/x-icon" href="/favicon.ico">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<!-- Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@400;600&family=Inter:wght@300&display=swap" rel="stylesheet">
-
-<style>
-/* KEEPING YOUR STYLES — unchanged */
-:root {
-  --soft-black: #1a1a1a;
-  --cherry: #5a0f1c;
-  --violet: #2d0f3a;
-  --soft-white: #f5f5f5;
-}
-
-body {
-  margin: 0;
-  font-family: 'Inter', sans-serif;
-  color: var(--soft-black);
-  background-color: var(--soft-white);
-}
-
-/* HERO */
-header {
-  min-height: auto;
-  padding: 40px 0;
-  background: linear-gradient(rgba(255,255,255,0.4), rgba(255,255,255,0.7)),
-              url('https://images.unsplash.com/photo-1529634896145-d3d4a9e5f3b4') center/cover no-repeat;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-
-/* NAV */
-.monogram-banner {
-  width: 100%;
-  text-align: center;
-  padding: 20px 0;
-  background-color: var(--soft-white);
-}
-
-.monogram-banner img {
-  width: 90px;
-}
-
-.subnav {
-  margin-top: 14px;
-  display: flex;
-  justify-content: center;
-  gap: 28px;
-  flex-wrap: wrap;
-}
-
-.subnav a {
-  font-family: 'Playfair Display', serif;
-  font-size: 10px;
-  letter-spacing: 2.5px;
-  text-transform: uppercase;
-  text-decoration: none;
-  color: var(--soft-black);
-  opacity: 0.85;
-}
-
-/* VIDEO */
-.video-section {
-  max-width: 100%;
-  text-align: center;
-}
-
-.video-section video {
-  width: 100%;
-  max-width: 700px;
-  height: auto;
-  object-fit: contain;
-  margin: 0 auto 10px;
-  display: block;
-}
-
-.unmute-btn {
-  margin: 15px auto 0;
-  display: block;
-  padding: 12px 24px;
-  border: 1px solid var(--cherry);
-  background: rgba(255,255,255,0.85);
-  font-family: 'Playfair Display', serif;
-  cursor: pointer;
-}
-
-/* DETAILS */
-.details-section {
-  background-color: #000;
-  color: #fff;
-  margin: 6px 0;
-  padding: 60px 20px;
-}
-
-/* FOOTER */
-footer {
-  padding: 25px;
-  font-size: 12px;
-  letter-spacing: 2px;
-  color: #aaa;
-  text-align: center;
-}
-</style>
+<!-- Website designed and developed by Kiara -->    
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+    <meta charset="UTF-8">
+    <title>Kiara & Nana</title>
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
 </head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@400;600&family=Inter:wght@300&display=swap" rel="stylesheet">
+    
+    <style>
+    :root {
+      --soft-black: #1a1a1a;
+      --cherry: #5a0f1c;
+      --violet: #2d0f3a;
+      --soft-white: #f5f5f5;
+    }
+        
+     body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      color: var(--soft-black);
+      background-color: var(--soft-white);
+    }
+    
+    /* HERO */
+     header {
+      min-height: auto;
+      padding: 40px 0;
+      background: linear-gradient(rgba(255,255,255,0.4), rgba(255,255,255,0.7)),
+                  url('https://images.unsplash.com/photo-1529634896145-d3d4a9e5f3b4') center/cover no-repeat;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+    .monogram-banner {
+      width: 100%;
+      text-align: center;
+      padding: 20px 0;
+      background-color: var(--soft-white); /* or black if you want contrast */
+    }
+    
+    .monogram-banner img {
+      width: 90px; /* adjust size */
+      height: auto;
+      
+    }
+    .subnav {
+      margin-top: 14px;
 
-<body>
+      display: flex;
+      justify-content: center;
+      align-items: center;
 
-<!-- PASSWORD -->
-<div id="password-screen">
-  <div class="password-wrapper">
-    <div class="password-box">
-      <h2>Welcome</h2>
-      <p>Please enter the password</p>
-      <input type="password" id="password-input">
-      <button onclick="checkPassword()">Enter</button>
-      <p id="error-message"></p>
+      gap: 28px;              /* slightly tighter to fit 8 items */
+      flex-wrap: wrap;        /* allows clean wrapping on small screens */
+    }
+
+    .subnav a {
+      font-family: 'Playfair Display', serif;
+      font-size: 10px;        /* slightly smaller for 8 links */
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: var(--soft-black);
+      opacity: 0.85;
+      white-space: nowrap;
+      transition: all 0.3s ease;
+    }
+
+    /* Thin luxury underline */
+    .subnav a::after {
+      content: "";
+      display: block;
+      width: 0;
+      height: 0.5px;
+      background: var(--cherry);
+      margin: 6px auto 0;
+      transition: width 0.3s ease;
+    }
+
+    .subnav a:hover {
+      color: var(--cherry);
+      opacity: 1;
+    }
+
+    .subnav a:hover::after {
+      width: 100%;
+    }    
+    .hero-box {
+      padding: 25px;
+      border: 1px solid var(--cherry);
+      background: rgba(255,255,255,0.7);
+      max-width: 90%;
+      color: var(--soft-black);
+    }
+    
+    .monogram {
+      font-family: 'Great Vibes', cursive;
+      font-size: 50px;
+      color: var(--cherry);
+    }
+    
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 42px;
+      margin: 10px 0;
+    }
+    
+    .date {
+      letter-spacing: 3px;
+      color: var(--violet);
+      margin-bottom:10px;
+    }
+    /* PASSWORD */
+    #password-screen {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: var(--soft-white);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+    }
+    
+    /* LAYOUT */
+    .password-wrapper {
+      position: relative;
+      display: inline-block; /* THIS is the key fix */
+    }
+    
+    /* BOX */
+    .password-box {
+      background: white;
+      padding: 35px 30px;   /* ⬅️ reduced padding */
+      border: 1px solid rgba(0,0,0,0.1);
+      width: 280px;         /* ⬅️ smaller width */
+      text-align: center;
+      position: relative;
+      z-index: 2;
+    }
+    /* ORCHID */
+    .orchid-img {
+      position: absolute;
+      right: -140px;  /* pushes orchid OUTSIDE box */
+      top: 50%;
+      transform: translateY(-50%);
+      width: 620px;
+      z-index: 1;
+    }
+    
+    /* Names */
+    .password-box h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 28px;
+      margin-bottom: 10px;
+      color: var(--soft-black);
+    }
+    .password-box {
+      position: relative;
+      z-index: 2;
+      
+    }/* Subtitle */
+    .subtitle {
+      font-size: 11px;
+      letter-spacing: 1.8px;
+      color: #777;
+      margin-bottom: 25px;
+      white-space: nowrap;
+    }
+    
+    /* Input */
+    .password-box input {
+      width: 90%;
+      padding: 12px;
+      border: 1px solid #ddd;
+      margin-bottom: 15px;
+      font-family: 'Inter', sans-serif;
+      font-size: 16px; /* THIS STOPS ZOOM */
+    }
+    
+    /* Button */
+    .password-box button {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid var(--cherry);
+      background: none;
+      color: var(--soft-black);
+      cursor: pointer;
+      transition: 0.3s ease;
+    }
+    
+    /* Hover */
+    .password-box button:hover {
+      background: var(--cherry);
+      color: white;
+    }
+    
+    /* Error */
+    #error-message {
+      color: #b00020;
+      font-size: 12px;
+      margin-top: 10px;
+    }
+    
+    #error-message {
+      color: red;
+      font-size: 12px;
+      margin-top: 10px;
+    }
+    
+    /* Password box sits on top */
+    .password-box {
+      background: white;
+      padding: 50px 40px;
+      border: 1px solid rgba(0,0,0,0.1);
+      width: 320px;
+      text-align: center;
+      position: relative;
+      z-index: 2;
+    }
+    /* COUNTDOWN */
+    #countdown {
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+      margin-top: 15px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(0,0,0,0.1);
+    }
+    
+    .time {
+      text-align: center;
+      min-width:70px;
+    }
+    .time span {
+      display: block;
+      font-size: 28px;
+      font-family: 'Playfair Display', serif;
+      color: var(--soft-black);
+    }
+    
+      .time small {
+        font-size: 11px;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        color: #888;
+    }
+    
+    /* SECTIONS */
+    section {
+      padding: 60px 20px;
+      text-align: center;
+    }
+    
+    h2 {
+      font-family: 'Playfair Display', serif;
+      margin-bottom: 20px;
+      color: var(--cherry);
+    }
+    
+    /* DETAILS */
+    .details-section {
+      background-color: #000;
+      color: #fff;
+      margin: 6px 0;
+    }
+    
+    /* GALLERY */
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 12px;
+    }
+    
+    .gallery img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+      transition: 0.3s ease;
+      filter: brightness(90%);
+    }
+    
+    .gallery img:hover {
+      transform: scale(1.03);
+      filter: brightness(100%);
+    }
+    .video-section {
+      max-width: 100%;
+      text-align: center;
+    }
+    
+    .video-section video {
+      width: 100%;
+      height: auto;        /* ⬅️ keeps proportions correct */
+      max-height: 80vh; /* ⬅️ prevents it from getting too tall */
+      object-fit: contain; /* ⬅️ ensures no cropping */
+      display: block;
+      margin: 0 auto;
+      margin-bottom: 10px;
+      pointer-events: auto;
+    }
+    .unmute-btn {
+      position: static; /* ✅ THIS is the key change */
+      margin: 15px auto 0; /* space above + center */
+
+      display: block;
+
+      padding: 12px 24px;
+      border: 1px solid var(--cherry);
+      background: rgba(255,255,255,0.85);
+
+      font-family: 'Playfair Display', serif;
+      letter-spacing: 1px;
+      cursor: pointer;
+      transition: 0.3s ease;
+}
+
+    .unmute-btn:hover {
+      background: var(--cherry);
+      color: white;
+}    
+    /* FOOTER */
+    footer {
+      padding: 25px;
+      font-size: 12px;
+      letter-spacing: 2px;
+      color: #aaa;
+      text-align: center;
+    }
+    </style>
+    </head>
+    
+    <body>
+    
+    <!-- PASSWORD TO ENTER WEDDING WEBSITE-->
+    <div id="password-screen">
+      <div class="password-wrapper">
+    
+        <!-- BOX -->
+        <div class="password-box">
+          <h2>Welcome</h2>
+          <p class="subtitle">Please enter the password to view our wedding site</p>
+          
+          <input type="password" id="password-input" placeholder="Enter Password">
+          <button onclick="checkPassword()">Enter</button>
+          
+          <p id="error-message"></p>
+        </div>
+        <!-- ORCHID -->
+         <img src="orchid-wreath.png" class="orchid-img">  
+        
+      </div>
     </div>
-    <img src="orchid-wreath.png" class="orchid-img">
-  </div>
-</div>
+     <!-- NAVIGATION BAR -->   
+    <div class="monogram-banner">
+      <img src="monogram.png" alt="Monogram">
 
-<!-- NAV -->
-<div class="monogram-banner">
-  <img src="monogram.png" alt="Monogram">
-  <nav class="subnav">
-    <a href="index.html">Home</a>
-    <a href="our-story.html">Our Story</a>
-    <a href="#">Details</a>
-    <a href="#">Schedule</a>
-    <a href="#">Travel</a>
-    <a href="#">Gallery</a>
-    <a href="wedding-party-login.html">Wedding Party</a>
-    <a href="#">RSVP</a>
-  </nav>
-</div>
+        <nav class="subnav">
+        <a href="index.html">Home</a>
+        <a href="our-story.html">Our Story</a>
+        <a href="wedding-details.html" class="disabled">Details</a>
+        <a href="schedule.html" class="disabled">Schedule</a>
+        <a href="travel.html" class="disabled">Travel</a>
+        <a href="gallery.html" class="disabled">Gallery</a>
+        <a href="wedding-party-login.html">Wedding Party</a>
+        <a href="rsvp.html" class="disabled">RSVP</a>
+       </nav>
+    </div>
 
-<!-- ✅ VIDEO (NOW IN CORRECT PLACE) -->
-<section class="video-section">
-  <video id="weddingvideo" autoplay muted loop playsinline>
-    <source src="your-video.mp4" type="video/mp4">
-  </video>
-  <button class="unmute-btn" onclick="toggleSound()">Tap to Unmute</button>
-</section>
+         <!-- VIDEO SECTION -->
+     <section class="video-section">
+      <video id="weddingvideo" autoplay muted loop playsinline>
+        <source src="your-video.mov" type="video/quicktime">
+        Your browser does not support the video tag.
+      </video>
 
-<!-- HERO -->
-<header>
-  <div class="hero-box">
-    <h1>Kiara & Nana</h1>
-    <div class="date">AUGUST 14, 2026</div>
-  </div>
-</header>
-
-<!-- DETAILS -->
-<section class="details-section">
-  <h2>The Details</h2>
-  <p>Location: Bluemont, Virginia</p>
-</section>
-
-<footer>
-  FORMAL INVITATION TO FOLLOW
-</footer>
-
-<!-- ✅ ALL SCRIPTS AT THE END -->
+      <button class="unmute-btn" onclick="toggleSound()">Tap to Unmute</button>
+    </section>
+      
 <script>
-function checkPassword() {
-  const correctPassword = "NK2026";
-  const userInput = document.getElementById("password-input").value;
+function checkPartyAccess() {
+  const input = document.getElementById("party-password").value;
 
-  if (userInput === correctPassword) {
-    document.getElementById("password-screen").style.display = "none";
-  } else {
-    document.getElementById("error-message").innerText = "Incorrect password";
+  // 🔐 Individual passwords
+  if (input === "BRIDE1") {
+    window.location.href = "kiara.html";
+  } 
+  else if (input === "BRIDE2") {
+    window.location.href = "maya.html";
+  } 
+  else if (input === "GROOM1") {
+    window.location.href = "james.html";
+  } 
+  else {
+    document.getElementById("error").innerText = "Incorrect password";
   }
 }
+   </script>      
+      
+    <!-- HERO -->
+    <header>
+      <div class="hero-box">
+        <h1>Kiara & Nana</h1>
+        <div class="date">AUGUST 14, 2026</div>
+    
+        <div id="countdown">
+          <div class="time">
+            <span id="days"></span>
+            <small>Days</small>
+          </div>
+          <div class="time">
+            <span id="hours"></span>
+            <small>Hours</small>
+          </div>
+          <div class="time">
+            <span id="minutes"></span>
+            <small>Minutes</small>
+          </div>
+          <div class="time">
+            <span id="seconds"></span>
+            <small>Seconds</small>    
+          </div>
+        </div>
+    </header>
+    
+    <!-- DETAILS -->
+    <section class="details-section">
+      <h2>The Details</h2>
+      <div class="details">
+        <p>Location: Bluemont, Virginia</p><br>
+          <p>Address: 19729 Ridgeside Rd, Bluemont, VA 20135</p>
+      </div>
+    </section>
+    
+    <footer>
+      <center>FORMAL INVITATION TO FOLLOW</center>
+    </footer>
+    
+    <script>
+    const weddingDate = new Date("August 14, 2026 17:00:00").getTime();
+    
+    setInterval(() => {
+      const now = new Date().getTime();
+      const d = weddingDate - now;
+    
+      document.getElementById("days").innerText = Math.floor(d / (1000*60*60*24));
+      document.getElementById("hours").innerText = Math.floor((d/(1000*60*60))%24);
+      document.getElementById("minutes").innerText = Math.floor((d/(1000*60))%60);
+      document.getElementById("seconds").innerText = Math.floor((d/1000)%60);
+    }, 1000);
+    
+    function checkPassword() {
+      const correctPassword = "NK2026";
+      const userInput = document.getElementById("password-input").value;
 
-function toggleSound() {
-  const video = document.getElementById("weddingvideo");
-  video.muted = false;
-  video.play();
-}
-</script>
+    if (userInput === correctPassword) {
 
-</body>
-</html>
+    // ✅ ONLY lasts for this session (tab open)
+    sessionStorage.setItem("weddingAccess", "granted");
+
+    const screen = document.getElementById("password-screen");
+    screen.style.opacity = "0";
+    screen.style.transition = "opacity 0.6s ease";
+
+    setTimeout(() => {
+      screen.style.display = "none";
+    }, 600);
+
+  } else {
+    document.getElementById("error-message").innerText = "Incorrect password";
+      }
+    }
+// ✅ CHECK if user already entered password before
+   window.onload = function() {
+   const access = sessionStorage.getItem("weddingAccess");
+
+   if (access === "granted") {
+    document.getElementById("password-screen").style.display = "none";
+  }
+};
+    function toggleSound() {
+      const video = document.getElementById("weddingvideo");
+      const btn = document.querySelector(".unmute-btn");
+    
+      video.muted = false;
+      video.play();
+    
+      btn.style.display = "none"; // hides button after click
+    }
+    </script>
+    
+    </body>
+    </html>
