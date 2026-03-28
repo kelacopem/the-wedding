@@ -1,25 +1,105 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
+  <meta charset="UTF-8">
   <title>Wedding Party Access</title>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0;
+      text-align: center;
+      font-family: 'Playfair Display', serif;
+      padding-top: 60px;
+    }
+
+    /* HEADER */
+    .monogram-banner {
+      width: 100%;
+      text-align: center;
+      padding: 20px 0;
+    }
+
+    .monogram-banner img {
+      width: 90px;
+    }
+
+    .subnav {
+      margin-top: 12px;
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+      flex-wrap: wrap;
+    }
+
+    .subnav a {
+      text-decoration: none;
+      font-size: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #1a1a1a;
+    }
+
+    /* LOGIN BOX */
+    .login-box {
+      margin-top: 60px;
+    }
+
+    input {
+      padding: 10px;
+      width: 220px;
+    }
+
+    button {
+      padding: 10px 20px;
+      margin-top: 10px;
+      cursor: pointer;
+    }
+
+    #error {
+      color: red;
+      margin-top: 10px;
+    }
+  </style>
 </head>
 
-<body style="text-align:center; font-family: Playfair Display; padding-top:100px;">
+<body>
 
-<h2>Wedding Party Access</h2>
-<p>Please enter your private password</p>
+<!-- ✅ GLOBAL HEADER (correct placement) -->
+<div class="monogram-banner">
+  <img src="monogram.png" alt="Monogram">
 
-<input type="password" id="party-password" placeholder="Enter Password">
-<br><br>
-<button onclick="checkPartyAccess()">Enter</button>
+  <nav class="subnav">
+    <a href="index.html">Home</a>
+    <a href="our-story.html">Our Story</a>
+    <a href="wedding-details.html">Details</a>
+    <a href="schedule.html">Schedule</a>
+    <a href="travel.html">Travel</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="wedding-party.html">Wedding Party</a>
+    <a href="rsvp.html">RSVP</a>
+  </nav>
+</div>
 
-<p id="error"></p>
+<!-- LOGIN SECTION -->
+<div class="login-box">
+  <h2>Wedding Party Access</h2>
+  <p>Please enter your private password</p>
+
+  <input type="password" id="party-password" placeholder="Enter Password">
+  <br><br>
+  <button onclick="checkPartyAccess()">Enter</button>
+
+  <p id="error"></p>
+</div>
 
 <script>
 function checkPartyAccess() {
   const input = document.getElementById("party-password").value;
 
-  // 🔐 Individual passwords
   if (input === "BRIDE1") {
     window.location.href = "kiara.html";
   } 
