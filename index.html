@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Kiara & Nana</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
 <!-- Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@400;600&family=Inter:wght@300&display=swap" rel="stylesheet">
@@ -74,15 +74,17 @@ h1 {
 /* PASSWORD */
 #password-screen {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  inset: 0;
+  height: 100dvh;
+
   background-color: var(--soft-white);
+  z-index: 9999;
+
   display: flex;
   justify-content: center;
-  align-items: center;
-  z-index: 9999;
+  align-items: flex-start;   /* ⬅️ key fix */
+  padding-top: 18vh;         /* ⬅️ stabilizes position */
+}
 }
 
 /* LAYOUT */
@@ -169,17 +171,6 @@ h1 {
   color: red;
   font-size: 12px;
   margin-top: 10px;
-}
-
-/* Password box sits on top */
-.password-box {
-  background: white;
-  padding: 50px 40px;
-  border: 1px solid rgba(0,0,0,0.1);
-  width: 320px;
-  text-align: center;
-  position: relative;
-  z-index: 2;
 }
 /* COUNTDOWN */
 #countdown {
@@ -301,7 +292,7 @@ footer {
 
 <!-- VIDEO SECTION -->
 <section class="video-section">
-  <video autoplay muted loop playsinline controls>
+  <video autoplay muted loop playsinline>
     <source src="your-video.mov" type="video/quicktime">
     Your browser does not support the video tag.
   </video>  
