@@ -253,6 +253,7 @@ h2 {
   display: block;
   text-align: center;
   margin-bottom: 0;
+  pointer-events: none;
 }
 /* FOOTER */
 footer {
@@ -365,6 +366,15 @@ function checkPassword() {
     }, 600);
   } else {
     document.getElementById("error-message").innerText = "Incorrect password";
+  }
+function toggleSound() {
+  const video = document.getElementById("weddingvideo");
+  const btn = document.querySelector(".unmute-btn");
+
+  video.muted = false;
+  video.play();
+
+  btn.style.display = "none"; // hides button after click
   }
 }</script>
 
