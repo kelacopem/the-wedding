@@ -367,10 +367,33 @@
         <a href="schedule.html">Schedule</a>
         <a href="travel.html">Travel</a>
         <a href="gallery.html">Gallery</a>
-        <a href="wedding-party.html">Wedding Party</a>
+        <a href="wedding-party-login.html">Wedding Party</a>
         <a href="rsvp.html">RSVP</a>
        </nav>
     </div>
+
+<script>
+function checkPartyAccess() {
+  const input = document.getElementById("party-password").value;
+
+  // 🔐 Individual passwords
+  if (input === "BRIDE1") {
+    window.location.href = "kiara.html";
+  } 
+  else if (input === "BRIDE2") {
+    window.location.href = "maya.html";
+  } 
+  else if (input === "GROOM1") {
+    window.location.href = "james.html";
+  } 
+  else {
+    document.getElementById("error").innerText = "Incorrect password";
+  }
+}
+</script>
+
+</body>
+</html>
         
     <!-- VIDEO SECTION -->
      <section class="video-section">
