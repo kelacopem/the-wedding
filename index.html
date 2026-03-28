@@ -15,14 +15,27 @@
   --violet: #2d0f3a;
   --soft-white: #f5f5f5;
 }
-
+html, body {
+  overflow-x: hidden;
+  
+}
 body {
   margin: 0;
   font-family: 'Inter', sans-serif;
   color: var(--soft-black);
-  background-color: var(--soft-white);
+  background-color: var(--soft-white); 
 }
 
+.page-container {
+  width: 100%;
+  max-width: 1200px; /* keeps your design size */
+  margin: 0 auto;
+  padding: 0 20px; /* breathing room on mobile */
+}
+.page-container {
+  width: 1200px;   /* your fixed design width */
+  margin: 0 auto;
+}
 /* HERO */
 header {
   min-height: auto;
@@ -91,24 +104,15 @@ h1 {
   display: inline-block; /* THIS is the key fix */
 }
 
-/* BOX */
-.password-box {
-  background: white;
-  padding: 50px 40px;
-  border: 1px solid rgba(0,0,0,0.1);
-  width: 320px;
-  text-align: center;
-  z-index: 2;
-}
-
 /* ORCHID */
 .orchid-img {
   position: absolute;
   right: -150px;  /* pushes orchid OUTSIDE box */
   top: 50%;
   transform: translateY(-50%);
-  width: 680px;
+  width: 40vw;
   z-index: 1;
+  max-width: 500px;
 }
 
 /* Names */
@@ -118,9 +122,6 @@ h1 {
   margin-bottom: 10px;
   color: var(--soft-black);
 }
-.password-box {
-  position: relative;
-  z-index: 2;
   
 }/* Subtitle */
 .subtitle {
@@ -201,11 +202,11 @@ h1 {
   color: var(--soft-black);
 }
 
-  .time small {
-    font-size: 11px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: #888;
+.time small {
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #888;
 }
 
 /* SECTIONS */
@@ -261,10 +262,33 @@ footer {
   color: #aaa;
   text-align: center;
 }
+.video-section {
+  position: relative;
+}
+
+.unmute-btn {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+
+  background: none;
+  border: none;
+  color: white;
+
+  font-family: 'Playfair Display', serif;
+  font-size: 12px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+
+  cursor: pointer;
+  opacity: 0.9;
+}
 </style>
 </head>
 
 <body>
+  <div class="page-container">
 
 <!-- PASSWORD TO ENTER WEDDING WEBSITE-->
 <div id="password-screen">
@@ -293,10 +317,11 @@ footer {
 
 <!-- VIDEO SECTION -->
 <section class="video-section">
-  <video autoplay unmuted loop playsinline>
+  <video id="weddingvideo" autoplay muted loop playsinline>
     <source src="your-video.mov" type="video/quicktime">
     Your browser does not support the video tag.
   </video>  
+  <button class="unmute-btn" onclick="toggleSound()">Unmute</button>
 </section>
 
 <!-- HERO -->
@@ -365,7 +390,26 @@ function checkPassword() {
   } else {
     document.getElementById("error-message").innerText = "Incorrect password";
   }
-}</script>
+}
+  function toggleSound() {
+  const video = document.getElementById("weddingvideo");
+  const btn = document.querySelector(".unmute-btn");
 
+  if (video.muted) {
+    video.muted = false;
+    btn.innerText = "Mute";
+  } else {
+    video.muted = true;
+    btn.innerText = "Unmute";
+  }
+  if (video.muted) {
+  video.muted = false;
+  btn.style.display = "none";
+  }
+}
+  </script>
+    
+  </div>
+  
 </body>
 </html>
