@@ -385,9 +385,9 @@
       const userInput = document.getElementById("password-input").value;
 
     if (userInput === correctPassword) {
-    
-    // ✅ SAVE that user is authenticated
-    localStorage.setItem("weddingAccess", "granted");
+
+    // ✅ ONLY lasts for this session (tab open)
+    sessionStorage.setItem("weddingAccess", "granted");
 
     const screen = document.getElementById("password-screen");
     screen.style.opacity = "0";
@@ -402,11 +402,11 @@
       }
     }
 // ✅ CHECK if user already entered password before
-    window.onload = function() {
-      const access = localStorage.getItem("weddingAccess");
+   window.onload = function() {
+   const access = sessionStorage.getItem("weddingAccess");
 
-    if (access === "granted") {
-     document.getElementById("password-screen").style.display = "none";
+   if (access === "granted") {
+    document.getElementById("password-screen").style.display = "none";
   }
 };
     function toggleSound() {
