@@ -303,7 +303,7 @@
       display: block;
       margin: 0 auto;
       margin-bottom: 10px;
-      pointer-events: none;
+      pointer-events: auto;
     }
     .unmute-btn {
       position: static; /* ✅ THIS is the key change */
@@ -394,8 +394,6 @@ function checkPartyAccess() {
 </script>
 
 </body>
-</html>
-        
     <!-- VIDEO SECTION -->
      <section class="video-section">
       <video id="weddingvideo" autoplay muted loop playsinline>
@@ -405,6 +403,7 @@ function checkPartyAccess() {
 
       <button class="unmute-btn" onclick="toggleSound()">Tap to Unmute</button>
     </section>
+    </html>
     
     <!-- HERO -->
     <header>
