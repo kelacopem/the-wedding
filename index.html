@@ -383,20 +383,32 @@
     function checkPassword() {
       const correctPassword = "NK2026";
       const userInput = document.getElementById("password-input").value;
+
+    if (userInput === correctPassword) {
     
-      if (userInput === correctPassword) {
-        const screen = document.getElementById("password-screen");
-        screen.style.opacity = "0";
-        screen.style.transition = "opacity 0.6s ease";
-    
-        setTimeout(() => {
-          screen.style.display = "none";
-        }, 600);
-      } else {
-        document.getElementById("error-message").innerText = "Incorrect password";
+    // ✅ SAVE that user is authenticated
+    localStorage.setItem("weddingAccess", "granted");
+
+    const screen = document.getElementById("password-screen");
+    screen.style.opacity = "0";
+    screen.style.transition = "opacity 0.6s ease";
+
+    setTimeout(() => {
+      screen.style.display = "none";
+    }, 600);
+
+  } else {
+    document.getElementById("error-message").innerText = "Incorrect password";
       }
     }
-        
+// ✅ CHECK if user already entered password before
+    window.onload = function() {
+      const access = localStorage.getItem("weddingAccess");
+
+    if (access === "granted") {
+     document.getElementById("password-screen").style.display = "none";
+  }
+};
     function toggleSound() {
       const video = document.getElementById("weddingvideo");
       const btn = document.querySelector(".unmute-btn");
