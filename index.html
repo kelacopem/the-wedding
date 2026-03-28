@@ -26,7 +26,134 @@
       color: var(--soft-black);
       background-color: var(--soft-white);
     }
-    
+    /* ===== GLOBAL RESET ===== */
+    html, body {
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+      background: #f4f4f4; /* soft outer background like your screenshot */
+      font-family: 'Georgia', 'Times New Roman', serif;
+}
+
+/* ===== MAIN SITE CONTAINER ===== */
+    .site-wrapper {
+      max-width: 540px;
+      width: 100%;
+      margin: 0 auto;
+      background: #ffffff;
+      min-height: 100vh;
+      box-shadow: 0 0 30px rgba(0,0,0,0.05);
+}
+
+/* ===== NAVBAR ===== */
+    nav {
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      text-align: center;
+      padding: 20px 10px;
+}
+
+    nav a {
+      margin: 0 8px;
+      color: #444;
+      text-decoration: none;
+}
+
+/* ===== HERO IMAGE (top video/image section) ===== */
+    .hero img,
+    .hero video {
+      width: 100%;
+      height: auto;
+      display: block;
+}
+
+/* Optional: keep that tall cinematic feel */
+    .hero {
+      aspect-ratio: 9 / 11;
+      overflow: hidden;
+}
+
+/* ===== "Tap to Unmute" BUTTON ===== */
+    .unmute-btn {
+      display: block;
+      margin: 20px auto;
+      padding: 10px 18px;
+      border: 1px solid #c8a2a2;
+      background: transparent;
+      font-size: 12px;
+      letter-spacing: 1px;
+}
+
+/* ===== COUPLE NAME BOX ===== */
+    .couple-box {
+      margin: 30px 16px;
+      padding: 30px 20px;
+      border: 1px solid #c8a2a2;
+      text-align: center;
+}
+
+    .couple-box h1 {
+      font-size: 28px;
+      margin: 0;
+}
+
+    .couple-box p {
+      letter-spacing: 2px;
+      font-size: 12px;
+      margin-top: 10px;
+}
+
+/* ===== COUNTDOWN ===== */
+    .countdown {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 20px;
+}
+
+    .countdown div {
+      text-align: center;
+      font-size: 14px;
+}
+
+    .countdown span {
+      display: block;
+      font-size: 10px;
+      letter-spacing: 1px;
+      color: #777;
+}
+
+/* ===== DETAILS SECTION ===== */
+    .details {
+      background: #0c0c0c;
+      color: white;
+      text-align: center;
+      padding: 40px 20px;
+}
+
+    .details h2 {
+      color: #b23a48;
+      font-size: 20px;
+      margin-bottom: 20px;
+}
+
+    .details p {
+      font-size: 14px;
+      margin: 8px 0;
+}
+
+/* ===== RESPONSIVE TYPOGRAPHY ===== */
+    h1 {
+    font-size: clamp(26px, 5vw, 32px);
+}
+
+    h2 {
+    font-size: clamp(18px, 4vw, 22px);
+}
+
+    p {
+    font-size: clamp(13px, 3.5vw, 15px);
+}
     /* HERO */
      header {
       min-height: auto;
