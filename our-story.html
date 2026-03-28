@@ -154,9 +154,21 @@ button {
   height: 250px;
   object-fit: cover;
 }
+  /* VIDEO */
+  .video-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.video-wrapper video {
+  width: 60%;        /* 👈 controls size */
+  max-width: 700px;  /* 👈 prevents it from getting too big */
+  border-radius: 12px; /* optional: luxury feel */
+}
 </style>
 </head>
-
+  
 <body>
 
 <!-- HEADER -->
@@ -223,10 +235,11 @@ button {
 <!-- VIDEO MOMENTS/ GIF-->
 <div class="section">
   <div class="gallery">
-    <video autoplay muted loop playsinline>
-      <source src="proposal-video.mp4" type="video/mp4">
-    </video>
-
+    <div class="video-wrapper">
+      <video autoplay muted loop playsinline>
+        <source src="proposal-video.mp4" type="video/mp4">
+      </video>
+    </div>
   </div>
 </div>
 
