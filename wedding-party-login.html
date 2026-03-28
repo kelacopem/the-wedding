@@ -17,31 +17,56 @@
     }
 
     /* HEADER */
-    .monogram-banner {
-      width: 100%;
-      text-align: center;
-      padding: 20px 0;
-    }
+  .monogram-banner {
+    width: 100%;
+    text-align: center;
+    padding: 20px 0;
+    background-color: var(--soft-white);
+}
 
-    .monogram-banner img {
-      width: 90px;
-    }
+  .monogram-banner img {
+    width: 90px;
+}
 
-    .subnav {
-      margin-top: 12px;
-      display: flex;
-      justify-content: center;
-      gap: 25px;
-      flex-wrap: wrap;
-    }
+  .subnav {
+    margin-top: 14px;
+    display: flex;
+    justify-content: center;
+    gap: 28px;
+    flex-wrap: wrap;
+}
 
-    .subnav a {
-      text-decoration: none;
-      font-size: 10px;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: #1a1a1a;
-    }
+  .subnav a {
+    font-family: 'Playfair Display', serif;
+    font-size: 10px;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--soft-black);
+    opacity: 0.85;
+    white-space: nowrap;
+    transition: 0.3s ease;
+}
+
+/* underline effect */
+.subnav a::after {
+  content: "";
+  display: block;
+  width: 0;
+  height: 0.5px;
+  background: var(--cherry);
+  margin: 6px auto 0;
+  transition: width 0.3s ease;
+}
+
+.subnav a:hover {
+  color: var(--cherry);
+  opacity: 1;
+}
+
+.subnav a:hover::after {
+  width: 100%;
+}
 
     /* LOGIN BOX */
     .login-box {
