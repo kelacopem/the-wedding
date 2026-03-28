@@ -291,6 +291,7 @@
     }
     .video-section {
       max-width: 100%;
+      text-align: center;
     }
     
     .video-section video {
@@ -300,18 +301,19 @@
       object-fit: contain; /* ⬅️ ensures no cropping */
       display: block;
       margin: 0 auto;
+      margin-bottom: 10px;
       pointer-events: none;
     }
     .unmute-btn {
-      position: absolute;
-      bottom: 30px;
-      left: 50%;
-      transform: translateX(-50%);
-  
+      position: static; /* ✅ THIS is the key change */
+      margin: 15px auto 0; /* space above + center */
+
+      display: block;
+
       padding: 12px 24px;
       border: 1px solid var(--cherry);
       background: rgba(255,255,255,0.85);
-  
+
       font-family: 'Playfair Display', serif;
       letter-spacing: 1px;
       cursor: pointer;
