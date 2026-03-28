@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Bridal Party Dashboard</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --cherry: #5a0f1c;
+  --soft-black: #1a1a1a;
+  --soft-white: #f5f5f5;
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background: var(--soft-white);
+  color: var(--soft-black);
+}
+
+/* HEADER */
+.header {
+  text-align: center;
+  padding: 40px 20px;
+  border-bottom: 1px solid rgba(0,0,0,0.08);
+}
+
+.header h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 32px;
+}
+
+.header p {
+  letter-spacing: 2px;
+  font-size: 12px;
+}
+.profile-pic {
+  width: 90px;
+  height: 90px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 15px;
+  border: 2px solid rgba(0,0,0,0.05);
+}
+/* GRID */
+.dashboard {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  padding: 30px;
+  gap: 20px;
+}
+
+/* CARD */
+.card {
+  background: white;
+  padding: 20px;
+  border: 1px solid rgba(0,0,0,0.08);
+  border-radius: 10px;
+  transition: 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+}
+
+/* TITLES */
+.card h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 18px;
+  margin-bottom: 10px;
+  color: var(--cherry);
+}
+
+/* LIST */
+.card ul {
+  padding-left: 18px;
+}
+
+.card li {
+  margin-bottom: 6px;
+}
+
+/* BUTTON */
+.logout-btn {
+  display: block;
+  margin: 30px auto;
+  padding: 10px 20px;
+  border: 1px solid var(--cherry);
+  background: none;
+  cursor: pointer;
+}
+
+.logout-btn:hover {
+  background: var(--cherry);
+  color: white;
+}
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<div class="header">
+
+  <!-- PROFILE PHOTO -->
+  <img src="kiara.jpg" alt="Kiara"
+       style="width:90px; height:90px; object-fit:cover; border-radius:50%; margin-bottom:15px;">
+
+  <h1>Welcome, Kiara 💖</h1>
+  <p>BRIDESMAID</p>
+
+</div>
+
+<!-- DASHBOARD -->
+<div class="dashboard">
+
+  <div class="card">
+    <h2>Wedding Day Details</h2>
+    <ul>
+      <li>Date: August 14, 2026</li>
+      <li>Location: Bluemont, VA</li>
+      <li>Ceremony: 5:00 PM</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>Your Timeline</h2>
+    <ul>
+      <li>2:00 PM – Arrive</li>
+      <li>3:00 PM – Hair & Makeup</li>
+      <li>4:30 PM – Photos</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>What to Wear</h2>
+    <ul>
+      <li>Dress: Champagne Satin</li>
+      <li>Shoes: Nude Heels</li>
+      <li>Jewelry: Minimal Gold</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>Responsibilities</h2>
+    <ul>
+      <li>Assist bride throughout day</li>
+      <li>Be ready for photos on time</li>
+      <li>Keep energy high ✨</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>Travel Info</h2>
+    <ul>
+      <li>Hotel: Salamander Resort</li>
+      <li>Check-in: Aug 13</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>Important Links</h2>
+    <ul>
+      <li><a href="#">Group Chat</a></li>
+      <li><a href="#">Itinerary PDF</a></li>
+    </ul>
+  </div>
+
+</div>
+
+<button class="logout-btn" onclick="logout()">Log Out</button>
+
+<script>
+ if (!sessionStorage.getItem("partyAccess")) {
+  window.location.href = "wedding-party-login.html";
+}
+ function logout() {
+  sessionStorage.removeItem("partyAccess");
+  window.location.href = "wedding-party-login.html";
+}
+</script>
+
+</body>
+</html>
