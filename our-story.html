@@ -20,14 +20,67 @@ body {
   background: var(--soft-white);
   color: var(--soft-black);
 }
-
-/* HEADER */
+  /* HEADER */
 .monogram-banner {
   text-align: center;
   padding: 20px 0;
 }
+/* CAROUSEL CSS */
+.carousel {
+  position: relative;
+  max-width: 800px;
+  margin: auto;
+  overflow: hidden;
+  border-radius: 10px;
+}
 
-.monogram-banner img {
+.slides {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.slide {
+  width: 100%;
+  flex-shrink: 0;
+}
+
+.slide img {
+  width: 100%;
+  display: block;
+}
+
+button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.6);
+  color: white;
+  border: none;
+  padding: 12px;
+  cursor: pointer;
+}
+
+.prev { left: 10px; }
+.next { right: 10px; }
+
+.dots {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.dot {
+  height: 10px;
+  width: 10px;
+  margin: 5px;
+  background: gray;
+  border-radius: 50%;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.dot.active {
+  background: white;
+}.monogram-banner img {
   width: 90px;
 }
 
@@ -124,8 +177,21 @@ body {
 
 <!-- HERO IMAGE -->
 <div class="hero"></div>
+  
+<!-- PHOTO CAROUSEL -->
+<div class="carousel">
+  <div class="slides">
+    <div class="slide"><img src="image1.jpg"></div>
+    <div class="slide"><img src="image2.jpg"></div>
+    <div class="slide"><img src="image3.jpg"></div>
+  </div>
 
-<!-- INTRO -->
+  <button class="prev">❮</button>
+  <button class="next">❯</button>
+</div>
+
+<div class="dots"></div>
+  <!-- INTRO -->
 <div class="section">
   <h1>Our Story</h1>
   <p>
@@ -170,6 +236,54 @@ body {
     Thank you for being part of our story.
   </p>
 </div>
+document.addEventListener("DOMContentLoaded", () => {
+  // carousel code here
+});
+  <script>
+const slides = document.querySelector('.slides');
+const slideCount = document.querySelectorAll('.slide').length;
+const dotsContainer = document.querySelector('.dots');
 
+let index = 0;
+
+// Create dots
+for (let i = 0; i < slideCount; i++) {
+  const dot = document.createElement('span');
+  dot.classList.add('dot');
+  dot.addEventListener('click', () => {
+    index = i;
+    updateCarousel();
+  });
+  dotsContainer.appendChild(dot);
+}
+
+const dots = document.querySelectorAll('.dot');
+
+function updateCarousel() {
+  slides.style.transform = `translateX(-${index * 100}%)`;
+
+  dots.forEach(dot => dot.classList.remove('active'));
+  dots[index].classList.add('active');
+}
+
+document.querySelector('.next').onclick = () => {
+  index = (index + 1) % slideCount;
+  updateCarousel();
+};
+
+document.querySelector('.prev').onclick = () => {
+  index = (index - 1 + slideCount) % slideCount;
+  updateCarousel();
+};
+
+// Auto-play
+setInterval(() => {
+  index = (index + 1) % slideCount;
+  updateCarousel();
+}, 4000);
+
+// Init
+updateCarousel();
+</script>
 </body>
 </html>
