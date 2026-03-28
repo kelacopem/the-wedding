@@ -247,29 +247,11 @@ h2 {
   filter: brightness(100%);
 }
 .video-section video {
-  position: relative;
   width: 100%;
   height: auto;
   display: block;
   text-align: center;
   margin-bottom: 0;
-}
-
-.unmute-btn {
-  position: absolute;
-  bottom: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  
-  padding: 10px 20px;
-  border: 1px solid white;
-  background: rgba(0,0,0,0.4);
-  color: white;
-  font-size: 12px;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  cursor: pointer;
-  
 }
 /* FOOTER */
 footer {
@@ -311,11 +293,10 @@ footer {
 
 <!-- VIDEO SECTION -->
 <section class="video-section">
-  <video autoplay muted loop playsinline>
+  <video autoplay unmuted loop playsinline>
     <source src="your-video.mov" type="video/quicktime">
     Your browser does not support the video tag.
   </video>  
-  <button class="unmute-btn" onclick="toggleSound()">Tap for Sound</button>
 </section>
 
 <!-- HERO -->
@@ -384,16 +365,7 @@ function checkPassword() {
   } else {
     document.getElementById("error-message").innerText = "Incorrect password";
   }
-  function toggleSound() {
-  const video = document.getElementById("weddingVideo");
-
-  if (video.muted) {
-    video.muted = false;
-  } else {
-    video.muted = true;
-  }
-}
-  </script>
+}</script>
 
 </body>
 </html>
