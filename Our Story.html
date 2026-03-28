@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Our Story</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --cherry: #5a0f1c;
+  --soft-black: #1a1a1a;
+  --soft-white: #f5f5f5;
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background: var(--soft-white);
+  color: var(--soft-black);
+}
+
+/* HEADER */
+.monogram-banner {
+  text-align: center;
+  padding: 20px 0;
+}
+
+.monogram-banner img {
+  width: 90px;
+}
+
+.subnav {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  flex-wrap: wrap;
+}
+
+.subnav a {
+  text-decoration: none;
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--soft-black);
+}
+
+/* HERO */
+.hero {
+  height: 300px;
+  background: 
+    linear-gradient(rgba(255,255,255,0.4), rgba(255,255,255,0.6)),
+    url('your-photo.jpg') center/cover no-repeat;
+}
+
+/* SECTION */
+.section {
+  padding: 60px 20px;
+  text-align: center;
+  max-width: 700px;
+  margin: auto;
+}
+
+.section h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+
+.section p {
+  line-height: 1.7;
+  font-size: 15px;
+}
+
+/* TIMELINE */
+.timeline {
+  max-width: 800px;
+  margin: 40px auto;
+}
+
+.timeline-item {
+  margin-bottom: 40px;
+}
+
+.timeline-item h3 {
+  font-family: 'Playfair Display', serif;
+  color: var(--cherry);
+}
+
+/* GALLERY */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
+  gap: 10px;
+}
+
+.gallery img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+}
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<div class="monogram-banner">
+  <img src="monogram.png">
+
+  <nav class="subnav">
+    <a href="index.html">Home</a>
+    <a href="our-story.html">Our Story</a>
+    <a href="wedding-details.html">Details</a>
+    <a href="schedule.html">Schedule</a>
+    <a href="travel.html">Travel</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="wedding-party.html">Wedding Party</a>
+    <a href="rsvp.html">RSVP</a>
+  </nav>
+</div>
+
+<!-- HERO IMAGE -->
+<div class="hero"></div>
+
+<!-- INTRO -->
+<div class="section">
+  <h1>Our Story</h1>
+  <p>
+    Every love story is beautiful, but ours is our favorite.
+    From the moment we met, something felt different — effortless, genuine, and meant to be.
+  </p>
+</div>
+
+<!-- TIMELINE -->
+<div class="timeline">
+
+  <div class="timeline-item">
+    <h3>How We Met</h3>
+    <p>We met in [year/place]. What started as a simple conversation turned into something unforgettable.</p>
+  </div>
+
+  <div class="timeline-item">
+    <h3>Falling in Love</h3>
+    <p>Over time, we built a relationship filled with laughter, growth, and countless memories.</p>
+  </div>
+
+  <div class="timeline-item">
+    <h3>The Proposal</h3>
+    <p>On a beautiful day in [location], surrounded by love, the question was asked — and the answer was forever.</p>
+  </div>
+
+</div>
+
+<!-- PHOTO MOMENTS -->
+<div class="section">
+  <div class="gallery">
+    <img src="photo1.jpg">
+    <img src="photo2.jpg">
+    <img src="photo3.jpg">
+  </div>
+</div>
+
+<!-- CLOSING -->
+<div class="section">
+  <p>
+    We are so excited to celebrate this next chapter with the people we love most.
+    Thank you for being part of our story.
+  </p>
+</div>
+
+</body>
+</html>
