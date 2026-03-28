@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Wedding Party Access</title>
+</head>
+
+<body style="text-align:center; font-family: Playfair Display; padding-top:100px;">
+
+<h2>Wedding Party Access</h2>
+<p>Please enter your private password</p>
+
+<input type="password" id="party-password" placeholder="Enter Password">
+<br><br>
+<button onclick="checkPartyAccess()">Enter</button>
+
+<p id="error"></p>
+
+<script>
+function checkPartyAccess() {
+  const input = document.getElementById("party-password").value;
+
+  // 🔐 Individual passwords
+  if (input === "BRIDE1") {
+    window.location.href = "kiara.html";
+  } 
+  else if (input === "BRIDE2") {
+    window.location.href = "maya.html";
+  } 
+  else if (input === "GROOM1") {
+    window.location.href = "james.html";
+  } 
+  else {
+    document.getElementById("error").innerText = "Incorrect password";
+  }
+}
+</script>
+
+</body>
+</html>
