@@ -374,7 +374,7 @@
         <a href="rsvp.html" class="disabled">RSVP</a>
        </nav>
     </div>
-
+        
          <!-- VIDEO SECTION -->
      <section class="video-section">
       <video id="weddingvideo" autoplay muted loop playsinline>
@@ -384,26 +384,6 @@
 
       <button class="unmute-btn" onclick="toggleSound()">Tap to Unmute</button>
     </section>
-      
-<script>
-function checkPartyAccess() {
-  const input = document.getElementById("party-password").value;
-
-  // 🔐 Individual passwords
-  if (input === "BRIDE1") {
-    window.location.href = "kiara.html";
-  } 
-  else if (input === "BRIDE2") {
-    window.location.href = "maya.html";
-  } 
-  else if (input === "GROOM1") {
-    window.location.href = "james.html";
-  } 
-  else {
-    document.getElementById("error").innerText = "Incorrect password";
-  }
-}
-   </script>      
       
     <!-- HERO -->
     <header>
@@ -495,7 +475,23 @@ function checkPartyAccess() {
     
       btn.style.display = "none"; // hides button after click
     }
+     function checkPartyAccess() {
+  const input = document.getElementById("party-password").value;
+
+  // 🔐 Individual passwords
+  if (input === "BRIDE1") {
+    window.location.href = "kiara.html";
+  } 
+  else if (input === "BRIDE2") {
+    window.location.href = "maya.html";
+  } 
+  else if (input === "GROOM1") {
+    window.location.href = "james.html";
+  } 
+  else {
+    document.getElementById("error").innerText = "Incorrect password";
+  }
+}   
     </script>
-    
     </body>
     </html>
