@@ -88,9 +88,7 @@ h1 {
 /* LAYOUT */
 .password-wrapper {
   position: relative;
-  width: 600px; /* gives room for orchid */
-  display: flex;
-  align-items: center;
+  display: inline-block; /* THIS is the key fix */
 }
 
 /* BOX */
@@ -106,10 +104,10 @@ h1 {
 /* ORCHID */
 .orchid-img {
   position: absolute;
-  right: 0;
+  right: -120px;  /* pushes orchid OUTSIDE box */
   top: 50%;
   transform: translateY(-50%);
-  width: 200px;
+  width: 180px;
   z-index: 1;
 }
 
@@ -120,8 +118,11 @@ h1 {
   margin-bottom: 10px;
   color: var(--soft-black);
 }
-
-/* Subtitle */
+.password-box {
+  position: relative;
+  z-index: 2;
+  
+}/* Subtitle */
 .subtitle {
   font-size: 11px;
   letter-spacing: 1.8px;
