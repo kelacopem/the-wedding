@@ -47,12 +47,10 @@ header {
   
 }
 .hero-box {
-  width:90%;
-  max-wdth: 600px;
-  margin: 0 auto;
-  padding: 5vw;
+  padding: 25px;
   border: 1px solid var(--cherry);
   background: rgba(255,255,255,0.7);
+  max-width: 90%;
   color: var(--soft-black);
 }
 
@@ -64,7 +62,7 @@ header {
 
 h1 {
   font-family: 'Playfair Display', serif;
-  font-size: clamp(28px, 5v, 48px);
+  font-size: 42px;
   margin: 10px 0;
 }
 
@@ -89,9 +87,6 @@ h1 {
 
 /* LAYOUT */
 .password-wrapper {
-  width: 90%;
-  max-width: 420px;
-  margin: 0 auto;
   position: relative;
   display: inline-block; /* THIS is the key fix */
 }
@@ -99,9 +94,9 @@ h1 {
 /* BOX */
 .password-box {
   background: white;
-  padding: 40px 25px;
+  padding: 50px 40px;
   border: 1px solid rgba(0,0,0,0.1);
-  width: 100%;
+  width: 320px;
   text-align: center;
   z-index: 2;
 }
@@ -109,10 +104,10 @@ h1 {
 /* ORCHID */
 .orchid-img {
   position: absolute;
-  right: -20%;  /* pushes orchid OUTSIDE box */
+  right: -150px;  /* pushes orchid OUTSIDE box */
   top: 50%;
   transform: translateY(-50%);
-  width: 50%;max-width: 220px;
+  width: 680px;
   z-index: 1;
 }
 
@@ -215,13 +210,12 @@ h1 {
 
 /* SECTIONS */
 section {
-  padding: 8vw 5vw;
+  padding: 60px 20px;
   text-align: center;
 }
 
 h2 {
   font-family: 'Playfair Display', serif;
-  font-size: clamp(20px, 4vw, 32px);
   margin-bottom: 20px;
   color: var(--cherry);
 }
@@ -253,10 +247,12 @@ h2 {
   filter: brightness(100%);
 }
 .video-section video {
+  position: relative;
   width: 100%;
   height: auto;
-  max-height: 80vh;
-  object-fit:cover;
+  display: block;
+  text-align: center;
+  margin-bottom: 0;
 }
 
 .unmute-btn {
@@ -274,30 +270,6 @@ h2 {
   text-transform: uppercase;
   cursor: pointer;
   
-}
-@media (max-width: 600px) {
-
-  .password-wrapper {
-    width: 90%;
-  }
-
-  .orchid-img {
-    position: relative;
-    right: 0;
-    top: 0;
-    transform: none;
-    width: 60%;
-    margin: 20px auto 0;
-    display: block;
-  }
-
-  .hero-box {
-    padding: 30px 20px;
-  }
-
-  #countdown {
-    gap: 10px;
-  }
 }
 /* FOOTER */
 footer {
