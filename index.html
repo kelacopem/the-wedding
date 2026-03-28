@@ -156,32 +156,31 @@ h1 {
   font-size: 12px;
   margin-top: 10px;
 }
-/* Wrapper */
 .password-wrapper {
   position: relative;
-  width:420px;
+  width: 500px;
   display: flex;
-  justify-content: center;
   align-items: center;
 }
 
-/* Wreath image */
 .orchid-img {
   position: absolute;
-  right: -80px;
-  top: 65%;
+  right: 0;
+  top: 50%;
   transform: translateY(-50%);
-  width: 420px; /* adjust size */
+  width: 180px;
   z-index: 1;
-  pointer-events: none;
-}
+}}
 
 /* Password box sits on top */
 .password-box {
+  background: white;
+  padding: 50px 40px;
+  border: 1px solid rgba(0,0,0,0.1);
+  width: 320px;
+  text-align: center;
   position: relative;
   z-index: 2;
-  background: white;
-  padding: 50px 40px;  
 }
 /* COUNTDOWN */
 #countdown {
@@ -273,8 +272,7 @@ footer {
 <div id="password-screen">
   <div class="password-wrapper">
 
-    <img src="orchid-wreath.png" class="orchid-img">
-    
+    <!-- BOX -->
     <div class="password-box">
       <h2>Welcome</h2>
       <p class="subtitle">Please enter the password to view our wedding site</p>
@@ -284,6 +282,9 @@ footer {
       
       <p id="error-message"></p>
     </div>
+    <!-- ORCHID -->
+     <img src="orchid-wreath.png" class="orchid-img">  
+    
   </div>
 </div>
   
