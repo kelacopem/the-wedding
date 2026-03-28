@@ -16,7 +16,7 @@
       --soft-white: #f5f5f5;
     }
         
-    body {
+     body {
       margin: 0;
       font-family: 'Inter', sans-serif;
       color: var(--soft-black);
@@ -24,7 +24,7 @@
     }
     
     /* HERO */
-    header {
+     header {
       min-height: auto;
       padding: 40px 0;
       background: linear-gradient(rgba(255,255,255,0.4), rgba(255,255,255,0.7)),
@@ -47,53 +47,53 @@
       
     }
     .subnav {
-  margin-top: 14px;
+      margin-top: 14px;
 
-  display: flex;
-  justify-content: center;
-  align-items: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
 
-  gap: 28px;              /* slightly tighter to fit 8 items */
-  flex-wrap: wrap;        /* allows clean wrapping on small screens */
-}
+      gap: 28px;              /* slightly tighter to fit 8 items */
+      flex-wrap: wrap;        /* allows clean wrapping on small screens */
+    }
 
-.subnav a {
-  font-family: 'Playfair Display', serif;
-  font-size: 10px;        /* slightly smaller for 8 links */
-  letter-spacing: 2.5px;
-  text-transform: uppercase;
-  text-decoration: none;
-  color: var(--soft-black);
-  opacity: 0.85;
-  white-space: nowrap;
-  transition: all 0.3s ease;
-}
+    .subnav a {
+      font-family: 'Playfair Display', serif;
+      font-size: 10px;        /* slightly smaller for 8 links */
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: var(--soft-black);
+      opacity: 0.85;
+      white-space: nowrap;
+      transition: all 0.3s ease;
+    }
 
-/* Thin luxury underline */
-.subnav a::after {
-  content: "";
-  display: block;
-  width: 0;
-  height: 0.5px;
-  background: var(--cherry);
-  margin: 6px auto 0;
-  transition: width 0.3s ease;
-}
+    /* Thin luxury underline */
+    .subnav a::after {
+      content: "";
+      display: block;
+      width: 0;
+      height: 0.5px;
+      background: var(--cherry);
+      margin: 6px auto 0;
+      transition: width 0.3s ease;
+    }
 
-.subnav a:hover {
-  color: var(--cherry);
-  opacity: 1;
-}
+    .subnav a:hover {
+      color: var(--cherry);
+      opacity: 1;
+    }
 
-.subnav a:hover::after {
-    width: 100%;
-}    
-.hero-box {
-    padding: 25px;
-    border: 1px solid var(--cherry);
-    background: rgba(255,255,255,0.7);
-    max-width: 90%;
-    color: var(--soft-black);
+    .subnav a:hover::after {
+      width: 100%;
+    }    
+    .hero-box {
+      padding: 25px;
+      border: 1px solid var(--cherry);
+      background: rgba(255,255,255,0.7);
+      max-width: 90%;
+      color: var(--soft-black);
     }
     
     .monogram {
