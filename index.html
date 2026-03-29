@@ -327,6 +327,12 @@
       background: var(--cherry);
       color: white;
 }    
+    .disabled-link {
+  pointer-events: none;
+  color: gray;
+  cursor: default;
+  text-decoration: none;
+}
     /* FOOTER */
     footer {
       padding: 25px;
@@ -374,8 +380,13 @@
         <a href="rsvp.html" class="disabled">RSVP</a>
        </nav>
     </div>
-        
-         <!-- VIDEO SECTION -->
+        <a href="#" class="disabled-link">Details</a>
+        <a href="#" class="disabled-link">Schedule</a>
+         <a href="#" class="disabled-link">Gallery</a>
+         <a href="#" class="disabled-link">RSVP</a>
+
+
+        <!-- VIDEO SECTION -->
      <section class="video-section">
       <video id="weddingvideo" autoplay muted loop playsinline>
         <source src="your-video.mov" type="video/quicktime">
