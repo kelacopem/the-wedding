@@ -4,10 +4,11 @@
     <head>
     <meta charset="UTF-8">
     <title>Kiara & Nana</title>
-    <link rel="icon" type="image/x-icon" href="/favicon.ico">
-</head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="stylesheet" href="styles.css">
+</head>
+  
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@400;600&family=Inter:wght@300&display=swap" rel="stylesheet">
     
@@ -327,8 +328,9 @@
       background: var(--cherry);
       color: white;
 }    
-    .disabled-link {
+    a.disabled {
   pointer-events: none;
+  opacity: 0.5;
   color: gray;
   cursor: default;
   text-decoration: none;
@@ -365,7 +367,8 @@
         
       </div>
     </div>
-     <!-- NAVIGATION BAR -->   
+     <!-- NAVIGATION BAR --> 
+   
     <div class="monogram-banner">
       <img src="monogram.png" alt="Monogram">
 
@@ -378,11 +381,6 @@
         <a href="gallery.html" class="disabled">Gallery</a>
         <a href="wedding-party-login.html">Wedding Party</a>
         <a href="rsvp.html" class="disabled">RSVP</a>
-
-         <a href="#" class="disabled-link">Details</a>
-         <a href="#" class="disabled-link">Schedule</a>
-         <a href="#" class="disabled-link">Gallery</a>
-         <a href="#" class="disabled-link">RSVP</a>
        </nav>
     </div>
     
