@@ -67,7 +67,19 @@
 .subnav a:hover::after {
   width: 100%;
 }
+.subnav a.disabled {
+  pointer-events: none;
+  opacity: 0.3;
+  color: #999;
+  cursor: not-allowed;
+}
+   .subnav a.disabled:hover {
+  color: #999;
+}
 
+.subnav a.disabled::after {
+  width: 0 !important;
+}  
     /* LOGIN BOX */
     .login-box {
       margin-top: 60px;
