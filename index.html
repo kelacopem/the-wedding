@@ -30,6 +30,8 @@
     html, body {
       margin: 0;
       padding: 0;
+      display: flex;
+      justify-content: center; /* centers horizontally */
       overflow-x: hidden;
       background: #f4f4f4; /* soft outer background like your screenshot */
       font-family: 'Georgia', 'Times New Roman', serif;
@@ -37,7 +39,7 @@
 
 /* ===== MAIN SITE CONTAINER ===== */
     .site-wrapper {
-      max-width: 540px;
+      max-width: 420px;
       width: 100%;
       margin: 0 auto;
       background: #ffffff;
@@ -165,6 +167,36 @@
       align-items: center;
       text-align: center;
     }
+    .site-wrapper,
+    .site-wrapper * {
+        text-align: center;
+    }
+    .hero,
+    .section,
+    .navbar,
+    .footer {
+        text-align: center;
+    }
+    img,
+    video {
+        display: block;
+        margin: 0 auto;
+        max-width: 100%;
+        height: auto;
+    }
+    .navbar {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+    }
+    * {
+        box-sizing: border-box;
+    }
+    .site-wrapper {
+        border-radius: 12px;
+        overflow: hidden;
+    }
+        
     .monogram-banner {
       width: 100%;
       text-align: center;
