@@ -463,7 +463,11 @@
           Created by the Bride ♡
         </div>
     </footer>
-    
+    <script>
+    if (sessionStorage.getItem("weddingAccess") !== "granted") {
+      window.location.href = "password.html";
+    }
+    </script>   
     <script>
     const weddingDate = new Date("August 14, 2026 17:00:00").getTime();
     
@@ -477,27 +481,18 @@
       document.getElementById("seconds").innerText = Math.floor((d/1000)%60);
     }, 1000);
     
-    function checkPassword() {
-      const correctPassword = "NK2026";
-      const userInput = document.getElementById("password-input").value;
+    <script>
+function checkPassword() {
+  const correctPassword = "NK2026";
+  const userInput = document.getElementById("password-input").value;
 
-    if (userInput === correctPassword) {
-
-    // ✅ ONLY lasts for this session (tab open)
+  if (userInput === correctPassword) {
     sessionStorage.setItem("weddingAccess", "granted");
-
-    const screen = document.getElementById("password-screen");
-    screen.style.opacity = "0";
-    screen.style.transition = "opacity 0.6s ease";
-
-    setTimeout(() => {
-      screen.style.display = "none";
-    }, 600);
-
+    window.location.href = "index.html";  // 👈 redirect
   } else {
     document.getElementById("error-message").innerText = "Incorrect password";
-      }
-    }
+  }
+}        
 // ✅ CHECK if user already entered password before
    window.onload = function() {
    const access = sessionStorage.getItem("weddingAccess");
