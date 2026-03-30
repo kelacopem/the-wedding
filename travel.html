@@ -25,6 +25,15 @@ body {
   text-align: center;
 }
 
+/* ICONS (clean + fixed) */
+.icon {
+  width: 26px;
+  height: 26px;
+  margin-bottom: 12px;
+  fill: #5a0f1c;
+  opacity: 0.85;
+}
+
 /* NAV */
 .monogram-banner {
   padding: 20px 0;
@@ -92,25 +101,14 @@ body {
 /* CARDS */
 .card {
   border: 1px solid rgba(0,0,0,0.08);
-  padding: 20px;
+  padding: 25px;
   margin-top: 20px;
   background: white;
   border-radius: 8px;
-}
-.card strong {
-  font-family: 'Playfair Display', serif;
-  font-size: 18px;
-}
 
-/* LINKS */
-a.link {
-  color: var(--cherry);
-  text-decoration: none;
-  font-weight: 500;
-}
-
-a.link:hover {
-  text-decoration: underline;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 </style>
 </head>
@@ -145,53 +143,40 @@ a.link:hover {
   <h2>Airports</h2>
 
   <div class="card">
+    <svg class="icon" viewBox="0 0 24 24">
+      <path d="M2 16l20-5-20-5v4l15 1-15 1v4z"/>
+    </svg>
     <p><strong>Dulles International Airport (IAD)</strong></p>
     <p>Approx. 40 minutes from venue</p>
-  </div>
-
-  <div class="card">
-    <p><strong>Reagan National Airport (DCA)</strong></p>
-    <p>Approx. 1 hour from venue</p>
   </div>
 
   <!-- HOTELS -->
   <h2>Accommodations</h2>
 
   <div class="card">
+    <svg class="icon" viewBox="0 0 24 24">
+      <path d="M3 21V3h18v18H3zm2-2h14V5H5v14zm2-2h10v-2H7v2zm0-4h10v-2H7v2zm0-4h10V7H7v2z"/>
+    </svg>
     <p><strong>Hotel Burg</strong></p>
     <p>A charming boutique hotel offering an intimate and elegant stay.</p>
-    <a href="#" class="link">View Hotel</a>
   </div>
 
   <div class="card">
+    <svg class="icon" viewBox="0 0 24 24">
+      <path d="M3 21V3h18v18H3zm2-2h14V5H5v14z"/>
+    </svg>
     <p><strong>Lansdowne Resort</strong></p>
     <p>A refined resort experience featuring scenic views, a full-service spa, and golf.</p>
-    <a href="#" class="link">View Hotel</a>
-  </div>
-  <div class="card">
-    <p><strong>Salamander Resort & Spa</strong></p>
-    <p>Luxury stay near the venue</p>
-    <a href="#" class="link">View Hotel</a>
-  </div>
-  
-  <div class="card">
-    <p><strong>Airbnb Options</strong></p>
-    <p>Private homes available in Bluemont & Leesburg</p>
-    <a href="#" class="link">Browse Airbnb</a>
   </div>
 
   <!-- TRANSPORT -->
   <h2>Transportation</h2>
 
   <div class="card">
-    <p>We recommend renting a car or using Uber/Lyft for convenience.</p>
-  </div>
-
-  <!-- NOTE -->
-  <h2>Additional Information</h2>
-
-  <div class="card">
-    <p>More details will be shared as the date approaches.</p>
+    <svg class="icon" viewBox="0 0 24 24">
+      <path d="M5 11l1-3h12l1 3H5zm0 2h14v5H5v-5zm2 1v3h2v-3H7zm8 0v3h2v-3h-2z"/>
+    </svg>
+    <p>We recommend renting a car or using Uber/Lyft.</p>
   </div>
 
 </div>
