@@ -136,7 +136,15 @@
       position: relative;
       display: inline-block; /* THIS is the key fix */
     }
-    
+   @media (max-width: 600px) {
+    .password-box {
+      transform: scale(0.92); /* subtle scale only */
+      transform-origin: center;
+      padding: 25px 20px;
+      width: 260px;
+      }
+    }
+        
     /* BOX */
     .password-box {
       background: white;
@@ -378,9 +386,6 @@
           <button onclick="checkPassword()">Enter</button>
           
           <p id="error-message"></p>
-          <div class="bride-signature">
-          Created by the Bride ♡
-        </div>
         </div>
         <!-- ORCHID -->
          <img src="orchid-wreath.png" class="orchid-img">  
@@ -451,7 +456,9 @@
     
     <footer>
       <center>FORMAL INVITATION TO FOLLOW</center>
-        
+        <div class="bride-signature">
+          Created by the Bride ♡
+        </div>
     </footer>
     
     <script>
