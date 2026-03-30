@@ -313,43 +313,45 @@
         </div>
     </footer>
     <script>
-    if (sessionStorage.getItem("weddingAccess") !== "granted") {
-      window.location.href = "password.html";
-    }
-    </script>   
-    <script>
-    const weddingDate = new Date("August 14, 2026 17:00:00").getTime();
-    
-    setInterval(() => {
-      const now = new Date().getTime();
-      const d = weddingDate - now;
-    
-      document.getElementById("days").innerText = Math.floor(d / (1000*60*60*24));
-      document.getElementById("hours").innerText = Math.floor((d/(1000*60*60))%24);
-      document.getElementById("minutes").innerText = Math.floor((d/(1000*60))%60);
-      document.getElementById("seconds").innerText = Math.floor((d/1000)%60);
-    }, 1000);
-    </script>
-    <script>
-    if (sessionStorage.getItem("weddingAccess") !== "granted") {
-    window.location.href = "password.html";
-    }
+/* 🔐 PROTECT PAGE (runs immediately) */
+if (sessionStorage.getItem("weddingAccess") !== "granted") {
+  window.location.href = "password.html";
+}
+</script>
 
-    function toggleSound() {
-      const video = document.getElementById("weddingvideo");
-      const btn = document.querySelector(".unmute-btn");
-    
-      video.muted = false;
-      video.play();
-    
-      btn.style.display = "none"; // hides button after click
-    }
-    </script>
-    <script>
-     function checkPartyAccess() {
+<script>
+/* ⏳ COUNTDOWN */
+const weddingDate = new Date("August 14, 2026 17:00:00").getTime();
+
+setInterval(() => {
+  const now = new Date().getTime();
+  const d = weddingDate - now;
+
+  document.getElementById("days").innerText = Math.floor(d / (1000*60*60*24));
+  document.getElementById("hours").innerText = Math.floor((d/(1000*60*60))%24);
+  document.getElementById("minutes").innerText = Math.floor((d/(1000*60))%60);
+  document.getElementById("seconds").innerText = Math.floor((d/1000)%60);
+}, 1000);
+</script>
+
+<script>
+/* 🔊 VIDEO SOUND */
+function toggleSound() {
+  const video = document.getElementById("weddingvideo");
+  const btn = document.querySelector(".unmute-btn");
+
+  video.muted = false;
+  video.play();
+
+  btn.style.display = "none";
+}
+</script>
+
+<script>
+/* 👰🏽‍♀️ WEDDING PARTY ACCESS */
+function checkPartyAccess() {
   const input = document.getElementById("party-password").value;
 
-  // 🔐 Individual passwords
   if (input === "BRIDE1") {
     window.location.href = "kiara.html";
   } 
@@ -362,7 +364,7 @@
   else {
     document.getElementById("error").innerText = "Incorrect password";
   }
-}   
-    </script>
+}
+</script>
     </body>
     </html>
