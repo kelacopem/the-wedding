@@ -38,7 +38,7 @@
 
   .subnav a {
     font-family: 'Playfair Display', serif;
-    font-size: 10px;
+    font-size: 11px;
     letter-spacing: 2.5px;
     text-transform: uppercase;
     text-decoration: none;
@@ -80,14 +80,26 @@
 .subnav a.disabled::after {
   width: 0 !important;
 }  
-    /* LOGIN BOX */
-    .login-box {
-      margin-top: 60px;
-    }
+/* LOGIN BOX */
+.login-box {
+  margin: 80px auto;
+  padding: 40px 30px;
+  max-width: 400px;   /* ⬅️ key fix */
 
+  border: 1px solid rgba(0,0,0,0.08);
+  background: white;
+}
+    }
+.login-box h2 {
+  font-size: 28px;
+}
+.login-box p {
+  font-size:14px;
+}
     input {
-      padding: 10px;
-      width: 220px;
+      width: 100%;
+      max-width: 280px;
+      padding: 12px;
     }
 
     button {
