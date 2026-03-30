@@ -329,27 +329,12 @@
       document.getElementById("minutes").innerText = Math.floor((d/(1000*60))%60);
       document.getElementById("seconds").innerText = Math.floor((d/1000)%60);
     }, 1000);
-    
+    </script>
     <script>
-function checkPassword() {
-  const correctPassword = "NK2026";
-  const userInput = document.getElementById("password-input").value;
+    if (sessionStorage.getItem("weddingAccess") !== "granted") {
+    window.location.href = "password.html";
+    }
 
-  if (userInput === correctPassword) {
-    sessionStorage.setItem("weddingAccess", "granted");
-    window.location.href = "index.html";  // 👈 redirect
-  } else {
-    document.getElementById("error-message").innerText = "Incorrect password";
-  }
-}        
-// ✅ CHECK if user already entered password before
-   window.onload = function() {
-   const access = sessionStorage.getItem("weddingAccess");
-
-   if (access === "granted") {
-    document.getElementById("password-screen").style.display = "none";
-  }
-};
     function toggleSound() {
       const video = document.getElementById("weddingvideo");
       const btn = document.querySelector(".unmute-btn");
@@ -359,6 +344,8 @@ function checkPassword() {
     
       btn.style.display = "none"; // hides button after click
     }
+    </script>
+    <script>
      function checkPartyAccess() {
   const input = document.getElementById("party-password").value;
 
