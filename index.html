@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
 </head>
-  
+  <body>
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@400;600&family=Inter:wght@300&display=swap" rel="stylesheet">
     
@@ -152,16 +152,6 @@
       margin-top: 10px;
     }
     
-    /* Password box sits on top */
-    .password-box {
-      background: white;
-      padding: 50px 40px;
-      border: 1px solid rgba(0,0,0,0.1);
-      width: 320px;
-      text-align: center;
-      position: relative;
-      z-index: 2;
-    }
    .bride-signature {
       text-align: center;
       margin: 15px 0 5px;
@@ -173,24 +163,28 @@
       color: #5a0f1c;
       opacity: 0.6;
 }   
-  </style>
-  <script>
-function checkPassword() {
-  const correctPassword = "NK2026";
-  const userInput = document.getElementById("password-input").value;
+    </style>
+    <script>
+      function checkPassword() {
+      const correctPassword = "NK2026";
+      const userInput = document.getElementById("password-input").value;
 
-  if (userInput === correctPassword) {
-    sessionStorage.setItem("weddingAccess", "granted");
-    window.location.href = "index.html";  // redirect to main site
-  } else {
-    document.getElementById("error-message").innerText = "Incorrect password";
+      if (userInput === correctPassword) {
+        sessionStorage.setItem("weddingAccess", "granted");
+        window.location.href = "index.html";  // redirect to main site
+    } else {
+        document.getElementById("error-message").innerText = "Incorrect password";
+    }
   }
-}
-</script>
-<script>
-document.getElementById("password-input").addEventListener("keypress", function(e) {
-  if (e.key === "Enter") {
-    checkPassword();
-  }
+   </script>
+   <script>
+    document.addEventListener("DOMContentLoaded", function() {
+    document.getElementById("password-input").addEventListener("keypress", function(e) {
+    if (e.key === "Enter") {
+      checkPassword();
+    }
+  });
 });
-</script>
+    </script>
+</body>
+</html>
