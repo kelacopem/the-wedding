@@ -34,6 +34,7 @@
         
       </div>
     </div>
+  </body>
 <style>
      :root {
       --soft-black: #1a1a1a;
@@ -173,33 +174,26 @@
       opacity: 0.6;
 }   
     </style>
-    <body>
+    <script>
+      function checkPassword() {
+      const correctPassword = "NK2026";
+      const userInput = document.getElementById("password-input").value;
 
-<div id="password-screen">
-  ...
-</div>
-
-<script>
-function checkPassword() {
-  const correctPassword = "NK2026";
-  const userInput = document.getElementById("password-input").value;
-
-  if (userInput === correctPassword) {
-    sessionStorage.setItem("weddingAccess", "granted");
-    window.location.href = "/index.html";
-  } else {
-    document.getElementById("error-message").innerText = "Incorrect password";
+      if (userInput === correctPassword) {
+        sessionStorage.setItem("weddingAccess", "granted");
+        window.location.href = "index.html";  // redirect to main site
+    } else {
+        document.getElementById("error-message").innerText = "Incorrect password";
+    }
   }
-}
-
-document.addEventListener("DOMContentLoaded", function() {
-  document.getElementById("password-input").addEventListener("keypress", function(e) {
+   </script>
+   <script>
+    document.addEventListener("DOMContentLoaded", function() {
+    document.getElementById("password-input").addEventListener("keypress", function(e) {
     if (e.key === "Enter") {
       checkPassword();
     }
   });
 });
 </script>
-
-</body>
 </html>
