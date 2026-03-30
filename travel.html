@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Travel</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="stylesheet" href="styles.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --cherry: #5a0f1c;
+  --soft-black: #1a1a1a;
+  --soft-white: #f5f5f5;
+}
+
+/* BASE */
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background: var(--soft-white);
+  color: var(--soft-black);
+  text-align: center;
+}
+
+/* NAV */
+.monogram-banner {
+  padding: 20px 0;
+}
+
+.monogram-banner img {
+  width: 90px;
+}
+
+.subnav {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  flex-wrap: wrap;
+}
+
+.subnav a {
+  text-decoration: none;
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--soft-black);
+}
+
+.subnav a.disabled {
+  pointer-events: none;
+  opacity: 0.3;
+  color: #999;
+  cursor: not-allowed;
+}
+
+/* HERO */
+.hero {
+  height: 250px;
+  background:
+    linear-gradient(rgba(255,255,255,0.5), rgba(255,255,255,0.7)),
+    url('travel-hero.jpg') center/cover no-repeat;
+}
+
+/* SECTION */
+.section {
+  padding: 60px 20px;
+  max-width: 700px;
+  margin: auto;
+}
+
+.section h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+
+.section h2 {
+  font-family: 'Playfair Display', serif;
+  color: var(--cherry);
+  margin-top: 40px;
+}
+
+.section p {
+  line-height: 1.6;
+  margin: 6px 0;
+}
+
+/* CARDS */
+.card {
+  border: 1px solid rgba(0,0,0,0.08);
+  padding: 20px;
+  margin-top: 20px;
+  background: white;
+  border-radius: 8px;
+}
+
+/* LINKS */
+a.link {
+  color: var(--cherry);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+a.link:hover {
+  text-decoration: underline;
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAV -->
+<div class="monogram-banner">
+  <img src="monogram.png" alt="Monogram">
+
+  <nav class="subnav">
+    <a href="index.html">Home</a>
+    <a href="our-story.html">Our Story</a>
+    <a href="wedding-details.html" class="disabled">Details</a>
+    <a href="schedule.html" class="disabled">Schedule</a>
+    <a href="travel.html">Travel</a>
+    <a href="gallery.html" class="disabled">Gallery</a>
+    <a href="wedding-party-login.html">Wedding Party</a>
+    <a href="rsvp.html" class="disabled">RSVP</a>
+  </nav>
+</div>
+
+<!-- HERO -->
+<div class="hero"></div>
+
+<!-- CONTENT -->
+<div class="section">
+  <h1>Travel</h1>
+  <p>We can’t wait to celebrate with you. Below are travel details to help you plan your stay.</p>
+
+  <!-- AIRPORT -->
+  <h2>Airports</h2>
+
+  <div class="card">
+    <p><strong>Dulles International Airport (IAD)</strong></p>
+    <p>Approx. 40 minutes from venue</p>
+  </div>
+
+  <div class="card">
+    <p><strong>Reagan National Airport (DCA)</strong></p>
+    <p>Approx. 1 hour from venue</p>
+  </div>
+
+  <!-- HOTELS -->
+  <h2>Accommodations</h2>
+
+  <div class="card">
+    <p><strong>Salamander Resort & Spa</strong></p>
+    <p>Luxury stay near the venue</p>
+    <a href="#" class="link">View Hotel</a>
+  </div>
+
+  <div class="card">
+    <p><strong>Airbnb Options</strong></p>
+    <p>Private homes available in Bluemont & Leesburg</p>
+    <a href="#" class="link">Browse Airbnb</a>
+  </div>
+
+  <!-- TRANSPORT -->
+  <h2>Transportation</h2>
+
+  <div class="card">
+    <p>We recommend renting a car or using Uber/Lyft for convenience.</p>
+  </div>
+
+  <!-- NOTE -->
+  <h2>Additional Information</h2>
+
+  <div class="card">
+    <p>More details will be shared as the date approaches.</p>
+  </div>
+
+</div>
+
+</body>
+</html>
