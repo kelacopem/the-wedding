@@ -231,6 +231,19 @@
    .subnav a.disabled::after {
       width: 0 !important;
 }
+   #fullscreenBtn {
+      position: absolute;
+      bottom: 20px;
+      right: 20px;
+      z-index: 10;
+      background: rgba(0,0,0,0.5);
+      color: white;
+      border: none;
+      padding: 10px 12px;
+      font-size: 16px;
+      cursor: pointer;
+      backdrop-filter: blur(6px);
+}
     /* FOOTER */
     footer {
       padding: 20px;
@@ -269,6 +282,7 @@
       </video>
 
       <button class="unmute-btn" onclick="toggleSound()">Tap to Unmute</button>
+      <button id="fullscreenBtn">⛶</button>
     </section>
       
     <!-- HERO -->
@@ -344,7 +358,26 @@ function toggleSound() {
   btn.style.display = "none";
 }
 </script>
+/* VIDEO MAXIMIZE/MINIMIZE */
+<script>
+const video = document.getElementById("heroVideo");
+const btn = document.getElementById("fullscreenBtn");
 
+btn.addEventListener("click", () => {
+  if (!document.fullscreenElement) {
+    video.requestFullscreen();
+  } else {
+    document.exitFullscreen();
+  }
+});
+</script>
+<script>
+video.addEventListener("click", () => {
+  if (!document.fullscreenElement) {
+    video.requestFullscreen();
+  }
+});
+</script>
 <script>
 /* 👰🏽‍♀️ WEDDING PARTY ACCESS */
 function checkPartyAccess() {
