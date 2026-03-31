@@ -43,13 +43,36 @@ body {
 }
 
 .subnav a {
-  text-decoration: none;
+  font-family: 'Playfair Display', serif;
   font-size: 10px;
-  letter-spacing: 2px;
+  letter-spacing: 2.5px;
   text-transform: uppercase;
+  text-decoration: none;
   color: var(--soft-black);
+  opacity: 0.85;
+  white-space: nowrap;
+  transition: all 0.3s ease;
 }
 
+/* Luxury underline */
+.subnav a::after {
+  content: "";
+  display: block;
+  width: 0;
+  height: 0.5px;
+  background: var(--cherry);
+  margin: 6px auto 0;
+  transition: width 0.3s ease;
+}
+
+.subnav a:hover {
+  color: var(--cherry);
+  opacity: 1;
+}
+
+.subnav a:hover::after {
+  width: 100%;
+}
 .subnav a.disabled {
   pointer-events: none;
   opacity: 0.3;
@@ -59,10 +82,22 @@ body {
 
 /* HERO */
 .hero {
-  height: 250px;
+  height: 280px;
   background:
-    linear-gradient(rgba(255,255,255,0.5), rgba(255,255,255,0.7)),
+    linear-gradient(rgba(255,255,255,0.6), rgba(255,255,255,0.85)),
     url('travel-hero.jpg') center/cover no-repeat;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Optional: add title inside hero */
+.hero-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 42px;
+  color: var(--cherry);
+  letter-spacing: 2px;
 }
 
 /* SECTION */
@@ -91,11 +126,19 @@ body {
 
 /* CARDS */
 .card {
-  border: 1px solid rgba(0,0,0,0.08);
-  padding: 20px;
+  border: 1px solid rgba(0,0,0,0.06);
+  padding: 25px;
   margin-top: 20px;
   background: white;
-  border-radius: 8px;
+  border-radius: 10px;
+
+  transition: all 0.3s ease;
+}
+
+/* subtle hover */
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.06);
 }
 .card strong {
   font-family: 'Playfair Display', serif;
@@ -104,13 +147,20 @@ body {
 
 /* LINKS */
 a.link {
-  color: var(--cherry);
-  text-decoration: none;
-  font-weight: 500;
+  position: relative;
 }
 
-a.link:hover {
-  text-decoration: underline;
+a.link::after {
+  content: "";
+  display: block;
+  width: 0;
+  height: 1px;
+  background: var(--cherry);
+  transition: width 0.3s ease;
+}
+
+a.link:hover::after {
+  width: 100%;
 }
 </style>
 </head>
@@ -173,13 +223,13 @@ a.link:hover {
  <div class="card">
    <p><strong>Home2 Suites by Hilton Leesburg</strong></p>
    <p>Modern all-suite hotel featuring spacious rooms, kitchenettes, and complimentary breakfast.</p>
-   <a href="https://www.hilton.com/en/hotels/iadleht-home2-suites-leesburg/" target="_blank" class="link">View Hotel</a>
+   <a href="https://www.hilton.com/en/locations/usa/virginia/leesburg/" target="_blank" class="link">View Hotel</a>
  </div>
 
   <div class="card">
   <p><strong>Holiday Inn Leesburg</strong></p>
   <p>Enjoy a comfortable stay with modern accommodations, on-site amenities, and a convenient location.</p>
-  <a href="https://www.ihg.com/holidayinn/hotels/us/en/leesburg/ldces/hoteldetail" target="_blank" class="link">View Hotel</a>
+  <a href="https://www.ihg.com/holidayinnexpress/hotels/us/en/leesburg/waslb/hoteldetail?cm_mmc=GoogleMaps-_-EX-_-US-_-WASLB" target="_blank" class="link">View Hotel</a>
  </div>
   
  <div class="card">
