@@ -158,9 +158,29 @@ a.link::after {
   background: var(--cherry);
   transition: width 0.3s ease;
 }
+a.link {
+  display: inline-block;
+  margin-top: 10px;
 
-a.link:hover::after {
-  width: 100%;
+  padding: 10px 18px;
+  border: 1px solid var(--cherry);
+  background: transparent;
+
+  font-family: 'Playfair Display', serif;
+  font-size: 12px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+
+  color: var(--cherry);
+  text-decoration: none;
+
+  transition: all 0.3s ease;
+}
+
+/* Hover → filled cherry */
+a.link:hover {
+  background: var(--cherry);
+  color: white;
 }
 </style>
 </head>
