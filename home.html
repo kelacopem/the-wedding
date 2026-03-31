@@ -248,7 +248,19 @@
   font-size: 14px;
   cursor: pointer;
   border-radius: 4px;
-}}
+
+  backdrop-filter: blur(8px);
+  border-radius: 50%;
+  opacity: 0.85;
+
+  transition: opacity 0.4s ease, transform 0.3s ease;
+  pointer-events: auto;
+}
+
+#fullscreenBtn:hover {
+  opacity: 1;
+  transform: scale(1.05);
+}
     /* FOOTER */
     footer {
       padding: 20px;
@@ -285,9 +297,10 @@
       <video id="weddingvideo" autoplay muted loop playsinline>
         <source src="your-video.mp4" type="video/mp4">
         Your browser does not support the video tag.
-        <button id="fullscreenBtn">⛶</button>    
       </video>
-
+         
+      <button id="fullscreenBtn">⛶</button>    
+         
       <button class="unmute-btn" onclick="toggleSound()">Tap to Unmute</button>
     </section>
       
@@ -368,21 +381,43 @@ function toggleSound() {
 const video = document.getElementById("weddingvideo");
 const btn = document.getElementById("fullscreenBtn");
 
-// Button click → fullscreen
-btn.addEventListener("click", () => {
-  if (!document.fullscreenElement) {
+function openFullscreen() {
+  if (video.requestFullscreen) {
     video.requestFullscreen();
-  } else {
-    document.exitFullscreen();
+  } else if (video.webkitEnterFullscreen) {
+    video.webkitEnterFullscreen(); // iPhone fix
   }
-});
+}
 
-// Optional: tap video to fullscreen (mobile-friendly)
-video.addEventListener("click", () => {
-  if (!document.fullscreenElement) {
-    video.requestFullscreen();
-  }
-});
+// Button click
+btn.addEventListener("click", openFullscreen);
+
+// Tap video
+video.addEventListener("click", openFullscreen);
+
+let hideTimeout;
+
+// Function to show button
+function showButton() {
+  btn.style.opacity = "0.85";
+
+  // Reset timer every time user interacts
+  clearTimeout(hideTimeout);
+
+  hideTimeout = setTimeout(() => {
+    btn.style.opacity = "0";
+  }, 3000);
+}
+
+// Initial hide after load
+hideTimeout = setTimeout(() => {
+  btn.style.opacity = "0";
+}, 3000);
+
+// Show on interaction
+video.addEventListener("mouseenter", showButton);
+video.addEventListener("touchstart", showButton);
+video.addEventListener("click", showButton);
 </script>
 <script>
 /* 👰🏽‍♀️ WEDDING PARTY ACCESS */
