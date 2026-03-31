@@ -3,6 +3,7 @@
 
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Wedding Party Access</title>
    <link rel="stylesheet" href="styles.css">
   <!-- Fonts -->
@@ -87,10 +88,11 @@
 }  
 /* LOGIN BOX */
 .login-box {
-  margin: 80px auto;
-  padding: 40px 30px;
+  margin: 60px auto;
+  padding: 30px 20px;
   max-width: 400px;   /* ⬅️ key fix */
-
+  width: 90%;
+  
   border: 1px solid rgba(0,0,0,0.08);
   background: white;
 }
@@ -104,13 +106,24 @@
       width: 100%;
       max-width: 280px;
       padding: 12px;
+      font-size: 16px;
     }
 
     button {
-      padding: 10px 20px;
-      margin-top: 10px;
-      cursor: pointer;
-    }
+      padding: 12px 24px;
+      border: 1px solid var(--cherry);
+      background: transparent;
+
+      font-family: 'Playfair Display', serif;
+      letter-spacing: 1px;
+
+      transition: all 0.3s ease;
+}
+
+    button:hover {
+      background: var(--cherry);
+      color: white;
+}
 
     #error {
       color: red;
