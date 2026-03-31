@@ -231,19 +231,24 @@
    .subnav a.disabled::after {
       width: 0 !important;
 }
-   #fullscreenBtn {
-      position: absolute;
-      bottom: 20px;
-      right: 20px;
-      z-index: 10;
-      background: rgba(0,0,0,0.5);
-      color: white;
-      border: none;
-      padding: 10px 12px;
-      font-size: 16px;
-      cursor: pointer;
-      backdrop-filter: blur(6px);
+  .video-section {
+  position: relative;
 }
+
+#fullscreenBtn {
+  position: absolute;
+  bottom: 15px;
+  right: 15px;
+  z-index: 10;
+
+  background: rgba(0,0,0,0.5);
+  color: white;
+  border: none;
+  padding: 8px 10px;
+  font-size: 14px;
+  cursor: pointer;
+  border-radius: 4px;
+}}
     /* FOOTER */
     footer {
       padding: 20px;
@@ -252,6 +257,7 @@
       color: #aaa;
       text-align: center;
     }
+    
     </style>
     </head>
     
@@ -279,6 +285,7 @@
       <video id="weddingvideo" autoplay muted loop playsinline>
         <source src="your-video.mp4" type="video/mp4">
         Your browser does not support the video tag.
+        <button id="fullscreenBtn">⛶</button>    
       </video>
 
       <button class="unmute-btn" onclick="toggleSound()">Tap to Unmute</button>
@@ -357,11 +364,11 @@ function toggleSound() {
   btn.style.display = "none";
 }
 </script>
-
 <script>
-const video = document.getElementById("heroVideo");
+const video = document.getElementById("weddingvideo");
 const btn = document.getElementById("fullscreenBtn");
 
+// Button click → fullscreen
 btn.addEventListener("click", () => {
   if (!document.fullscreenElement) {
     video.requestFullscreen();
@@ -369,8 +376,8 @@ btn.addEventListener("click", () => {
     document.exitFullscreen();
   }
 });
-</script>
-<script>
+
+// Optional: tap video to fullscreen (mobile-friendly)
 video.addEventListener("click", () => {
   if (!document.fullscreenElement) {
     video.requestFullscreen();
