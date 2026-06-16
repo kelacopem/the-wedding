@@ -1,0 +1,377 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>RSVP | Kiara & Nana</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+
+body{
+    font-family:'Inter',sans-serif;
+    background:#f9f6f2;
+    color:#333;
+    margin:0;
+    padding:20px;
+}
+
+.container{
+    max-width:800px;
+    margin:50px auto;
+    background:white;
+    padding:40px;
+    border-radius:12px;
+    box-shadow:0 4px 20px rgba(0,0,0,.08);
+}
+
+h1{
+    font-family:'Playfair Display',serif;
+    color:#5a0f1c;
+    text-align:center;
+}
+
+.subtitle{
+    text-align:center;
+    color:#666;
+    margin-bottom:30px;
+}
+
+.form-group{
+    margin-bottom:20px;
+}
+
+label{
+    display:block;
+    margin-bottom:8px;
+    font-weight:500;
+}
+
+input,
+select,
+textarea{
+    width:100%;
+    padding:12px;
+    border:1px solid #ddd;
+    border-radius:8px;
+    box-sizing:border-box;
+}
+
+button{
+    background:#5a0f1c;
+    color:white;
+    border:none;
+    padding:14px 20px;
+    border-radius:8px;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#421019;
+}
+
+.guest-card{
+    border:1px solid #ddd;
+    padding:20px;
+    border-radius:10px;
+    margin-bottom:15px;
+}
+
+.hidden{
+    display:none;
+}
+
+#success{
+    text-align:center;
+    color:green;
+    font-weight:bold;
+    margin-top:20px;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>RSVP</h1>
+
+<p class="subtitle">
+Please respond by July 1, 2026
+</p>
+
+<div class="form-group">
+<label>Invitation Code</label>
+<input type="text" id="lookup" placeholder="Example: NK001">
+</div>
+
+<button type="button" onclick="findGuest()">
+Find My Invitation
+</button>
+
+<form id="rsvpForm" class="hidden">
+
+<div id="guestList"></div>
+
+<div class="form-group">
+<label>Hotel Accommodations</label>
+<select id="hotel" name="hotel">
+<option value="">Select Hotel</option>
+<option value="Holiday Inn Leesburg">
+Holiday Inn Leesburg
+</option>
+<option value="Home2 Suites Leesburg">
+Home2 Suites Leesburg
+</option>
+<option value="Hotel Burg">
+Hotel Burg
+</option>
+<option value="Lansdowne Resort">
+Lansdowne Resort
+</option>
+<option value="Other">
+Other
+</option>
+<option value="Not Staying at a Hotel">
+Not Staying at a Hotel
+</option>
+</select>
+</div>
+
+<div class="form-group hidden" id="otherHotelSection">
+<label>Please Specify Hotel</label>
+<input type="text" id="otherHotel">
+</div>
+
+<div class="form-group hidden" id="transportSection">
+<label>Will you need transportation to and from the wedding?</label>
+
+<select id="transportation">
+<option value="">Select</option>
+<option value="Yes">Yes</option>
+<option value="No">No</option>
+</select>
+</div>
+
+<div class="form-group">
+<label>Song Request</label>
+<input type="text" id="song">
+</div>
+
+<div class="form-group">
+<label>Message for the Couple</label>
+<textarea id="message" rows="4"></textarea>
+</div>
+
+<button type="submit">
+Submit RSVP
+</button>
+
+</form>
+
+<div id="success"></div>
+
+</div>
+
+<script>
+
+const scriptURL =
+'https://script.google.com/macros/s/YOUR_SCRIPT_ID/exec';
+
+let guestData = [];
+let currentGuests = [];
+
+fetch('guests.json')
+.then(res => res.json())
+.then(data => {
+    guestData = data;
+});
+
+function findGuest(){
+
+    const code =
+    document.getElementById('lookup')
+    .value
+    .trim()
+    .toUpperCase();
+
+    const match =
+    guestData.find(g => g.code === code);
+
+    if(!match){
+
+        alert('Invitation not found.');
+        return;
+    }
+
+    currentGuests = match.guests;
+
+    let html = '';
+
+    match.guests.forEach((guest,index)=>{
+
+        html += `
+        <div class="guest-card">
+
+            <h3>${guest}</h3>
+
+            <label>RSVP Response</label>
+
+            <select class="response" data-name="${guest}">
+                <option value="">Select</option>
+                <option value="Attending">Joyfully Accepts</option>
+                <option value="Declined">Regretfully Declines</option>
+            </select>
+
+            <br><br>
+
+            <label>Meal Selection</label>
+
+            <select class="meal" data-name="${guest}">
+                <option value="">Select Meal</option>
+                <option value="Chicken">Chicken</option>
+                <option value="Beef">Beef</option>
+                <option value="Vegetarian">Vegetarian</option>
+            </select>
+
+        </div>
+        `;
+
+    });
+
+    document.getElementById('guestList').innerHTML = html;
+
+    document.getElementById('rsvpForm')
+    .classList.remove('hidden');
+
+}
+
+document.getElementById('hotel')
+.addEventListener('change',function(){
+
+    const shuttleHotels = [
+        'Holiday Inn Leesburg',
+        'Home2 Suites Leesburg',
+        'Hotel Burg',
+        'Lansdowne Resort'
+    ];
+
+    if(shuttleHotels.includes(this.value)){
+
+        document
+        .getElementById('transportSection')
+        .classList.remove('hidden');
+
+    }else{
+
+        document
+        .getElementById('transportSection')
+        .classList.add('hidden');
+
+    }
+
+    if(this.value === 'Other'){
+
+        document
+        .getElementById('otherHotelSection')
+        .classList.remove('hidden');
+
+    }else{
+
+        document
+        .getElementById('otherHotelSection')
+        .classList.add('hidden');
+
+    }
+
+});
+
+document
+.getElementById('rsvpForm')
+.addEventListener('submit',function(e){
+
+    e.preventDefault();
+
+    const guestResponses = [];
+
+    document
+    .querySelectorAll('.response')
+    .forEach(responseField=>{
+
+        const guestName =
+        responseField.dataset.name;
+
+        const mealField =
+        document.querySelector(
+            `.meal[data-name="${guestName}"]`
+        );
+
+        guestResponses.push({
+            name: guestName,
+            response: responseField.value,
+            meal: mealField.value
+        });
+
+    });
+
+    const payload = {
+
+        invitationCode:
+        document.getElementById('lookup').value,
+
+        hotel:
+        document.getElementById('hotel').value,
+
+        otherHotel:
+        document.getElementById('otherHotel').value,
+
+        transportation:
+        document.getElementById('transportation').value,
+
+        song:
+        document.getElementById('song').value,
+
+        message:
+        document.getElementById('message').value,
+
+        guestResponses:
+        JSON.stringify(guestResponses)
+
+    };
+
+    fetch(scriptURL,{
+        method:'POST',
+        body:new URLSearchParams(payload)
+    })
+    .then(res=>res.json())
+    .then(data=>{
+
+        document
+        .getElementById('success')
+        .innerHTML =
+        'Thank you! Your RSVP has been received.';
+
+        document
+        .getElementById('rsvpForm')
+        .reset();
+
+    })
+    .catch(error=>{
+
+        alert(
+            'There was an error submitting your RSVP.'
+        );
+
+    });
+
+});
+
+</script>
+
+</body>
+</html>
+
