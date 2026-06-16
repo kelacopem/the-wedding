@@ -1,6 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<div class="monogram-banner">
+  <img src="monogram.png" alt="Monogram">
+
+  <nav class="subnav">
+    <a href="home.html">Home</a>
+    <a href="our-story.html">Our Story</a>
+    <a href="wedding-details.html">Details</a>
+    <a href="schedule.html">Schedule</a>
+    <a href="travel.html">Travel</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="wedding-party-login.html">Wedding Party</a>
+    <a href="rsvp.html">RSVP</a>
+  </nav>
+</div>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -9,7 +23,42 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 
 <style>
+.monogram-banner {
+  width: 100%;
+  text-align: center;
+  padding: 20px 0;
+  background-color: #f5f5f5;
+}
 
+.monogram-banner img {
+  width: 90px;
+  height: auto;
+}
+
+.subnav {
+  margin-top: 14px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 28px;
+  flex-wrap: wrap;
+}
+
+.subnav a {
+  font-family: 'Playfair Display', serif;
+  font-size: 10px;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #1a1a1a;
+  opacity: 0.85;
+  transition: 0.3s ease;
+}
+
+.subnav a:hover {
+  color: #5a0f1c;
+}
+    
 body{
     font-family:'Inter',sans-serif;
     background:#f9f6f2;
@@ -104,7 +153,7 @@ We look forward to celebrating with you!
 
 <!-- LOGIN -->
 <div class="form-group">
-<label>Please enter the last 5 digits of your phone number to access RSVP. </label>
+<label>Please enter the last 5 digits of your phone number to access RSVP details. </label>
 <input type="text" id="lookup" maxlength="5">
 </div>
 
