@@ -195,7 +195,9 @@ function findGuest(){
         return;
     }
 
-    const match = guestData.find(g => g.lookup === lookup);
+    const match = guestData.find(g =>
+    String(g.lookup).trim() === String(lookup).trim()
+);
 
     if(!match){
         alert("Invitation not found. Please check your number.");
