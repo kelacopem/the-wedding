@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,9 +13,9 @@
 body{
     font-family:'Inter',sans-serif;
     background:#f9f6f2;
-    color:#333;
     margin:0;
     padding:20px;
+    color:#333;
 }
 
 .container{
@@ -25,38 +24,36 @@ body{
     background:white;
     padding:40px;
     border-radius:12px;
-    box-shadow:0 4px 20px rgba(0,0,0,.08);
+    box-shadow:0 4px 20px rgba(0,0,0,0.08);
 }
 
 h1{
     font-family:'Playfair Display',serif;
-    color:#5a0f1c;
     text-align:center;
+    color:#5a0f1c;
 }
 
 .subtitle{
     text-align:center;
     color:#666;
-    margin-bottom:30px;
+    margin-bottom:25px;
 }
 
 .form-group{
-    margin-bottom:20px;
+    margin-bottom:18px;
 }
 
 label{
     display:block;
-    margin-bottom:8px;
+    margin-bottom:6px;
     font-weight:500;
 }
 
-input,
-select,
-textarea{
+input, select, textarea{
     width:100%;
     padding:12px;
-    border:1px solid #ddd;
     border-radius:8px;
+    border:1px solid #ddd;
     box-sizing:border-box;
 }
 
@@ -64,7 +61,8 @@ button{
     background:#5a0f1c;
     color:white;
     border:none;
-    padding:14px 20px;
+    padding:14px;
+    width:100%;
     border-radius:8px;
     cursor:pointer;
 }
@@ -74,10 +72,10 @@ button:hover{
 }
 
 .guest-card{
-    border:1px solid #ddd;
-    padding:20px;
+    border:1px solid #eee;
+    padding:15px;
+    margin-bottom:12px;
     border-radius:10px;
-    margin-bottom:15px;
 }
 
 .hidden{
@@ -101,69 +99,55 @@ button:hover{
 <h1>RSVP</h1>
 
 <p class="subtitle">
-Please respond by July 1, 2026
+We look forward to celebrating with you
 </p>
 
+<!-- LOGIN -->
 <div class="form-group">
-<label>
-We look forward to celebrating with you.<br> Please enter the last 5 digits of your phone number to begin your RSVP.
-</label>
-
-<input
-    type="text"
-    id="lookup"
-    maxlength="5"
-    placeholder="Example: 12345">
+<label>Please enter the last 5 digits of the phone number on your invitation</label>
+<input type="text" id="lookup" maxlength="5" placeholder="e.g. 15041">
 </div>
 
-<button type="button" onclick="findGuest()">
-Find My Invitation
-</button>
+<button type="button" onclick="findGuest()">Find My Invitation</button>
 
+<!-- RSVP FORM -->
 <form id="rsvpForm" class="hidden">
 
 <div id="guestList"></div>
 
+<!-- HOTEL -->
 <div class="form-group">
 <label>Hotel Accommodations</label>
-<select id="hotel" name="hotel">
-<option value="">Select Hotel</option>
-<option value="Holiday Inn Leesburg">
-Holiday Inn Leesburg
-</option>
-<option value="Home2 Suites Leesburg">
-Home2 Suites Leesburg
-</option>
-<option value="Hotel Burg">
-Hotel Burg
-</option>
-<option value="Lansdowne Resort">
-Lansdowne Resort
-</option>
-<option value="Other">
-Other
-</option>
-<option value="Not Staying at a Hotel">
-Not Staying at a Hotel
-</option>
+
+<select id="hotel">
+    <option value="">Select Hotel</option>
+    <option value="Holiday Inn Leesburg">Holiday Inn Leesburg</option>
+    <option value="Home2 Suites Leesburg">Home2 Suites Leesburg</option>
+    <option value="Hotel Burg">Hotel Burg</option>
+    <option value="Lansdowne Resort">Lansdowne Resort</option>
+    <option value="Other">Other</option>
+    <option value="Not Staying">Not Staying at a Hotel</option>
 </select>
+
 </div>
 
 <div class="form-group hidden" id="otherHotelSection">
-<label>Please Specify Hotel</label>
+<label>Please specify hotel</label>
 <input type="text" id="otherHotel">
 </div>
 
 <div class="form-group hidden" id="transportSection">
-<label>Will you need transportation to and from the wedding?</label>
+<label>Will you need transportation to/from the wedding?</label>
 
 <select id="transportation">
-<option value="">Select</option>
-<option value="Yes">Yes</option>
-<option value="No">No</option>
+    <option value="">Select</option>
+    <option value="Yes">Yes</option>
+    <option value="No">No</option>
 </select>
+
 </div>
 
+<!-- OPTIONAL -->
 <div class="form-group">
 <label>Song Request</label>
 <input type="text" id="song">
@@ -171,12 +155,10 @@ Not Staying at a Hotel
 
 <div class="form-group">
 <label>Message for the Couple</label>
-<textarea id="message" rows="4"></textarea>
+<textarea id="message"></textarea>
 </div>
 
-<button type="submit">
-Submit RSVP
-</button>
+<button type="submit">Submit RSVP</button>
 
 </form>
 
@@ -186,48 +168,51 @@ Submit RSVP
 
 <script>
 
-const scriptURL =
-'https://docs.google.com/spreadsheets/d/1EUAZeaJbrxMs-5e4mYJFMIp1elZFMDhTyAjY-DRJRP8/edit?gid=0#gid=0';
+/* =========================
+   GUEST DATABASE (JSON FILE)
+   ========================= */
 
 let guestData = [];
-let currentGuests = [];
+let dataLoaded = false;
 
 fetch('guests.json')
 .then(res => res.json())
 .then(data => {
     guestData = data;
+    dataLoaded = true;
 });
+
+/* =========================
+   LOOKUP FUNCTION
+   ========================= */
 
 function findGuest(){
 
-   const lookup =
-document.getElementById('lookup')
-.value
-.trim();
+    const lookup = document.getElementById('lookup').value.trim();
 
-const match =
-guestData.find(g => g.lookup === lookup);
-
-    if(!match){
-
-        alert('Invitation not found.');
+    if(!dataLoaded){
+        alert("Loading invitations... please try again.");
         return;
     }
 
-    currentGuests = match.guests;
+    const match = guestData.find(g => g.lookup === lookup);
 
-    let html = '';
+    if(!match){
+        alert("Invitation not found. Please check your number.");
+        return;
+    }
 
-    match.guests.forEach((guest,index)=>{
+    let html = "";
+
+    match.guests.forEach(name => {
 
         html += `
         <div class="guest-card">
 
-            <h3>${guest}</h3>
+            <h3>${name}</h3>
 
-            <label>RSVP Response</label>
-
-            <select class="response" data-name="${guest}">
+            <label>RSVP</label>
+            <select class="response" data-name="${name}">
                 <option value="">Select</option>
                 <option value="Attending">Joyfully Accepts</option>
                 <option value="Declined">Regretfully Declines</option>
@@ -235,132 +220,82 @@ guestData.find(g => g.lookup === lookup);
 
         </div>
         `;
-
     });
 
     document.getElementById('guestList').innerHTML = html;
-
-    document.getElementById('rsvpForm')
-    .classList.remove('hidden');
-
+    document.getElementById('rsvpForm').classList.remove('hidden');
 }
 
-document.getElementById('hotel')
-.addEventListener('change',function(){
+/* =========================
+   HOTEL LOGIC
+   ========================= */
+
+document.getElementById('hotel').addEventListener('change', function(){
 
     const shuttleHotels = [
-        'Holiday Inn Leesburg',
-        'Home2 Suites Leesburg',
-        'Hotel Burg',
-        'Lansdowne Resort'
+        "Holiday Inn Leesburg",
+        "Home2 Suites Leesburg",
+        "Hotel Burg",
+        "Lansdowne Resort"
     ];
 
-    if(shuttleHotels.includes(this.value)){
+    document.getElementById('transportSection')
+        .classList.toggle('hidden', !shuttleHotels.includes(this.value));
 
-        document
-        .getElementById('transportSection')
-        .classList.remove('hidden');
-
-    }else{
-
-        document
-        .getElementById('transportSection')
-        .classList.add('hidden');
-
-    }
-
-    if(this.value === 'Other'){
-
-        document
-        .getElementById('otherHotelSection')
-        .classList.remove('hidden');
-
-    }else{
-
-        document
-        .getElementById('otherHotelSection')
-        .classList.add('hidden');
-
-    }
-
+    document.getElementById('otherHotelSection')
+        .classList.toggle('hidden', this.value !== "Other");
 });
 
-document
-.getElementById('rsvpForm')
-.addEventListener('submit',function(e){
+/* =========================
+   SUBMIT RSVP → GOOGLE SHEETS
+   ========================= */
+
+const scriptURL = "https://script.google.com/macros/s/AKfycbwKGFrAux42lwmiOiMdSTxQxpjjICVdYMqAnVUDgIqiNxS02TYn17SaTsP7DHFnahlW/exec";
+
+document.getElementById('rsvpForm').addEventListener('submit', function(e){
 
     e.preventDefault();
 
     const guestResponses = [];
 
-    document
-    .querySelectorAll('.response')
-    .forEach(responseField=>{
+    document.querySelectorAll('.response').forEach(r => {
 
-        const guestName =
-        responseField.dataset.name;
+        const name = r.dataset.name;
 
-        const mealField =
-        document.querySelector(
-            `.meal[data-name="${guestName}"]`
+        const meal = document.querySelector(
+            `.meal[data-name="${name}"]`
         );
 
         guestResponses.push({
-            name: guestName,
-            response: responseField.value,
-            meal: mealField.value
+            name: name,
+            response: r.value,
+            meal: meal.value
         });
-
     });
 
     const payload = {
-
-        invitationCode:
-        document.getElementById('lookup').value,
-
-        hotel:
-        document.getElementById('hotel').value,
-
-        otherHotel:
-        document.getElementById('otherHotel').value,
-
-        transportation:
-        document.getElementById('transportation').value,
-
-        song:
-        document.getElementById('song').value,
-
-        message:
-        document.getElementById('message').value,
-
-        guestResponses:
-        JSON.stringify(guestResponses)
-
+        lookup: document.getElementById('lookup').value,
+        hotel: document.getElementById('hotel').value,
+        otherHotel: document.getElementById('otherHotel')?.value || "",
+        transportation: document.getElementById('transportation')?.value || "",
+        song: document.getElementById('song').value,
+        message: document.getElementById('message').value,
+        guestResponses: JSON.stringify(guestResponses)
     };
 
-    fetch(scriptURL,{
-        method:'POST',
-        body:new URLSearchParams(payload)
+    fetch(scriptURL, {
+        method: "POST",
+        body: new URLSearchParams(payload)
     })
-    .then(res=>res.json())
-    .then(data=>{
+    .then(() => {
 
-        document
-        .getElementById('success')
-        .innerHTML =
-        'Thank you! Your RSVP has been received.';
+        document.getElementById('success').innerHTML =
+        "Thank you! Your RSVP has been received.";
 
-        document
-        .getElementById('rsvpForm')
-        .reset();
-
+        document.getElementById('rsvpForm').reset();
     })
-    .catch(error=>{
-
-        alert(
-            'There was an error submitting your RSVP.'
-        );
-
+    .catch(() => {
+        alert("There was an error submitting your RSVP.");
     });
 
 });
@@ -369,4 +304,3 @@ document
 
 </body>
 </html>
-
