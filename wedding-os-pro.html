@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Wedding OS Pro</title>
+
+<style>
+body{
+    font-family: Inter, sans-serif;
+    background:white;
+    padding:20px;
+}
+
+h1{
+    color:#5a0f1c;
+}
+
+.topbar{
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+    margin-bottom:15px;
+}
+
+input, select, button{
+    padding:10px;
+    border-radius:8px;
+    border:1px solid #ddd;
+}
+
+button{
+    background:#5a0f1c;
+    color:white;
+    border:none;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#3e0c15;
+}
+
+.stats{
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+    margin-bottom:15px;
+}
+
+.stat{
+    background:#f8f8f8;
+    padding:10px 15px;
+    border-radius:10px;
+}
+
+.card{
+    background:#fff;
+    border:1px solid #eee;
+    padding:15px;
+    margin-bottom:10px;
+    border-radius:10px;
+    box-shadow:0 2px 6px rgba(0,0,0,0.05);
+}
+
+.badge{
+    padding:4px 8px;
+    border-radius:20px;
+    font-size:12px;
+}
+
+.Attending{background:#d4f8d4;}
+.Declined{background:#ffd6d6;}
+.Pending{background:#eee;}
+</style>
+</head>
+
+<body>
+
+<h1>💎 Wedding OS Pro</h1>
+
+<div class="topbar">
+    <input id="search" placeholder="Search guest...">
+
+    <select id="filter" onchange="filter()">
+        <option value="ALL">All</option>
+        <option value="Attending">Attending</option>
+        <option value="Declined">Declined</option>
+        <option value="Pending">No Response</option>
+    </select>
+
+    <button onclick="exportCSV()">Export CSV</button>
+</div>
+
+<div class="stats">
+    <div class="stat" id="total">Total: 0</div>
+    <div class="stat" id="attending">Attending: 0</div>
+    <div class="stat" id="declined">Declined: 0</div>
+    <div class="stat" id="pending">Pending: 0</div>
+</div>
+
+<div id="list"></div>
+
+<script>
+
+const scriptURL = "YOUR_DEPLOYED_WEB_APP_URL";
+
+let store = [];
+
+async function load(){
+
+    const res = await fetch(scriptURL);
+    const data = await res.json();
+
+    store = data;
+
+    let attending = 0;
+    let declined = 0;
+    let pending = 0;
+
+    let html = "";
+
+    data.forEach(g => {
+
+        if(g.status === "Attending") attending++;
+        else if(g.status === "Declined") declined++;
+        else pending++;
+
+        html += `
+        <div class="card"
+            data-name="${g.name}"
+            data-status="${g.status || "Pending"}">
+
+            <b>${g.name}</b><br>
+
+            <span class="badge ${g.status || "Pending"}">
+                ${g.status || "Pending"}
+            </span>
+
+            <div>Follow Up: ${g.followUp || "No"}</div>
+            <div>Checked In: ${g.checkedIn || "No"}</div>
+
+            <br>
+
+            <button onclick="edit('${g.name}')">Update RSVP</button>
+            <button onclick="follow('${g.name}')">Follow Up</button>
+            <button onclick="checkin('${g.name}')">Check In</button>
+        </div>
+        `;
+    });
+
+    document.getElementById("list").innerHTML = html;
+
+    document.getElementById("total").innerText = "Total: " + data.length;
+    document.getElementById("attending").innerText = "Attending: " + attending;
+    document.getElementById("declined").innerText = "Declined: " + declined;
+    document.getElementById("pending").innerText = "Pending: " + pending;
+}
+
+function filter(){
+    let f = document.getElementById("filter").value;
+
+    document.querySelectorAll(".card").forEach(c => {
+
+        let s = c.dataset.status;
+
+        if(f === "ALL") c.style.display = "block";
+        else if(s === f) c.style.display = "block";
+        else if(f === "Pending" && (!s || s === "Pending")) c.style.display = "block";
+        else c.style.display = "none";
+    });
+}
+
+document.getElementById("search").addEventListener("input", e => {
+
+    let val = e.target.value.toLowerCase();
+
+    document.querySelectorAll(".card").forEach(c => {
+        c.style.display = c.dataset.name.toLowerCase().includes(val)
+            ? "block"
+            : "none";
+    });
+});
+
+function edit(name){
+    let status = prompt("Enter: Attending / Declined / Pending");
+    fetch(scriptURL + "?name=" + name + "&status=" + status)
+        .then(load);
+}
+
+function follow(name){
+    fetch(scriptURL + "?followup=" + name)
+        .then(load);
+}
+
+function checkin(name){
+    fetch(scriptURL + "?checkin=" + name)
+        .then(load);
+}
+
+function exportCSV(){
+    let csv = "Name,Status,FollowUp,CheckedIn\n";
+
+    store.forEach(g => {
+        csv += `${g.name},${g.status},${g.followUp},${g.checkedIn}\n`;
+    });
+
+    download(csv,"wedding_os_pro.csv");
+}
+
+function download(data,name){
+    const blob = new Blob([data],{type:"text/csv"});
+    const url = URL.createObjectURL(blob);
+
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = name;
+    a.click();
+}
+
+load();
+setInterval(load,5000);
+
+</script>
+
+</body>
+</html>
