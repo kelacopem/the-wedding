@@ -232,13 +232,13 @@ const guestData = [
   { lookup:"55275", guests:["Lydia Opoku","Dennis Opoku"] },
   { lookup:"58663", guests:["Toni Rogers","Rick Rogers"] },
   { lookup:"77554", guests:["Jairo Castro Rivera","Tatiana Marquez"] },
-  { lookup:"58595", guests:["Tia Marshall","Donalto Marshall] },
+  { lookup:"58595", guests:["Tia Marshall","Donalto Marshall"] },
   { lookup:"46245", guests:["Pranav Gangele","Gurpreet Mann"] },
   { lookup:"18236", guests:["Kris McNeil","Dayna Tomayko"] },
   { lookup:"07367", guests:["April Briddell","Reynard Ramos"] },
   { lookup:"41382", guests:["Bridgette Tate","Alex Tate"] },
   { lookup:"07969", guests:["Shavonne Richardson","Jonathan Jumi"] },
-  { lookup:"06914", guests:["Mr.James Starks","Mrs.Lori Starks] },
+  { lookup:"06914", guests:["Mr.James Starks","Mrs.Lori Starks"] },
   { lookup:"73896", guests:["Mr.James H. Curtis","Mrs.Cecelia Y. Curtis"] },
   { lookup:"43097", guests:["Mislyne Apollon","Moise Apollon"] },
   { lookup:"52102", guests:["Markus Coley","Dominique Lowery"] },
@@ -299,7 +299,7 @@ const guestData = [
   { lookup:"37370", guests:["Mr.Vince Gaddis","Mrs.Cathy Gaddis"] },
   { lookup:"*****", guests:["Kim Crump"] },
   { lookup:"78919", guests:["Allyson Abrams"] },
-  { lookup:"78785", guests:["Mr.Charles Kumi","Mrs.Gifty Kumi"] },
+  { lookup:"78785", guests:["Mr.Charles Kumi","Mrs.Gifty Kumi"] }
 ];
 
 function findGuest(){
@@ -380,7 +380,9 @@ document.getElementById('rsvpForm').addEventListener('submit', function(e){
         document.getElementById('success').innerHTML =
         "Thank you! Your RSVP has been received.";
 
-        document.getElementById('rsvpForm').reset();
+       document.getElementById('rsvpForm').reset();
+document.getElementById('guestList').innerHTML = "";
+document.getElementById('rsvpForm').classList.add('hidden');
     })
     .catch(() => {
         alert("There was an error submitting your RSVP.");
