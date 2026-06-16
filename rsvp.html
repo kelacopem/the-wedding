@@ -198,12 +198,9 @@ We look forward to celebrating with you!
     guests: ["John Gladney","Alandria Gladney"]
   },
   {
-    "lookup": "63657",
-    "guests": [
-      "Eric Ellis",
-      "Marsha Ellis"
-    ]
-  },
+    lookup: "63657",
+    guests: ["Eric Ellis","Marsha Ellis"]
+          },
   {
     lookup: "27747",
     guests: ["Kwame Amo-Awuah","Laila Smith"]
@@ -250,7 +247,6 @@ We look forward to celebrating with you!
   },
   
 ]
-];
 
 /* =========================
    LOOKUP FUNCTION
@@ -336,7 +332,7 @@ document.getElementById('rsvpForm').addEventListener('submit', function(e){
         guestResponses.push({
             name: name,
             response: r.value,
-            meal: meal.value
+            meal: ""
         });
     });
 
