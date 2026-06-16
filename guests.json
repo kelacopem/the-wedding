@@ -1,0 +1,25 @@
+
+[
+  {
+    "lookup": "12345",
+    "guests": [
+      "John Smith",
+      "Jane Smith"
+    ]
+  },
+  {
+    "lookup": "67890",
+    "guests": [
+      "Robert Jones",
+      "Sarah Jones"
+    ]
+  },
+  {
+    "lookup": "54321",
+    "guests": [
+      "Kiara Copeman",
+      "Nana Yeboah"
+    ]
+  }
+]
+
