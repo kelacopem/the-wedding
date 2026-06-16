@@ -294,20 +294,21 @@ document.getElementById('rsvpForm').addEventListener('submit', function(e){
         guestResponses: JSON.stringify(guestResponses)
     };
 
-   fetch(scriptURL, {
-    method: "POST",
-    body: new URLSearchParams(payload)
-})
-.then(async (res) => {
-    const text = await res.text();
-    console.log("RESPONSE:", text);
-    alert("Server response: " + text);
-})
-.catch((err) => {
-    console.error("FETCH ERROR:", err);
-    alert("Fetch failed — check console");
-});
+    fetch(scriptURL, {
+        method: "POST",
+        body: new URLSearchParams(payload)
+    })
+    .then(() => {
 
+        // THIS is the success message line
+        document.getElementById('success').innerHTML =
+        "Thank you! Your RSVP has been received.";
+
+        document.getElementById('rsvpForm').reset();
+    })
+    .catch(() => {
+        alert("There was an error submitting your RSVP.");
+    });
 });
 
 </script>
