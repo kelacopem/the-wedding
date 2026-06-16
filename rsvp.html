@@ -187,7 +187,7 @@ Submit RSVP
 <script>
 
 const scriptURL =
-'https://script.google.com/macros/s/YOUR_SCRIPT_ID/exec';
+'https://docs.google.com/spreadsheets/d/1EUAZeaJbrxMs-5e4mYJFMIp1elZFMDhTyAjY-DRJRP8/edit?gid=0#gid=0';
 
 let guestData = [];
 let currentGuests = [];
@@ -231,17 +231,6 @@ guestData.find(g => g.lookup === lookup);
                 <option value="">Select</option>
                 <option value="Attending">Joyfully Accepts</option>
                 <option value="Declined">Regretfully Declines</option>
-            </select>
-
-            <br><br>
-
-            <label>Meal Selection</label>
-
-            <select class="meal" data-name="${guest}">
-                <option value="">Select Meal</option>
-                <option value="Chicken">Chicken</option>
-                <option value="Beef">Beef</option>
-                <option value="Vegetarian">Vegetarian</option>
             </select>
 
         </div>
