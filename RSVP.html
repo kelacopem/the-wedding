@@ -105,8 +105,15 @@ Please respond by July 1, 2026
 </p>
 
 <div class="form-group">
-<label>Invitation Code</label>
-<input type="text" id="lookup" placeholder="Example: NK001">
+<label>
+Enter the Last 5 Digits of the Phone Number on Your Invitation
+</label>
+
+<input
+    type="text"
+    id="lookup"
+    maxlength="5"
+    placeholder="Example: 12345">
 </div>
 
 <button type="button" onclick="findGuest()">
@@ -193,14 +200,13 @@ fetch('guests.json')
 
 function findGuest(){
 
-    const code =
-    document.getElementById('lookup')
-    .value
-    .trim()
-    .toUpperCase();
+   const lookup =
+document.getElementById('lookup')
+.value
+.trim();
 
-    const match =
-    guestData.find(g => g.code === code);
+const match =
+guestData.find(g => g.lookup === lookup);
 
     if(!match){
 
