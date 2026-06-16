@@ -105,7 +105,7 @@ We look forward to celebrating with you!
 <!-- LOGIN -->
 <div class="form-group">
 <label>Please enter the last 5 digits of your phone number to access RSVP. </label>
-<input type="text" id="lookup" maxlength="5" placeholder="e.g. 15041">
+<input type="text" id="lookup" maxlength="5">
 </div>
 
 <button type="button" onclick="findGuest()">Find My Invitation</button>
@@ -168,19 +168,21 @@ We look forward to celebrating with you!
 
 <script>
 
-/* =========================
-   GUEST DATABASE (JSON FILE)
-   ========================= */
-
-let guestData = [];
-let dataLoaded = false;
-
-fetch('guests.json')
-.then(res => res.json())
-.then(data => {
-    guestData = data;
-    dataLoaded = true;
-});
+    const guestData = [
+  {
+    lookup: "15041",
+    guests: ["Kiara Copeman", "Nana Yeboah", "Ava Copeman"]
+  },
+  {
+    lookup: "80340",
+    guests: ["Amana Simmons", "Mark Simmons"]
+  },
+  {
+    lookup: "19380",
+    guests: ["Adiya Ingram", "Justin Bridgewater"]
+  }
+    
+];
 
 /* =========================
    LOOKUP FUNCTION
@@ -190,17 +192,12 @@ function findGuest(){
 
     const lookup = document.getElementById('lookup').value.trim();
 
-    if(!dataLoaded){
-        alert("Loading invitations... please try again.");
-        return;
-    }
-
     const match = guestData.find(g =>
-    String(g.lookup).trim() === String(lookup).trim()
-);
+        String(g.lookup) === String(lookup)
+    );
 
     if(!match){
-        alert("Invitation not found. Please check your number.");
+        alert("We couldn’t find your invitation. Please check your code.");
         return;
     }
 
