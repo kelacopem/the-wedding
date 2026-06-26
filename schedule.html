@@ -1,5 +1,89 @@
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+/* Wedding Timeline */
+
+.timeline-section{
+    background:#faf9f7;
+    padding:80px 20px;
+    text-align:center;
+}
+
+.timeline-container{
+    max-width:1200px;
+    margin:auto;
+}
+
+.page-title{
+    font-family:'Playfair Display', serif;
+    font-size:52px;
+    font-weight:500;
+    color:#5A0F1C;
+    margin-bottom:12px;
+}
+
+.section-title{
+    font-family:'Playfair Display', serif;
+    font-size:34px;
+    font-weight:500;
+    color:#5A0F1C;
+    margin-bottom:18px;
+}
+
+.timeline-intro{
+    font-family:'Inter', sans-serif;
+    font-size:18px;
+    color:#666;
+    max-width:700px;
+    margin:0 auto 45px;
+    line-height:1.8;
+}
+
+.timeline-image-wrapper{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    width:100%;
+}
+
+.timeline-image{
+    width:100%;
+    max-width:900px;
+    height:auto;
+    border-radius:12px;
+    box-shadow:0 15px 40px rgba(0,0,0,.15);
+}
+
+/* Mobile */
+
+@media (max-width:768px){
+
+.page-title{
+    font-size:38px;
+}
+
+.section-title{
+    font-size:28px;
+}
+
+.timeline-intro{
+    font-size:16px;
+    padding:0 15px;
+}
+
+.timeline-image{
+    max-width:100%;
+}
+
+}
+</style>
+
 <section class="timeline-section">
-    <div class="container">
+
+    <div class="timeline-container">
+
+        <h1 class="page-title">Wedding Details</h1>
 
         <h2 class="section-title">Wedding Timeline</h2>
 
@@ -9,9 +93,10 @@
 
         <div class="timeline-image-wrapper">
             <img src="500PM.png"
-                 alt="Kiara and Nana Wedding Timeline"
+                 alt="Kiara & Nana Wedding Timeline"
                  class="timeline-image">
         </div>
 
     </div>
+
 </section>
