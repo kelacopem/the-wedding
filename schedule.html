@@ -1,27 +1,22 @@
-<!-- Website designed and developed by Kiara -->
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<title>Wedding Schedule | Kiara & Nana</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@400;500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@400;600&family=Inter:wght@300;400&display=swap" rel="stylesheet">
 
 <style>
 :root{
     --soft-black:#1a1a1a;
-    --cherry:#5A0F1C;
+    --cherry:#5a0f1c;
+    --violet:#2d0f3a;
     --soft-white:#f5f5f5;
-    --warm-white:#faf9f7;
 }
 
 body{
     margin:0;
-    font-family:'Inter', sans-serif;
+    font-family:'Inter',sans-serif;
     background:var(--soft-white);
     color:var(--soft-black);
 }
+
+/* Navigation */
 
 .monogram-banner{
     width:100%;
@@ -45,14 +40,14 @@ body{
 }
 
 .subnav a{
-    font-family:'Playfair Display', serif;
+    font-family:'Playfair Display',serif;
     font-size:10px;
     letter-spacing:2.5px;
     text-transform:uppercase;
     text-decoration:none;
     color:var(--soft-black);
     opacity:.85;
-    white-space:nowrap;
+    transition:.3s;
 }
 
 .subnav a::after{
@@ -67,7 +62,6 @@ body{
 
 .subnav a:hover{
     color:var(--cherry);
-    opacity:1;
 }
 
 .subnav a:hover::after{
@@ -76,50 +70,39 @@ body{
 
 .subnav a.disabled{
     pointer-events:none;
-    opacity:.3;
-    color:#999;
+    opacity:.35;
 }
 
-.timeline-section{
-    background:var(--warm-white);
-    padding:80px 20px;
+/* Schedule Hero */
+
+.schedule-hero{
     text-align:center;
+    padding:70px 20px 50px;
+    background:linear-gradient(rgba(255,255,255,.88),rgba(255,255,255,.92)),
+               url("https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1800&q=80")
+               center/cover;
 }
 
-.timeline-container{
-    max-width:1200px;
-    margin:0 auto;
-}
-
-.page-title{
-    font-family:'Playfair Display', serif;
-    font-size:52px;
-    font-weight:500;
+.schedule-hero h1{
+    font-family:'Playfair Display',serif;
+    font-size:48px;
     color:var(--cherry);
-    margin:0 0 12px;
+    margin-bottom:10px;
 }
 
-.section-title{
-    font-family:'Playfair Display', serif;
-    font-size:34px;
-    font-weight:500;
-    color:var(--cherry);
-    margin:0 0 18px;
-}
-
-.timeline-intro{
+.schedule-hero p{
     font-size:18px;
     color:#666;
-    max-width:700px;
-    margin:0 auto 45px;
+    max-width:650px;
+    margin:auto;
     line-height:1.8;
 }
 
-.timeline-image-wrapper{
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    width:100%;
+/* Timeline */
+
+.timeline-section{
+    padding:70px 20px;
+    text-align:center;
 }
 
 .timeline-image{
@@ -127,50 +110,27 @@ body{
     width:100%;
     max-width:900px;
     height:auto;
+    margin:0 auto;
     border-radius:12px;
-    box-shadow:0 15px 40px rgba(0,0,0,.15);
-}
-
-footer{
-    padding:25px 20px;
-    text-align:center;
-    font-family:'Playfair Display', serif;
-    font-size:12px;
-    letter-spacing:2px;
-    color:#999;
-    background:var(--soft-white);
+    box-shadow:0 18px 40px rgba(0,0,0,.15);
 }
 
 @media(max-width:768px){
-    .subnav{
-        gap:18px;
-        padding:0 10px;
-    }
 
-    .subnav a{
-        font-size:9px;
-        letter-spacing:2px;
-    }
+.schedule-hero h1{
+    font-size:36px;
+}
 
-    .page-title{
-        font-size:38px;
-    }
+.schedule-hero p{
+    font-size:16px;
+}
 
-    .section-title{
-        font-size:28px;
-    }
-
-    .timeline-intro{
-        font-size:16px;
-        padding:0 15px;
-    }
 }
 </style>
-</head>
 
-<body>
-
+<!-- NAVIGATION -->
 <div class="monogram-banner">
+
     <img src="monogram.png" alt="Monogram">
 
     <nav class="subnav">
@@ -183,31 +143,25 @@ footer{
         <a href="wedding-party-login.html">Wedding Party</a>
         <a href="rsvp.html">RSVP</a>
     </nav>
+
 </div>
 
-<section class="timeline-section">
-    <div class="timeline-container">
+<!-- PAGE HEADER -->
+<section class="schedule-hero">
 
-        <h1 class="page-title">Wedding Details</h1>
+    <h1>Wedding Schedule</h1>
 
-        <h2 class="section-title">Wedding Timeline</h2>
+    <p>
+        We can't wait to celebrate with you. Below is the timeline for our special day.
+    </p>
 
-        <p class="timeline-intro">
-            We can't wait to celebrate with you. Here's what to expect throughout the evening.
-        </p>
-
-        <div class="timeline-image-wrapper">
-            <img src="500PM.png"
-                 alt="Kiara & Nana Wedding Timeline"
-                 class="timeline-image">
-        </div>
-
-    </div>
 </section>
 
-<footer>
-    YEBOAH EVER AFTER
-</footer>
+<!-- TIMELINE - ONLY ONE IMAGE -->
+<section class="timeline-section">
 
-</body>
-</html>
+    <img src="500PM.png"
+         alt="Kiara & Nana Wedding Timeline"
+         class="timeline-image">
+
+</section>
