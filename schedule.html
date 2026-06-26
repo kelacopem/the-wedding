@@ -1,4 +1,169 @@
 <!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@400;600&family=Inter:wght@300;400&display=swap" rel="stylesheet">
+
+<style>
+:root{
+    --soft-black:#1a1a1a;
+    --cherry:#5a0f1c;
+    --violet:#2d0f3a;
+    --soft-white:#f5f5f5;
+}
+
+body{
+    margin:0;
+    font-family:'Inter',sans-serif;
+    background:var(--soft-white);
+    color:var(--soft-black);
+}
+
+/* Navigation */
+
+.monogram-banner{
+    width:100%;
+    text-align:center;
+    padding:20px 0;
+    background:var(--soft-white);
+}
+
+.monogram-banner img{
+    width:90px;
+    height:auto;
+}
+
+.subnav{
+    margin-top:14px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:28px;
+    flex-wrap:wrap;
+}
+
+.subnav a{
+    font-family:'Playfair Display',serif;
+    font-size:10px;
+    letter-spacing:2.5px;
+    text-transform:uppercase;
+    text-decoration:none;
+    color:var(--soft-black);
+    opacity:.85;
+    transition:.3s;
+}
+
+.subnav a::after{
+    content:"";
+    display:block;
+    width:0;
+    height:.5px;
+    background:var(--cherry);
+    margin:6px auto 0;
+    transition:.3s;
+}
+
+.subnav a:hover{
+    color:var(--cherry);
+}
+
+.subnav a:hover::after{
+    width:100%;
+}
+
+.subnav a.disabled{
+    pointer-events:none;
+    opacity:.35;
+}
+
+/* Schedule Hero */
+
+.schedule-hero{
+    text-align:center;
+    padding:70px 20px 50px;
+    background:linear-gradient(rgba(255,255,255,.88),rgba(255,255,255,.92)),
+               url("https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1800&q=80")
+               center/cover;
+}
+
+.schedule-hero h1{
+    font-family:'Playfair Display',serif;
+    font-size:48px;
+    color:var(--cherry);
+    margin-bottom:10px;
+}
+
+.schedule-hero p{
+    font-size:18px;
+    color:#666;
+    max-width:650px;
+    margin:auto;
+    line-height:1.8;
+}
+
+/* Timeline */
+
+.timeline-section{
+    padding:70px 20px;
+    text-align:center;
+}
+
+.timeline-image{
+    width:100%;
+    max-width:900px;
+    height:auto;
+    border-radius:12px;
+    box-shadow:0 18px 40px rgba(0,0,0,.15);
+}
+
+@media(max-width:768px){
+
+.schedule-hero h1{
+    font-size:36px;
+}
+
+.schedule-hero p{
+    font-size:16px;
+}
+
+}
+</style>
+
+<!-- NAVIGATION -->
+<div class="monogram-banner">
+
+    <img src="monogram.png" alt="Monogram">
+
+    <nav class="subnav">
+        <a href="home.html">Home</a>
+        <a href="our-story.html">Our Story</a>
+        <a href="wedding-details.html">Details</a>
+        <a href="schedule.html">Schedule</a>
+        <a href="travel.html">Travel</a>
+        <a href="gallery.html" class="disabled">Gallery</a>
+        <a href="wedding-party-login.html">Wedding Party</a>
+        <a href="rsvp.html">RSVP</a>
+    </nav>
+
+</div>
+
+<!-- PAGE HEADER -->
+<section class="schedule-hero">
+
+    <h1>Wedding Schedule</h1>
+
+    <p>
+        We can't wait to celebrate with you. Below is the timeline for our special day.
+    </p>
+
+</section>
+
+<!-- TIMELINE -->
+<section class="timeline-section">
+
+    <img src="500PM.png"
+         alt="Kiara & Nana Wedding Timeline"
+         class="timeline-image">
+
+</section>
+<!-- Google Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 
 <style>
