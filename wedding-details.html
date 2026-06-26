@@ -1,0 +1,325 @@
+<!-- Website designed and developed by Kiara -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Wedding Details | Kiara & Nana</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@400;500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+:root{
+    --soft-black:#1a1a1a;
+    --cherry:#5a0f1c;
+    --violet:#2d0f3a;
+    --soft-white:#f5f5f5;
+    --warm-white:#faf9f7;
+}
+
+body{
+    margin:0;
+    font-family:'Inter', sans-serif;
+    background:var(--soft-white);
+    color:var(--soft-black);
+}
+
+/* NAVIGATION */
+
+.monogram-banner{
+    width:100%;
+    text-align:center;
+    padding:20px 0;
+    background:var(--soft-white);
+}
+
+.monogram-banner img{
+    width:90px;
+    height:auto;
+}
+
+.subnav{
+    margin-top:14px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:28px;
+    flex-wrap:wrap;
+}
+
+.subnav a{
+    font-family:'Playfair Display', serif;
+    font-size:10px;
+    letter-spacing:2.5px;
+    text-transform:uppercase;
+    text-decoration:none;
+    color:var(--soft-black);
+    opacity:.85;
+    white-space:nowrap;
+    transition:.3s ease;
+}
+
+.subnav a::after{
+    content:"";
+    display:block;
+    width:0;
+    height:.5px;
+    background:var(--cherry);
+    margin:6px auto 0;
+    transition:.3s ease;
+}
+
+.subnav a:hover{
+    color:var(--cherry);
+    opacity:1;
+}
+
+.subnav a:hover::after{
+    width:100%;
+}
+
+.subnav a.disabled{
+    pointer-events:none;
+    opacity:.35;
+    color:#999;
+}
+
+/* HERO */
+
+.details-hero{
+    text-align:center;
+    padding:75px 20px 60px;
+    background:
+        linear-gradient(rgba(255,255,255,.88), rgba(255,255,255,.94)),
+        url("https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1800&q=80")
+        center/cover no-repeat;
+}
+
+.details-hero h1{
+    font-family:'Playfair Display', serif;
+    font-size:52px;
+    font-weight:500;
+    color:var(--cherry);
+    margin:0 0 12px;
+}
+
+.details-hero p{
+    max-width:650px;
+    margin:0 auto;
+    font-size:18px;
+    color:#666;
+    line-height:1.8;
+}
+
+/* CONTENT */
+
+.details-section{
+    padding:70px 20px;
+    background:var(--warm-white);
+}
+
+.details-container{
+    max-width:1050px;
+    margin:0 auto;
+    display:grid;
+    grid-template-columns:repeat(2, 1fr);
+    gap:28px;
+}
+
+.detail-card{
+    background:#fff;
+    padding:38px 30px;
+    border:1px solid rgba(90,15,28,.15);
+    box-shadow:0 15px 35px rgba(0,0,0,.06);
+    text-align:center;
+}
+
+.detail-card h2{
+    font-family:'Playfair Display', serif;
+    font-size:28px;
+    font-weight:500;
+    color:var(--cherry);
+    margin:0 0 18px;
+}
+
+.detail-card p{
+    font-size:16px;
+    line-height:1.8;
+    color:#555;
+    margin:8px 0;
+}
+
+.detail-card a{
+    color:var(--cherry);
+    text-decoration:none;
+    border-bottom:1px solid var(--cherry);
+}
+
+.full-width{
+    grid-column:1 / -1;
+}
+
+/* BUTTON */
+
+.rsvp-button{
+    display:inline-block;
+    margin-top:18px;
+    padding:13px 34px;
+    border:1px solid var(--cherry);
+    color:var(--cherry);
+    text-decoration:none;
+    font-family:'Playfair Display', serif;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    font-size:12px;
+    transition:.3s ease;
+}
+
+.rsvp-button:hover{
+    background:var(--cherry);
+    color:white;
+}
+
+/* FOOTER */
+
+footer{
+    padding:25px 20px;
+    text-align:center;
+    font-family:'Playfair Display', serif;
+    font-size:12px;
+    letter-spacing:2px;
+    color:#999;
+    background:var(--soft-white);
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+    .subnav{
+        gap:18px;
+        padding:0 10px;
+    }
+
+    .subnav a{
+        font-size:9px;
+        letter-spacing:2px;
+    }
+
+    .details-hero h1{
+        font-size:38px;
+    }
+
+    .details-hero p{
+        font-size:16px;
+    }
+
+    .details-container{
+        grid-template-columns:1fr;
+    }
+
+    .detail-card{
+        padding:32px 22px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVIGATION -->
+<div class="monogram-banner">
+    <img src="monogram.png" alt="Monogram">
+
+    <nav class="subnav">
+        <a href="home.html">Home</a>
+        <a href="our-story.html">Our Story</a>
+        <a href="wedding-details.html">Details</a>
+        <a href="schedule.html">Schedule</a>
+        <a href="travel.html">Travel</a>
+        <a href="gallery.html" class="disabled">Gallery</a>
+        <a href="wedding-party-login.html">Wedding Party</a>
+        <a href="rsvp.html">RSVP</a>
+    </nav>
+</div>
+
+<!-- HERO -->
+<section class="details-hero">
+    <h1>Wedding Details</h1>
+    <p>
+        We are so excited to celebrate our wedding day with the people we love most.
+        Please review the details below before joining us in Bluemont.
+    </p>
+</section>
+
+<!-- DETAILS -->
+<section class="details-section">
+    <div class="details-container">
+
+        <div class="detail-card">
+            <h2>Date & Time</h2>
+            <p>Friday, August 14, 2026</p>
+            <p>Ceremony begins at 5:00 PM</p>
+            <p>Cocktail Hour: 6:00 PM – 7:00 PM</p>
+            <p>Reception: 7:00 PM – 11:00 PM</p>
+        </div>
+
+        <div class="detail-card">
+            <h2>Location</h2>
+            <p>Bluemont, Virginia</p>
+            <p>19729 Ridgeside Road</p>
+            <p>Bluemont, VA 20135</p>
+        </div>
+
+        <div class="detail-card">
+            <h2>Dress Code</h2>
+            <p>Formal / Black Tie Optional</p>
+            <p>
+                We invite guests to dress elegantly for an evening celebration.
+            </p>
+        </div>
+
+        <div class="detail-card">
+            <h2>Adults Only</h2>
+            <p>
+                While we love your little ones, our wedding celebration will be an
+                adults-only event unless otherwise listed on your invitation.
+            </p>
+        </div>
+
+        <div class="detail-card">
+            <h2>RSVP</h2>
+            <p>
+                Please submit your RSVP by July 1, 2026 through our wedding website.
+            </p>
+            <a href="rsvp.html" class="rsvp-button">RSVP Here</a>
+        </div>
+
+        <div class="detail-card">
+            <h2>Schedule</h2>
+            <p>
+                View the full wedding timeline for ceremony, cocktail hour, dinner,
+                dancing, and more.
+            </p>
+            <a href="schedule.html" class="rsvp-button">View Schedule</a>
+        </div>
+
+        <div class="detail-card full-width">
+            <h2>Travel & Transportation</h2>
+            <p>
+                Hotel and travel information can be found on the Travel page.
+                Additional transportation details will be shared as the wedding day approaches.
+            </p>
+            <a href="travel.html" class="rsvp-button">Travel Details</a>
+        </div>
+
+    </div>
+</section>
+
+<footer>
+    YEBOAH EVER AFTER
+</footer>
+
+</body>
+</html>
