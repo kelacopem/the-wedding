@@ -1,26 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Registry | Kiara & Nana</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 
 <style>
+
+:root{
+    --soft-black:#1a1a1a;
+    --cherry:#5a0f1c;
+    --violet:#2d0f3a;
+    --soft-white:#f5f5f5;
+}
+
 body{
     margin:0;
     font-family:'Inter',sans-serif;
-    background:#f5f5f5;
-    color:#1a1a1a;
+    background:var(--soft-white);
+    color:var(--soft-black);
 }
+
+/* Navigation */
 
 .monogram-banner{
     width:100%;
     text-align:center;
     padding:20px 0;
-    background:#f5f5f5;
+    background:var(--soft-white);
 }
 
 .monogram-banner img{
@@ -43,147 +54,193 @@ body{
     letter-spacing:2.5px;
     text-transform:uppercase;
     text-decoration:none;
-    color:#1a1a1a;
+    color:var(--soft-black);
     opacity:.85;
+    transition:.3s;
 }
 
 .subnav a:hover{
-    color:#5a0f1c;
+    color:var(--cherry);
 }
 
+/* Page */
+
 .registry-section{
-    max-width:950px;
-    margin:60px auto;
-    padding:0 24px;
+    max-width:1100px;
+    margin:70px auto;
+    padding:0 25px;
     text-align:center;
 }
 
 h1{
     font-family:'Playfair Display',serif;
-    font-size:46px;
-    font-weight:500;
-    color:#5a0f1c;
+    font-size:48px;
+    color:var(--cherry);
     margin-bottom:18px;
 }
 
 .subtitle{
-    max-width:680px;
+    max-width:650px;
     margin:0 auto 40px;
     line-height:1.8;
-    color:#555;
+    color:#666;
 }
 
 .registry-card{
+
     background:white;
-    padding:45px 30px;
-    border-radius:12px;
-    box-shadow:0 4px 20px rgba(0,0,0,0.08);
+    border-radius:16px;
+    overflow:hidden;
+    box-shadow:0 15px 40px rgba(0,0,0,.08);
+
 }
 
-.registry-card h2{
-    font-family:'Playfair Display',serif;
-    color:#5a0f1c;
-    font-size:30px;
-    font-weight:500;
-    margin-bottom:12px;
+.registry-preview{
+
+    width:100%;
+    height:700px;
+    background:#fafafa;
+
 }
 
-.registry-card p{
-    color:#666;
-    line-height:1.7;
-    margin-bottom:28px;
+.registry-preview iframe{
+
+    width:100%;
+    height:100%;
+    border:none;
+
 }
 
 .registry-button{
+
     display:inline-block;
-    background:#5a0f1c;
+    margin:35px 0;
+
+    background:var(--cherry);
     color:white;
+
     text-decoration:none;
-    padding:14px 34px;
+
+    padding:15px 34px;
+
     border-radius:8px;
+
     letter-spacing:2px;
     text-transform:uppercase;
     font-size:12px;
+
 }
 
 .registry-button:hover{
-    background:#421019;
+
+    background:#3d0c14;
+
 }
 
 .note{
-    margin-top:22px;
-    font-size:13px;
+
+    margin-bottom:40px;
     color:#777;
+    font-size:13px;
+
 }
 
 .footer{
+
     text-align:center;
-    margin:70px 0 30px;
-    font-family:'Playfair Display',serif;
-    letter-spacing:3px;
+    padding:30px;
+    color:#888;
+    letter-spacing:2px;
     font-size:12px;
-    color:#5a0f1c;
+
 }
 
-@media(max-width:700px){
-    h1{
-        font-size:36px;
-    }
+@media(max-width:768px){
 
-    .subnav{
-        gap:18px;
-    }
+.registry-preview{
+
+height:550px;
+
 }
+
+h1{
+
+font-size:36px;
+
+}
+
+}
+
 </style>
+
 </head>
 
 <body>
 
 <div class="monogram-banner">
-    <img src="monogram.png" alt="Monogram">
 
-    <nav class="subnav">
-        <a href="home.html">Home</a>
-        <a href="our-story.html">Our Story</a>
-        <a href="wedding-details.html">Details</a>
-        <a href="schedule.html">Schedule</a>
-        <a href="travel.html">Travel</a>
-        <a href="registry.html">Registry</a>
-        <a href="wedding-party-login.html">Wedding Party</a>
-        <a href="rsvp.html">RSVP</a>
-    </nav>
+<img src="monogram.png" alt="Monogram">
+
+<nav class="subnav">
+
+<a href="home.html">Home</a>
+<a href="our-story.html">Our Story</a>
+<a href="wedding-details.html">Details</a>
+<a href="schedule.html">Schedule</a>
+<a href="travel.html">Travel</a>
+<a href="gallery.html">Gallery</a>
+<a href="registry.html">Registry</a>
+<a href="wedding-party-login.html">Wedding Party</a>
+<a href="rsvp.html">RSVP</a>
+
+</nav>
+
 </div>
 
 <section class="registry-section">
 
-    <h1>Our Registry</h1>
+<h1>Our Registry</h1>
 
-    <p class="subtitle">
-        Your love and support mean everything to us. If you would like to bless us with a gift,
-        we have created a Honeyfund where you can contribute toward our future adventures together.
-    </p>
+<p class="subtitle">
 
-    <div class="registry-card">
-        <h2>Kiara & Nana’s Honeyfund</h2>
+Thank you for celebrating this special season with us.
+We are so grateful for your generosity, prayers, and love.
 
-        <p>
-            Thank you for celebrating this special season with us. 
-            We are so grateful for your generosity, prayers, and love as we begin this next chapter.
-        </p>
+</p>
 
-        <a class="registry-button" href="https://www.honeyfund.com/site/copeman-yeboah-08-14-2026" target="_blank">
-            View Our Registry
-        </a>
+<div class="registry-card">
 
-        <div class="note">
-            The registry will open in a new tab.
-        </div>
-    </div>
+<div class="registry-preview">
+
+<iframe
+src="https://www.honeyfund.com/site/copeman-yeboah-08-14-2026"
+loading="lazy">
+</iframe>
+
+</div>
+
+<a class="registry-button"
+href="https://www.honeyfund.com/site/copeman-yeboah-08-14-2026"
+target="_blank">
+
+View Our Honeyfund
+
+</a>
+
+<div class="note">
+
+If the preview doesn't appear, click the button above to open our Honeyfund.
+
+</div>
+
+</div>
 
 </section>
 
 <div class="footer">
-    YEBOAH EVER AFTER
+
+YEBOAH EVER AFTER
+
 </div>
 
 </body>
