@@ -46,7 +46,6 @@ body{
   text-decoration: none;
   color: #1a1a1a;
   opacity: 0.85;
-  transition: 0.3s ease;
 }
 
 .subnav a:hover {
@@ -150,13 +149,14 @@ button:hover{
 <p class="subtitle">We look forward to celebrating with you!</p>
 
 <div class="form-group">
-  <label>Please enter the last 5 digits of your phone number to access RSVP detaiils. </label>
+  <label>Please enter the last 5 digits of your phone number to access RSVP details.</label>
   <input type="text" id="lookup" maxlength="5">
 </div>
 
 <button type="button" onclick="findGuest()">Find My Invitation</button>
 
 <form id="rsvpForm" class="hidden">
+
 <div style="
     background:#fdf6f7;
     border:1px solid #e5c2c8;
@@ -171,7 +171,6 @@ button:hover{
     We kindly ask that all RSVPs be submitted by this date so we may finalize arrangements.
 </div>
 
-<div id="guestList"></div>
 <div id="guestList"></div>
 
 <div class="form-group">
@@ -215,7 +214,6 @@ button:hover{
 </div>
 
 <script>
-
 const scriptURL = "https://script.google.com/macros/s/AKfycbxKPyMYRevc2dQ4HGLGUCEDBESHzZNrOdhm-QRU5lOU1a2uYSyFtbdQCFZsCLGxOzsT/exec";
 
 const guestData = [
@@ -263,7 +261,7 @@ const guestData = [
   { lookup:"07361", guests:["Racheal Dejen","Robert Okolo"] },
   { lookup:"58646", guests:["Cristen Harris"] },
   { lookup:"62990", guests:["Erleen Ellis"] },
-  { lookup:"93913", guests:["Shalaya Davis "] },
+  { lookup:"93913", guests:["Shalaya Davis"] },
   { lookup:"17308", guests:["Adrienne Hall"] },
   { lookup:"68099", guests:["Kyra Williams"] },
   { lookup:"64491", guests:["Josselyn Munoz"] },
@@ -283,7 +281,7 @@ const guestData = [
   { lookup:"50254", guests:["Rachel Opoku"] },
   { lookup:"57844", guests:["Mr.Charles Leslie Van-Dyck"] },
   { lookup:"96380", guests:["Kenny Funzamo"] },
-  { lookup:"24644", guests:["Stephen Wellington "] },
+  { lookup:"24644", guests:["Stephen Wellington"] },
   { lookup:"34560", guests:["Garry Turner Jr."] },
   { lookup:"77063", guests:["Arnell Opoku"] },
   { lookup:"15662", guests:["Nan Osei Mainoo"] },
@@ -315,16 +313,16 @@ const guestData = [
   { lookup:"78785", guests:["Mr.Charles Kumi","Mrs.Gifty Kumi"] },
   { lookup:"15885", guests:["Edwin Mensah","Essie Mensah"] },
   { lookup:"16296", guests:["Martha Amoako"] },
-  { lookup:"96465", guests:["Tetebea Apea-Otu"} },
+  { lookup:"96465", guests:["Tetebea Apea-Otu"] },
   { lookup:"85266", guests:["Charles Van Dyck"] },
   { lookup:"04895", guests:["Amma Serwah Aidoo"] }
-    
 ];
 
 function findGuest(){
-
     const lookup = document.getElementById('lookup').value.trim();
     const match = guestData.find(g => g.lookup === lookup);
+
+    document.getElementById('success').innerHTML = "";
 
     if(!match){
         alert("We couldn’t find your invitation code.");
@@ -339,7 +337,7 @@ function findGuest(){
             <h3>${name}</h3>
 
             <label>RSVP</label>
-            <select class="response" data-name="${name}">
+            <select class="response" data-name="${name}" required>
                 <option value="">Select</option>
                 <option value="Attending">Joyfully Accepts</option>
                 <option value="Declined">Regretfully Declines</option>
@@ -352,7 +350,6 @@ function findGuest(){
 }
 
 document.getElementById('hotel').addEventListener('change', function(){
-
     const shuttleHotels = [
         "Holiday Inn Leesburg",
         "Home2 Suites Leesburg",
@@ -368,7 +365,6 @@ document.getElementById('hotel').addEventListener('change', function(){
 });
 
 document.getElementById('rsvpForm').addEventListener('submit', function(e){
-
     e.preventDefault();
 
     const guestResponses = [];
@@ -383,8 +379,8 @@ document.getElementById('rsvpForm').addEventListener('submit', function(e){
     const payload = {
         lookup: document.getElementById('lookup').value,
         hotel: document.getElementById('hotel').value,
-        otherHotel: document.getElementById('otherHotel')?.value || "",
-        transportation: document.getElementById('transportation')?.value || "",
+        otherHotel: document.getElementById('otherHotel').value || "",
+        transportation: document.getElementById('transportation').value || "",
         message: document.getElementById('message').value,
         guestResponses: JSON.stringify(guestResponses)
     };
@@ -394,20 +390,17 @@ document.getElementById('rsvpForm').addEventListener('submit', function(e){
         body: new URLSearchParams(payload)
     })
     .then(() => {
-
-        // THIS is the success message line
         document.getElementById('success').innerHTML =
         "Thank you! Your RSVP has been received.";
 
-       document.getElementById('rsvpForm').reset();
-document.getElementById('guestList').innerHTML = "";
-document.getElementById('rsvpForm').classList.add('hidden');
+        document.getElementById('rsvpForm').reset();
+        document.getElementById('guestList').innerHTML = "";
+        document.getElementById('rsvpForm').classList.add('hidden');
     })
     .catch(() => {
         alert("There was an error submitting your RSVP.");
     });
 });
-
 </script>
 
 </body>
