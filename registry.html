@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -10,196 +9,182 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 
 <style>
-
-:root{
-    --cherry:#5a0f1c;
-    --ivory:#f7f3ed;
-    --gold:#b58b46;
-}
-
-*{
-    box-sizing:border-box;
-}
-
 body{
     margin:0;
-    background:var(--ivory);
     font-family:'Inter',sans-serif;
-    color:#222;
+    background:#f5f5f5;
+    color:#1a1a1a;
 }
 
 .monogram-banner{
+    width:100%;
     text-align:center;
-    padding:22px 0;
+    padding:20px 0;
+    background:#f5f5f5;
 }
 
 .monogram-banner img{
     width:90px;
+    height:auto;
 }
 
 .subnav{
-    margin-top:15px;
+    margin-top:14px;
     display:flex;
     justify-content:center;
-    gap:26px;
+    align-items:center;
+    gap:28px;
     flex-wrap:wrap;
 }
 
 .subnav a{
     font-family:'Playfair Display',serif;
-    text-transform:uppercase;
     font-size:10px;
-    letter-spacing:2px;
+    letter-spacing:2.5px;
+    text-transform:uppercase;
     text-decoration:none;
-    color:#222;
+    color:#1a1a1a;
+    opacity:.85;
 }
 
-.hero{
+.subnav a:hover{
+    color:#5a0f1c;
+}
 
-    max-width:1200px;
+.registry-section{
+    max-width:950px;
     margin:60px auto;
-    padding:0 30px;
+    padding:0 24px;
     text-align:center;
-
 }
 
 h1{
-
     font-family:'Playfair Display',serif;
-    font-size:48px;
-    color:var(--cherry);
-    margin-bottom:15px;
-
+    font-size:46px;
+    font-weight:500;
+    color:#5a0f1c;
+    margin-bottom:18px;
 }
 
 .subtitle{
-
-    max-width:700px;
-    margin:auto;
+    max-width:680px;
+    margin:0 auto 40px;
     line-height:1.8;
     color:#555;
-    margin-bottom:45px;
-
 }
 
-.preview{
-
+.registry-card{
     background:white;
-    border-radius:18px;
-    overflow:hidden;
-    box-shadow:0 15px 50px rgba(0,0,0,.08);
-
+    padding:45px 30px;
+    border-radius:12px;
+    box-shadow:0 4px 20px rgba(0,0,0,0.08);
 }
 
-iframe{
-
-    width:100%;
-    height:900px;
-    border:none;
-
+.registry-card h2{
+    font-family:'Playfair Display',serif;
+    color:#5a0f1c;
+    font-size:30px;
+    font-weight:500;
+    margin-bottom:12px;
 }
 
-.button{
+.registry-card p{
+    color:#666;
+    line-height:1.7;
+    margin-bottom:28px;
+}
 
+.registry-button{
     display:inline-block;
-    margin-top:35px;
-    background:var(--cherry);
+    background:#5a0f1c;
     color:white;
     text-decoration:none;
-    padding:15px 36px;
-    border-radius:999px;
+    padding:14px 34px;
+    border-radius:8px;
     letter-spacing:2px;
     text-transform:uppercase;
     font-size:12px;
-    transition:.3s;
-
 }
 
-.button:hover{
-
-    background:#3b0814;
-
+.registry-button:hover{
+    background:#421019;
 }
 
 .note{
-
-    margin-top:18px;
-    color:#777;
+    margin-top:22px;
     font-size:13px;
-
+    color:#777;
 }
 
-@media(max-width:768px){
-
-iframe{
-
-height:700px;
-
+.footer{
+    text-align:center;
+    margin:70px 0 30px;
+    font-family:'Playfair Display',serif;
+    letter-spacing:3px;
+    font-size:12px;
+    color:#5a0f1c;
 }
 
-h1{
+@media(max-width:700px){
+    h1{
+        font-size:36px;
+    }
 
-font-size:36px;
-
+    .subnav{
+        gap:18px;
+    }
 }
-
-}
-
 </style>
-
 </head>
 
 <body>
 
 <div class="monogram-banner">
+    <img src="monogram.png" alt="Monogram">
 
-<img src="monogram.png">
-
-<nav class="subnav">
-
-<a href="home.html">Home</a>
-<a href="our-story.html">Our Story</a>
-<a href="wedding-details.html">Details</a>
-<a href="schedule.html">Schedule</a>
-<a href="travel.html">Travel</a>
-<a href="registry.html">Registry</a>
-<a href="rsvp.html">RSVP</a>
-
-</nav>
-
+    <nav class="subnav">
+        <a href="home.html">Home</a>
+        <a href="our-story.html">Our Story</a>
+        <a href="wedding-details.html">Details</a>
+        <a href="schedule.html">Schedule</a>
+        <a href="travel.html">Travel</a>
+        <a href="registry.html">Registry</a>
+        <a href="wedding-party-login.html">Wedding Party</a>
+        <a href="rsvp.html">RSVP</a>
+    </nav>
 </div>
 
-<section class="hero">
+<section class="registry-section">
 
-<h1>Our Registry</h1>
+    <h1>Our Registry</h1>
 
-<p class="subtitle">
+    <p class="subtitle">
+        Your love and support mean everything to us. If you would like to bless us with a gift,
+        we have created a Honeyfund where you can contribute toward our future adventures together.
+    </p>
 
-Your love and support mean everything to us. If you would like to bless us with a gift, we've created a Honeyfund where you can contribute toward our future adventures together.
+    <div class="registry-card">
+        <h2>Kiara & Nana’s Honeyfund</h2>
 
-</p>
+        <p>
+            Thank you for celebrating this special season with us. 
+            We are so grateful for your generosity, prayers, and love as we begin this next chapter.
+        </p>
 
-<div class="preview">
+        <a class="registry-button" href="https://www.honeyfund.com/site/copeman-yeboah-08-14-2026" target="_blank">
+            View Our Registry
+        </a>
 
-<iframe src="https://www.honeyfund.com/site/copeman-yeboah-08-14-2026"></iframe>
-
-</div>
-
-<a class="button"
-href="https://www.honeyfund.com/site/copeman-yeboah-08-14-2026"
-target="_blank">
-
-View Full Registry
-
-</a>
-
-<div class="note">
-
-If the registry preview doesn't appear, simply click the button above to open it directly.
-
-</div>
+        <div class="note">
+            The registry will open in a new tab.
+        </div>
+    </div>
 
 </section>
+
+<div class="footer">
+    YEBOAH EVER AFTER
+</div>
 
 </body>
 </html>
