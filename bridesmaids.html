@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Bridesmaids details, attire, beauty schedule, lodging, rehearsal, and wedding-day information." />
+  <title>Bridesmaids | Kiara & Nana</title>
+
+  <style>
+    :root {
+      --burgundy: #5a0f1c;
+      --deep-burgundy: #3d0912;
+      --ivory: #fffaf2;
+      --soft-ivory: #f7efe5;
+      --gold: #b9945a;
+      --charcoal: #292421;
+      --muted: #726760;
+      --white: #ffffff;
+      --border: rgba(90, 15, 28, 0.16);
+      --shadow: 0 18px 50px rgba(61, 9, 18, 0.10);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      color: var(--charcoal);
+      background:
+        radial-gradient(circle at top right, rgba(185, 148, 90, 0.14), transparent 30%),
+        var(--ivory);
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.65;
+    }
+
+    img {
+      display: block;
+      width: 100%;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .serif {
+      font-family: Georgia, "Times New Roman", serif;
+    }
+
+    .container {
+      width: min(1120px, calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    .hero {
+      min-height: 72vh;
+      display: grid;
+      place-items: center;
+      padding: 90px 0 72px;
+      text-align: center;
+      color: var(--white);
+      background:
+        linear-gradient(rgba(45, 5, 12, 0.78), rgba(45, 5, 12, 0.78)),
+        url("https://placehold.co/1800x1100/5a0f1c/fffaf2?text=Add+Bridesmaids+Photo") center/cover no-repeat;
+    }
+
+    .eyebrow {
+      margin: 0 0 12px;
+      color: var(--gold);
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.23em;
+      text-transform: uppercase;
+    }
+
+    .hero h1 {
+      max-width: 850px;
+      margin: 0 auto 14px;
+      font-size: clamp(3rem, 8vw, 6.8rem);
+      font-weight: 400;
+      line-height: 0.98;
+    }
+
+    .hero .subtitle {
+      max-width: 700px;
+      margin: 0 auto;
+      color: rgba(255, 255, 255, 0.9);
+      font-size: clamp(1rem, 2vw, 1.2rem);
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+      margin-top: 30px;
+    }
+
+    .pill {
+      padding: 9px 15px;
+      border: 1px solid rgba(255, 255, 255, 0.38);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(6px);
+      font-size: 0.9rem;
+    }
+
+    .nav-wrap {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      border-bottom: 1px solid var(--border);
+      background: rgba(255, 250, 242, 0.94);
+      backdrop-filter: blur(14px);
+    }
+
+    .nav {
+      display: flex;
+      gap: 24px;
+      overflow-x: auto;
+      padding: 14px 0;
+      scrollbar-width: none;
+    }
+
+    .nav::-webkit-scrollbar {
+      display: none;
+    }
+
+    .nav a {
+      flex: 0 0 auto;
+      color: var(--deep-burgundy);
+      font-size: 0.88rem;
+      font-weight: 700;
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+    }
+
+    section {
+      padding: 78px 0;
+      scroll-margin-top: 58px;
+    }
+
+    .section-heading {
+      max-width: 740px;
+      margin-bottom: 32px;
+    }
+
+    .section-heading h2 {
+      margin: 0 0 12px;
+      color: var(--deep-burgundy);
+      font-size: clamp(2.2rem, 5vw, 4rem);
+      font-weight: 400;
+      line-height: 1.05;
+    }
+
+    .section-heading p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .grid {
+      display: grid;
+      gap: 24px;
+    }
+
+    .grid.two {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .grid.three {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .card {
+      overflow: hidden;
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      background: rgba(255, 255, 255, 0.78);
+      box-shadow: var(--shadow);
+    }
+
+    .card-content {
+      padding: 26px;
+    }
+
+    .card h3 {
+      margin: 0 0 8px;
+      color: var(--deep-burgundy);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.7rem;
+      font-weight: 400;
+    }
+
+    .card p {
+      margin: 0 0 12px;
+      color: var(--muted);
+    }
+
+    .product-image,
+    .hair-image {
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+      background: var(--soft-ivory);
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 46px;
+      margin-top: 10px;
+      padding: 12px 18px;
+      border: 1px solid var(--burgundy);
+      border-radius: 999px;
+      color: var(--white);
+      background: var(--burgundy);
+      font-weight: 700;
+      text-decoration: none;
+      transition: 0.2s ease;
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+      background: var(--deep-burgundy);
+    }
+
+    .note {
+      padding: 20px 22px;
+      border-left: 4px solid var(--gold);
+      border-radius: 0 16px 16px 0;
+      background: rgba(185, 148, 90, 0.12);
+    }
+
+    .note strong {
+      color: var(--deep-burgundy);
+    }
+
+    .requirements {
+      display: grid;
+      gap: 13px;
+      margin: 18px 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .requirements li {
+      position: relative;
+      padding-left: 26px;
+    }
+
+    .requirements li::before {
+      position: absolute;
+      left: 0;
+      color: var(--gold);
+      content: "✦";
+    }
+
+    .hair-card {
+      position: relative;
+    }
+
+    .hair-label {
+      position: absolute;
+      right: 14px;
+      bottom: 14px;
+      left: 14px;
+      padding: 12px 14px;
+      border-radius: 14px;
+      color: var(--white);
+      background: rgba(45, 5, 12, 0.82);
+      backdrop-filter: blur(8px);
+      font-weight: 700;
+      text-align: center;
+    }
+
+    .timeline {
+      position: relative;
+      margin-top: 24px;
+      padding-left: 32px;
+    }
+
+    .timeline::before {
+      position: absolute;
+      top: 6px;
+      bottom: 6px;
+      left: 9px;
+      width: 1px;
+      background: rgba(90, 15, 28, 0.28);
+      content: "";
+    }
+
+    .timeline-item {
+      position: relative;
+      display: grid;
+      grid-template-columns: 120px 1fr;
+      gap: 20px;
+      margin-bottom: 20px;
+      padding: 20px;
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.78);
+    }
+
+    .timeline-item::before {
+      position: absolute;
+      top: 27px;
+      left: -29px;
+      width: 13px;
+      height: 13px;
+      border: 4px solid var(--ivory);
+      border-radius: 50%;
+      background: var(--burgundy);
+      box-shadow: 0 0 0 1px var(--burgundy);
+      content: "";
+    }
+
+    .time {
+      color: var(--burgundy);
+      font-weight: 800;
+    }
+
+    .timeline-item h3 {
+      margin: 0 0 3px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.3rem;
+      font-weight: 400;
+    }
+
+    .timeline-item p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .location-card {
+      padding: 28px;
+    }
+
+    .location-type {
+      margin-bottom: 8px;
+      color: var(--gold);
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+    }
+
+    address {
+      color: var(--muted);
+      font-style: normal;
+    }
+
+    .rehearsal {
+      color: var(--white);
+      background:
+        linear-gradient(135deg, rgba(61, 9, 18, 0.98), rgba(90, 15, 28, 0.92));
+    }
+
+    .rehearsal .section-heading h2,
+    .rehearsal .section-heading p {
+      color: var(--white);
+    }
+
+    .rehearsal-panel {
+      padding: 34px;
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 24px;
+      background: rgba(255,255,255,0.08);
+    }
+
+    .rehearsal-panel h3 {
+      margin-top: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 2rem;
+      font-weight: 400;
+    }
+
+    .checklist {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px 24px;
+      margin: 24px 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .checklist li {
+      padding: 16px 18px;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      background: rgba(255,255,255,0.7);
+    }
+
+    footer {
+      padding: 46px 0;
+      color: rgba(255,255,255,0.78);
+      background: var(--deep-burgundy);
+      text-align: center;
+    }
+
+    footer strong {
+      display: block;
+      margin-bottom: 6px;
+      color: var(--white);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.4rem;
+      font-weight: 400;
+    }
+
+    @media (max-width: 800px) {
+      .grid.two,
+      .grid.three,
+      .checklist {
+        grid-template-columns: 1fr;
+      }
+
+      .timeline-item {
+        grid-template-columns: 1fr;
+        gap: 4px;
+      }
+
+      .hero {
+        min-height: 65vh;
+      }
+
+      section {
+        padding: 58px 0;
+      }
+    }
+
+    @media print {
+      .nav-wrap {
+        display: none;
+      }
+
+      .hero {
+        min-height: auto;
+        padding: 50px 20px;
+      }
+
+      section {
+        break-inside: avoid;
+        padding: 34px 0;
+      }
+
+      .card,
+      .timeline-item {
+        box-shadow: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="hero">
+    <div class="container">
+      <p class="eyebrow">Kiara &amp; Nana's Wedding</p>
+      <h1 class="serif">Bridesmaids</h1>
+      <p class="subtitle">
+        Everything you need for the wedding weekend—attire, beauty details,
+        lodging, rehearsal information, and the wedding-day schedule.
+      </p>
+
+      <div class="hero-meta">
+        <span class="pill">Wedding Weekend: December 13–14, 2026</span>
+        <span class="pill">Please save this page</span>
+      </div>
+    </div>
+  </header>
+
+  <div class="nav-wrap">
+    <nav class="nav container" aria-label="Bridesmaids page sections">
+      <a href="#attire">Attire</a>
+      <a href="#hair">Hair</a>
+      <a href="#makeup">Makeup Timeline</a>
+      <a href="#locations">Locations</a>
+      <a href="#rehearsal">Rehearsal</a>
+      <a href="#checklist">Checklist</a>
+    </nav>
+  </div>
+
+  <main>
+    <section id="attire">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">What to Wear</p>
+          <h2 class="serif">Bridesmaid Attire</h2>
+          <p>
+            Please purchase the exact approved dress and shoes shown below.
+            Order early enough to allow time for alterations and a full try-on.
+          </p>
+        </div>
+
+        <div class="grid two">
+          <article class="card">
+            <img
+              class="product-image"
+              src="https://placehold.co/900x1100/5a0f1c/fffaf2?text=Add+Dress+Photo"
+              alt="Approved bridesmaid dress"
+            />
+            <div class="card-content">
+              <h3>Required Dress</h3>
+              <p><strong>Color:</strong> Cherry Liqueur / Burgundy</p>
+              <p><strong>Style:</strong> Replace with the exact dress name and designer.</p>
+              <p><strong>Order deadline:</strong> Add deadline here.</p>
+              <a class="button" href="#" target="_blank" rel="noopener">
+                Shop the Dress
+              </a>
+            </div>
+          </article>
+
+          <article class="card">
+            <img
+              class="product-image"
+              src="https://placehold.co/900x1100/d8c2a5/3d0912?text=Add+Shoe+Photo"
+              alt="Required bridesmaid shoes"
+            />
+            <div class="card-content">
+              <h3>Required Shoes</h3>
+              <p><strong>Color:</strong> Nude, champagne, or approved metallic.</p>
+              <p><strong>Style:</strong> Replace with the exact shoe style and heel height.</p>
+              <p><strong>Comfort note:</strong> Please break them in before the wedding.</p>
+              <a class="button" href="#" target="_blank" rel="noopener">
+                Shop the Shoes
+              </a>
+            </div>
+          </article>
+        </div>
+
+        <div class="note" style="margin-top: 26px;">
+          <strong>Alterations:</strong> The dress should be professionally hemmed
+          to the correct length while wearing the wedding shoes. Please bring
+          all undergarments and shapewear to your final fitting.
+        </div>
+      </div>
+    </section>
+
+    <section id="hair" style="background: rgba(247, 239, 229, 0.72);">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">Beauty Direction</p>
+          <h2 class="serif">Hair: Elegant Updo Styles</h2>
+          <p>
+            Hair should be styled in an elegant updo. These photos are references,
+            so the final style may be adjusted to suit your hair length and texture.
+          </p>
+        </div>
+
+        <div class="grid three">
+          <article class="card hair-card">
+            <img
+              class="hair-image"
+              src="https://placehold.co/800x1000/eaded4/5a0f1c?text=Low+Textured+Bun"
+              alt="Low textured bun hairstyle reference"
+            />
+            <div class="hair-label">Low Textured Bun</div>
+          </article>
+
+          <article class="card hair-card">
+            <img
+              class="hair-image"
+              src="https://placehold.co/800x1000/e3d1c1/5a0f1c?text=Sleek+Low+Chignon"
+              alt="Sleek low chignon hairstyle reference"
+            />
+            <div class="hair-label">Sleek Low Chignon</div>
+          </article>
+
+          <article class="card hair-card">
+            <img
+              class="hair-image"
+              src="https://placehold.co/800x1000/d8c2b2/5a0f1c?text=Soft+Braided+Updo"
+              alt="Soft braided updo hairstyle reference"
+            />
+            <div class="hair-label">Soft Braided Updo</div>
+          </article>
+        </div>
+
+        <ul class="requirements">
+          <li>Please arrive with clean, fully dry hair unless your stylist gives different instructions.</li>
+          <li>Bring any extensions, padding, or specialty hair pieces already matched to your hair.</li>
+          <li>Avoid changing your hair color or making a major cut immediately before the wedding.</li>
+          <li>Hair accessories must be approved in advance so the overall look stays coordinated.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="makeup">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">Wedding Morning</p>
+          <h2 class="serif">Makeup Timeline</h2>
+          <p>
+            This sample timeline can be updated once the final number of bridesmaids
+            and artist start times are confirmed. Please be ready 15 minutes before your slot.
+          </p>
+        </div>
+
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="time">6:00 AM</div>
+            <div>
+              <h3>Beauty Team Arrives &amp; Sets Up</h3>
+              <p>Breakfast, water, and robes should be ready before appointments begin.</p>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="time">6:30 AM</div>
+            <div>
+              <h3>Bridesmaid 1</h3>
+              <p>Makeup appointment. Replace with bridesmaid's name.</p>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="time">7:15 AM</div>
+            <div>
+              <h3>Bridesmaid 2</h3>
+              <p>Makeup appointment. Replace with bridesmaid's name.</p>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="time">8:00 AM</div>
+            <div>
+              <h3>Bridesmaid 3</h3>
+              <p>Makeup appointment. Replace with bridesmaid's name.</p>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="time">8:45 AM</div>
+            <div>
+              <h3>Bridesmaid 4</h3>
+              <p>Makeup appointment. Duplicate this block for additional bridesmaids.</p>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="time">11:30 AM</div>
+            <div>
+              <h3>Final Touch-Ups &amp; Getting Dressed</h3>
+              <p>Everyone should be finished with beauty services and ready to dress.</p>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="time">12:30 PM</div>
+            <div>
+              <h3>Bridesmaids Fully Dressed</h3>
+              <p>Personal items packed, room cleaned, and everyone ready for photos.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="note">
+          <strong>Please arrive makeup-ready:</strong> Clean, moisturized face;
+          groomed brows; no heavy facial oils; and a button-down shirt, zip-up top,
+          or robe that can be removed without disturbing hair or makeup.
+        </div>
+      </div>
+    </section>
+
+    <section id="locations" style="background: rgba(247, 239, 229, 0.72);">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">Where to Be</p>
+          <h2 class="serif">Lodging &amp; Venue</h2>
+          <p>
+            Replace the placeholders below with the exact address, check-in details,
+            parking instructions, and any door or gate codes.
+          </p>
+        </div>
+
+        <div class="grid two">
+          <article class="card location-card">
+            <p class="location-type">Night-Before Airbnb</p>
+            <h3>Bridesmaids Airbnb</h3>
+            <address>
+              [Airbnb Street Address]<br />
+              [City, State ZIP]
+            </address>
+            <p style="margin-top: 14px;">
+              <strong>Check-in:</strong> December 13, 2026 at [time]<br />
+              <strong>Parking:</strong> [Add parking instructions]<br />
+              <strong>Entry:</strong> [Add door code or host instructions]
+            </p>
+            <a
+              class="button"
+              href="https://maps.google.com/?q=Airbnb+Address"
+              target="_blank"
+              rel="noopener"
+            >
+              Open in Maps
+            </a>
+          </article>
+
+          <article class="card location-card">
+            <p class="location-type">Wedding Venue</p>
+            <h3>The View at Bluemont</h3>
+            <address>
+              [Venue Street Address]<br />
+              Bluemont, Virginia [ZIP]
+            </address>
+            <p style="margin-top: 14px;">
+              <strong>Arrival time:</strong> [Add bridesmaid arrival time]<br />
+              <strong>Parking:</strong> [Add parking instructions]<br />
+              <strong>Contact:</strong> [Add wedding-day contact]
+            </p>
+            <a
+              class="button"
+              href="https://maps.google.com/?q=The+View+at+Bluemont+Virginia"
+              target="_blank"
+              rel="noopener"
+            >
+              Open in Maps
+            </a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="rehearsal" class="rehearsal">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">December 13, 2026</p>
+          <h2 class="serif">Ceremony Rehearsal</h2>
+          <p>
+            The rehearsal is encouraged but not mandatory. We will use this time
+            to walk through the ceremony processional, standing positions, timing,
+            and recessional.
+          </p>
+        </div>
+
+        <div class="rehearsal-panel">
+          <h3>What We Will Review</h3>
+          <p>
+            We will practice where everyone should line up, the order for walking
+            down the aisle, pacing, where to stand during the ceremony, bouquet
+            placement, and how the wedding party will exit.
+          </p>
+
+          <div class="grid two" style="margin-top: 24px;">
+            <div>
+              <strong>Date</strong><br />
+              Sunday, December 13, 2026
+            </div>
+            <div>
+              <strong>Time &amp; Location</strong><br />
+              [Add rehearsal time and address]
+            </div>
+          </div>
+
+          <p style="margin-bottom: 0; margin-top: 22px;">
+            Please let the bride or maid of honor know in advance if you cannot attend.
+            Anyone who misses the rehearsal will receive their final instructions
+            before the ceremony.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="checklist">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">Final Reminder</p>
+          <h2 class="serif">What to Bring</h2>
+          <p>Pack these items before leaving for the Airbnb.</p>
+        </div>
+
+        <ul class="checklist">
+          <li>Bridesmaid dress, steamed and on a sturdy hanger</li>
+          <li>Required wedding shoes</li>
+          <li>Approved undergarments or shapewear</li>
+          <li>Jewelry and approved hair accessories</li>
+          <li>Button-down shirt, zip-up top, or robe</li>
+          <li>Personal toiletries and overnight items</li>
+          <li>Phone charger and any required medication</li>
+          <li>Small touch-up kit for the reception</li>
+        </ul>
+
+        <div class="note" style="margin-top: 28px;">
+          <strong>Please do not wait until the wedding morning to check your items.</strong>
+          Try on the complete look—including the dress, shoes, undergarments, jewelry,
+          and hairstyle plan—before the wedding weekend.
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <strong>Thank you for standing beside us.</strong>
+      Kiara &amp; Nana • December 2026
+    </div>
+  </footer>
+</body>
+</html>
