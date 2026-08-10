@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,153 +10,364 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 
 <style>
-body{
-    font-family:'Inter',sans-serif;
-    background:#f5f5f5;
-    margin:0;
-    padding:20px;
-    color:#333;
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: #f5f5f5;
+    margin: 0;
+    padding: 20px;
+    color: #333;
 }
 
+/* =========================
+   TOP MONOGRAM + NAVIGATION
+========================= */
+
 .monogram-banner {
-  width: 100%;
-  text-align: center;
-  padding: 20px 0;
-  background-color: #f5f5f5;
+    width: 100%;
+    text-align: center;
+    padding: 20px 0;
+    background-color: #f5f5f5;
+
+    /* Keeps navigation above RSVP overlay */
+    position: relative;
+    z-index: 1000000;
 }
 
 .monogram-banner img {
-  width: 90px;
-  height: auto;
+    width: 90px;
+    height: auto;
 }
 
 .subnav {
-  margin-top: 14px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 28px;
-  flex-wrap: wrap;
+    margin-top: 14px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 28px;
+    flex-wrap: wrap;
 }
 
 .subnav a {
-  font-family: 'Playfair Display', serif;
-  font-size: 10px;
-  letter-spacing: 2.5px;
-  text-transform: uppercase;
-  text-decoration: none;
-  color: #1a1a1a;
-  opacity: 0.85;
+    font-family: 'Playfair Display', serif;
+    font-size: 10px;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #1a1a1a;
+    opacity: 0.85;
 }
 
 .subnav a:hover {
-  color: #5a0f1c;
+    color: #5a0f1c;
 }
 
-.container{
-    max-width:800px;
-    margin:50px auto;
-    background:white;
-    padding:40px;
-    border-radius:12px;
-    box-shadow:0 4px 20px rgba(0,0,0,0.08);
+/* =========================
+   RSVP PAGE
+========================= */
+
+.container {
+    max-width: 800px;
+    margin: 50px auto;
+    background: white;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
 }
 
-h1{
-    font-family:'Playfair Display',serif;
-    text-align:center;
-    color:#5a0f1c;
+h1 {
+    font-family: 'Playfair Display', serif;
+    text-align: center;
+    color: #5a0f1c;
 }
 
-.subtitle{
-    text-align:center;
-    color:#666;
-    margin-bottom:25px;
+.subtitle {
+    text-align: center;
+    color: #666;
+    margin-bottom: 25px;
 }
 
-.form-group{
-    margin-bottom:18px;
+.form-group {
+    margin-bottom: 18px;
 }
 
-label{
-    display:block;
-    margin-bottom:6px;
-    font-weight:500;
+label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 500;
 }
 
-input, select, textarea{
-    width:100%;
-    padding:12px;
-    border-radius:8px;
-    border:1px solid #ddd;
-    box-sizing:border-box;
+input,
+select,
+textarea {
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    box-sizing: border-box;
 }
 
-button{
-    background:#5a0f1c;
-    color:white;
-    border:none;
-    padding:14px;
-    width:100%;
-    border-radius:8px;
-    cursor:pointer;
+button {
+    background: #5a0f1c;
+    color: white;
+    border: none;
+    padding: 14px;
+    width: 100%;
+    border-radius: 8px;
+    cursor: pointer;
 }
 
-button:hover{
-    background:#421019;
+button:hover {
+    background: #421019;
 }
 
-.guest-card{
-    border:1px solid #eee;
-    padding:15px;
-    margin-bottom:12px;
-    border-radius:10px;
+.guest-card {
+    border: 1px solid #eee;
+    padding: 15px;
+    margin-bottom: 12px;
+    border-radius: 10px;
 }
 
-.hidden{
-    display:none;
+.hidden {
+    display: none;
 }
 
-#success{
-    text-align:center;
-    color:green;
-    font-weight:bold;
-    margin-top:20px;
+#success {
+    text-align: center;
+    color: green;
+    font-weight: bold;
+    margin-top: 20px;
 }
+
+/* =========================
+   RSVP CLOSED OVERLAY
+========================= */
+
+#rsvpClosedOverlay {
+    position: fixed;
+
+    /*
+       Starts below the top navigation.
+       This leaves the monogram and menu accessible.
+    */
+    top: 145px;
+    left: 0;
+
+    width: 100%;
+    height: calc(100vh - 145px);
+
+    background: rgba(20, 8, 12, 0.82);
+
+    backdrop-filter: blur(7px);
+    -webkit-backdrop-filter: blur(7px);
+
+    z-index: 999999;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.rsvpClosedPopup {
+    width: 100%;
+    max-width: 560px;
+
+    background: #fffdf9;
+
+    padding: 55px 45px;
+
+    text-align: center;
+
+    box-shadow: 0 20px 60px rgba(0,0,0,0.35);
+
+    border: 1px solid #d8c7b5;
+
+    box-sizing: border-box;
+}
+
+.rsvpMonogram {
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: 18px;
+
+    letter-spacing: 4px;
+
+    color: #651525;
+
+    margin-bottom: 18px;
+}
+
+.rsvpClosedPopup h2 {
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-weight: normal;
+
+    font-size: 34px;
+
+    color: #651525;
+
+    margin: 0;
+}
+
+.rsvpDivider {
+    width: 55px;
+
+    height: 1px;
+
+    background: #b69268;
+
+    margin: 25px auto;
+}
+
+.rsvpClosedPopup p {
+    font-family: Arial, sans-serif;
+
+    font-size: 15px;
+
+    line-height: 1.8;
+
+    color: #454545;
+
+    margin: 15px 0;
+}
+
+.rsvpClosedPopup strong {
+    color: #651525;
+}
+
+.rsvpThankYou {
+    margin-top: 25px !important;
+}
+
+.rsvpNames {
+    margin-top: 30px;
+
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-style: italic;
+
+    font-size: 19px;
+
+    color: #651525;
+}
+
+/*
+   Prevents guests from scrolling around
+   behind the RSVP closed popup.
+*/
+
+body {
+    overflow: hidden;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 600px) {
+
+    #rsvpClosedOverlay {
+        top: 190px;
+        height: calc(100vh - 190px);
+        padding: 15px;
+    }
+
+    .rsvpClosedPopup {
+        padding: 35px 22px;
+    }
+
+    .rsvpClosedPopup h2 {
+        font-size: 28px;
+    }
+
+    .rsvpClosedPopup p {
+        font-size: 14px;
+        line-height: 1.6;
+    }
+
+}
+
 </style>
 </head>
 
+
 <body>
 
-<div class="monogram-banner">
-  <img src="monogram.png" alt="Monogram">
+<!-- =========================
+     MONOGRAM + NAVIGATION
+========================= -->
 
-  <nav class="subnav">
-    <a href="home.html">Home</a>
-    <a href="our-story.html">Our Story</a>
-    <a href="wedding-details.html">Details</a>
-    <a href="schedule.html">Schedule</a>
-    <a href="travel.html">Travel</a>
-    <a href="registry.html">Registry</a>
-    <a href="wedding-party-login.html">Wedding Party</a>
-    <a href="rsvp.html">RSVP</a>
-  </nav>
+<div class="monogram-banner">
+
+    <img src="monogram.png" alt="Monogram">
+
+    <nav class="subnav">
+
+        <a href="home.html">Home</a>
+
+        <a href="our-story.html">Our Story</a>
+
+        <a href="wedding-details.html">Details</a>
+
+        <a href="schedule.html">Schedule</a>
+
+        <a href="travel.html">Travel</a>
+
+        <a href="registry.html">Registry</a>
+
+        <a href="wedding-party-login.html">Wedding Party</a>
+
+        <a href="rsvp.html">RSVP</a>
+
+    </nav>
+
 </div>
+
+
+<!-- =========================
+     ORIGINAL RSVP PAGE
+========================= -->
 
 <div class="container">
 
 <h1>RSVP</h1>
 
-<p class="subtitle">We look forward to celebrating with you!</p>
+<p class="subtitle">
+    We look forward to celebrating with you!
+</p>
+
 
 <div class="form-group">
-  <label>Please enter the last 5 digits of your phone number to access RSVP details.</label>
-  <input type="text" id="lookup" maxlength="5">
+
+    <label>
+        Please enter the last 5 digits of your phone number to access RSVP details.
+    </label>
+
+    <input
+        type="text"
+        id="lookup"
+        maxlength="5"
+    >
+
 </div>
 
-<button type="button" onclick="findGuest()">Find My Invitation</button>
 
-<form id="rsvpForm" class="hidden">
+<button
+    type="button"
+    onclick="findGuest()"
+>
+    Find My Invitation
+</button>
+
+
+<form
+    id="rsvpForm"
+    class="hidden"
+>
+
 
 <div style="
     background:#fdf6f7;
@@ -167,377 +379,505 @@ button:hover{
     text-align:center;
     font-family:'Playfair Display', serif;
 ">
-    <strong>Please respond by July 1, 2026.</strong><br>
+
+    <strong>
+        Please respond by July 1, 2026.
+    </strong>
+
+    <br>
+
     We kindly ask that all RSVPs be submitted by this date so we may finalize arrangements.
+
 </div>
+
 
 <div id="guestList"></div>
 
-<div class="form-group">
-  <label>Hotel Accommodations</label>
-  <select id="hotel">
-    <option value="">Select Hotel</option>
-    <option value="Holiday Inn Leesburg">Holiday Inn Leesburg</option>
-    <option value="Home2 Suites Leesburg">Home2 Suites Leesburg</option>
-    <option value="Hotel Burg">Hotel Burg</option>
-    <option value="Lansdowne Resort">Lansdowne Resort</option>
-    <option value="Other">Other</option>
-    <option value="Not Staying">Not Staying at a Hotel</option>
-  </select>
-</div>
-
-<div class="form-group hidden" id="otherHotelSection">
-  <label>Please specify hotel</label>
-  <input type="text" id="otherHotel">
-</div>
-
-<div class="form-group hidden" id="transportSection">
-  <label>Need transportation?</label>
-  <select id="transportation">
-    <option value="">Select</option>
-    <option value="Yes">Yes</option>
-    <option value="No">No</option>
-  </select>
-</div>
 
 <div class="form-group">
-  <label>Message for the Couple</label>
-  <textarea id="message"></textarea>
+
+    <label>
+        Hotel Accommodations
+    </label>
+
+    <select id="hotel">
+
+        <option value="">
+            Select Hotel
+        </option>
+
+        <option value="Holiday Inn Leesburg">
+            Holiday Inn Leesburg
+        </option>
+
+        <option value="Home2 Suites Leesburg">
+            Home2 Suites Leesburg
+        </option>
+
+        <option value="Hotel Burg">
+            Hotel Burg
+        </option>
+
+        <option value="Lansdowne Resort">
+            Lansdowne Resort
+        </option>
+
+        <option value="Other">
+            Other
+        </option>
+
+        <option value="Not Staying">
+            Not Staying at a Hotel
+        </option>
+
+    </select>
+
 </div>
 
-<button type="submit">Submit RSVP</button>
+
+<div
+    class="form-group hidden"
+    id="otherHotelSection"
+>
+
+    <label>
+        Please specify hotel
+    </label>
+
+    <input
+        type="text"
+        id="otherHotel"
+    >
+
+</div>
+
+
+<div
+    class="form-group hidden"
+    id="transportSection"
+>
+
+    <label>
+        Need transportation?
+    </label>
+
+    <select id="transportation">
+
+        <option value="">
+            Select
+        </option>
+
+        <option value="Yes">
+            Yes
+        </option>
+
+        <option value="No">
+            No
+        </option>
+
+    </select>
+
+</div>
+
+
+<div class="form-group">
+
+    <label>
+        Message for the Couple
+    </label>
+
+    <textarea id="message"></textarea>
+
+</div>
+
+
+<button type="submit">
+    Submit RSVP
+</button>
+
 
 </form>
+
 
 <div id="success"></div>
 
 </div>
 
+
 <script>
-const scriptURL = "https://script.google.com/macros/s/AKfycbxUuWR9LN2KxsHl8TPBf9o-8dbcpTlRd3xkPDFsAihspz6qmOu0MbyVqeAno_ZzYNBp/exec";
+
+/* =========================
+   GOOGLE SHEETS CONNECTION
+========================= */
+
+const scriptURL =
+"https://script.google.com/macros/s/AKfycbxUuWR9LN2KxsHl8TPBf9o-8dbcpTlRd3xkPDFsAihspz6qmOu0MbyVqeAno_ZzYNBp/exec";
+
+
+/* =========================
+   GUEST LIST
+========================= */
 
 const guestData = [
-  { lookup:"15041", guests:["Kiara Copeman","Nana Yeboah","Ava Copeman"] },
-  { lookup:"80340", guests:["Amana Simmons","Mark Simmons"] },
-  { lookup:"19380", guests:["Adiya Ingram","Justin Bridgewater"] },
-  { lookup:"96427", guests:["Tiffany Lansdowne","Timothy Lansdowne"] },
-  { lookup:"62914", guests:["Anthony Copeman","Kelsie Copeman"] },
-  { lookup:"91211", guests:["India Walker","Joeseph Jennings"] },
-  { lookup:"32004", guests:["John Gladney","Alandria Gladney"] },
-  { lookup:"63657", guests:["Mr.Eric Ellis","Mrs.Marsha Ellis"] },
-  { lookup:"27747", guests:["Kwame Amo-Awuah","Laila Smith"] },
-  { lookup:"21943", guests:["Thomas Evans","Erica Opoku"] },
-  { lookup:"02275", guests:["Andy Boone","Taylor Boone"] },
-  { lookup:"78843", guests:["Farid Adechoubou","Jamiah Harrison"] },
-  { lookup:"16196", guests:["Nana Kessie","Chrissie Chinebuah"] },
-  { lookup:"72426", guests:["Eliana Oechsler","Greg Burgess"] },
-  { lookup:"43704", guests:["Michael Lawton","Tediah Lawton"] },
-  { lookup:"04971", guests:["Stephanie Kumi"] },
-  { lookup:"70422", guests:["Adwoa Yeboah Kwapong","Reggie Kwapong"] },
-  { lookup:"33762", guests:["Raquese Harris","Vanessa Harris"] },
-  { lookup:"18285", guests:["Kevin Opoku","Larissa Akono-Opoku"] },
-  { lookup:"17150", guests:["Johnathan Kumi","Shanek Kumi"] },
-  { lookup:"97362", guests:["Alvaro Cabal","Qendresa Cabal"] },
-  { lookup:"41706", guests:["Kenny Corum","Christine Frantz"] },
-  { lookup:"30080", guests:["Summer Coley","Anselm Obi"] },
-  { lookup:"11670", guests:["Mr.Prince Boateng-Botwe","Mrs.Edith Boateng-Botwe"] },
-  { lookup:"55275", guests:["Lydia Opoku","Dennis Opoku"] },
-  { lookup:"58663", guests:["Toni Rogers","Rick Rogers"] },
-  { lookup:"77554", guests:["Jairo Castro Rivera","Tatiana Marquez"] },
-  { lookup:"58595", guests:["Tia Marshall","Donalto Marshall"] },
-  { lookup:"46245", guests:["Pranav Gangele","Gurpreet Mann"] },
-  { lookup:"18236", guests:["Kris McNeil","Dayna Tomayko"] },
-  { lookup:"07367", guests:["April Briddell","Reynard Ramos"] },
-  { lookup:"41382", guests:["Bridgette Tate","Alex Tate"] },
-  { lookup:"07960", guests:["Shavonne Richardson","Jonathan Jumi"] },
-  { lookup:"06914", guests:["Mr.James Starks","Mrs.Lori Starks"] },
-  { lookup:"73896", guests:["Mr.James H. Curtis","Mrs.Cecelia Y. Curtis"] },
-  { lookup:"43097", guests:["Mislyne Apollon","Moise Apollon"] },
-  { lookup:"52102", guests:["Markus Coley","Dominique Lowery"] },
-  { lookup:"23023", guests:["Mr.Nana Adu-Gyamfi","Mrs.Gina Morgan Adu-Gyamfi"] },
-  { lookup:"60276", guests:["Fidelia Fugar","Benedicta Ahiable"] },
-  { lookup:"91757", guests:["Mrs.Eva Yeboah"] },
-  { lookup:"41123", guests:["Juliana Copeman","Guest"] },
-  { lookup:"07361", guests:["Racheal Dejen","Robert Okolo"] },
-  { lookup:"58646", guests:["Cristen Harris","Mr.Stephon Harris","Mrs.Lynne Harris"] },
-  { lookup:"62990", guests:["Erleen Ellis"] },
-  { lookup:"93913", guests:["Shalaya Davis"] },
-  { lookup:"17308", guests:["Adrienne Hall"] },
-  { lookup:"68099", guests:["Kyra Williams"] },
-  { lookup:"64491", guests:["Josselyn Munoz"] },
-  { lookup:"25878", guests:["Kenya Thompson"] },
-  { lookup:"11935", guests:["Janelle Pace"] },
-  { lookup:"53566", guests:["Terrence Smith"] },
-  { lookup:"99411", guests:["Rashad Gadson"] },
-  { lookup:"10944", guests:["Nana K. Mainoo"] },
-  { lookup:"03880", guests:["Abena Gyebuaa Somiah"] },
-  { lookup:"40574", guests:["Whitney Amo"] },
-  { lookup:"35253", guests:["Jacob Greenspun"] },
-  { lookup:"23851", guests:["Lindeon S. Davis"] },
-  { lookup:"98209", guests:["Rhorie Williams"] },
-  { lookup:"29339", guests:["Toviya Nabugero"] },
-  { lookup:"88909", guests:["Keith Mills","Allison Watkins"] },
-  { lookup:"50254", guests:["Rachel Opoku"] },
-  { lookup:"57844", guests:["Mr.Charles Leslie Van Dyck"] },
-  { lookup:"96380", guests:["Kenny Funzamo"] },
-  { lookup:"24644", guests:["Stephen Wellington"] },
-  { lookup:"34560", guests:["Garry Turner Jr.","Vivien Tran"] },
-  { lookup:"77063", guests:["Arnell Opoku"] },
-  { lookup:"15662", guests:["Nan Osei Mainoo"] },
-  { lookup:"01267", guests:["Rhodalyn Darkoh Mills"] },
-  { lookup:"28461", guests:["Brian Wilson"] },
-  { lookup:"56784", guests:["Lilly Affranie"] },
-  { lookup:"39788", guests:["Kennedy Harris"] },
-  { lookup:"47330", guests:["Terri Smith"] },
-  { lookup:"32501", guests:["Darryl Appiah"] },
-  { lookup:"95570", guests:["Chris Yamoah"] },
-  { lookup:"77949", guests:["Vivi Luong"] },
-  { lookup:"28648", guests:["Josh Villapudua"] },
-  { lookup:"65720", guests:["Marlowe Coley"] },
-  { lookup:"42869", guests:["Kimara Coley"] },
-  { lookup:"12099", guests:["Mike Simmons"] },
-  { lookup:"11613", guests:["Juwan Middleton"] },
-  { lookup:"35649", guests:["Derick Jones"] },
-  { lookup:"32215", guests:["DeShaun Byrd"] },
-  { lookup:"05370", guests:["Cortinéy Lopez"] },
-  { lookup:"96969", guests:["Martina Tsibu-Gyan"] },
-  { lookup:"14517", guests:["Mary Nadutey"] },
-  { lookup:"84439", guests:["Kendra Wood"] },
-  { lookup:"88393", guests:["Cheryl Thomas"] },
-  { lookup:"60495", guests:["Mrs.Constance Bellamy"] },
-  { lookup:"40275", guests:["Chelsee Lisbon"] },
-  { lookup:"39850", guests:["Mr.Kenneth Knox","Mrs.Tukisha Knox"] },
-  { lookup:"37370", guests:["Mr.Vince Gaddis","Mrs.Cathy Gaddis"] },
-  { lookup:"78919", guests:["Allyson Abrams"] },
-  { lookup:"78785", guests:["Mr.Charles Kumi","Mrs.Gifty Kumi"] },
-  { lookup:"15885", guests:["Edwin Mensah","Essie Mensah"] },
-  { lookup:"16296", guests:["Martha Amoako"] },
-  { lookup:"96465", guests:["Tetebea Apea-Otu"] },
-  { lookup:"85266", guests:["Charles Van Dyck"] },
-  { lookup:"04895", guests:["Amma Serwah Aidoo"] },
-  { lookup:"35011", guests:["Akil Jones"] },
-  { lookup:"15175", guests:["Mahadi Farah"] },
-  { lookup:"54235", guests:["Vera Boadu"] },
-  { lookup:"43640", guests:["Isaiah Floyd"] },
-  { lookup:"69019", guests:["Tamara WIllaims"] },
-  { lookup:"74912", guests:["Adriana Copeman","Ronice Copeman"] },
-  { lookup:"12661", guests:["Debora Lype","Tony Lype"] },
-  { lookup:"92930", guests:["Nicole Lype","Guest"] },
-  { lookup:"20974", guests:["Mr.Samuel Barfi"] },
-  { lookup:"54089", guests:["Mr.Pipim Addo"] },
-  { lookup:"65051", guests:["Kelvin Sarkodie"] },
-  { lookup:"25389", guests:["Phyleen Mobley"] },
-  { lookup:"27731", guests:["Tyra Mitchell"] },
-  { lookup:"85612", guests:["Isata Jalloh"] },
-  { lookup:"38603", guests:["Chantal Kai Lewis"] },
-  { lookup:"94828", guests:["Vanessa Williams","Andrew Duncan"] },
-  { lookup:"42278", guests:["Lesley Sekyere"] }
-    
+
+{ lookup:"15041", guests:["Kiara Copeman","Nana Yeboah","Ava Copeman"] },
+{ lookup:"80340", guests:["Amana Simmons","Mark Simmons"] },
+{ lookup:"19380", guests:["Adiya Ingram","Justin Bridgewater"] },
+{ lookup:"96427", guests:["Tiffany Lansdowne","Timothy Lansdowne"] },
+{ lookup:"62914", guests:["Anthony Copeman","Kelsie Copeman"] },
+{ lookup:"91211", guests:["India Walker","Joeseph Jennings"] },
+{ lookup:"32004", guests:["John Gladney","Alandria Gladney"] },
+{ lookup:"63657", guests:["Mr.Eric Ellis","Mrs.Marsha Ellis"] },
+{ lookup:"27747", guests:["Kwame Amo-Awuah","Laila Smith"] },
+{ lookup:"21943", guests:["Thomas Evans","Erica Opoku"] },
+{ lookup:"02275", guests:["Andy Boone","Taylor Boone"] },
+{ lookup:"78843", guests:["Farid Adechoubou","Jamiah Harrison"] },
+{ lookup:"16196", guests:["Nana Kessie","Chrissie Chinebuah"] },
+{ lookup:"72426", guests:["Eliana Oechsler","Greg Burgess"] },
+{ lookup:"43704", guests:["Michael Lawton","Tediah Lawton"] },
+{ lookup:"04971", guests:["Stephanie Kumi"] },
+{ lookup:"70422", guests:["Adwoa Yeboah Kwapong","Reggie Kwapong"] },
+{ lookup:"33762", guests:["Raquese Harris","Vanessa Harris"] },
+{ lookup:"18285", guests:["Kevin Opoku","Larissa Akono-Opoku"] },
+{ lookup:"17150", guests:["Johnathan Kumi","Shanek Kumi"] },
+{ lookup:"97362", guests:["Alvaro Cabal","Qendresa Cabal"] },
+{ lookup:"41706", guests:["Kenny Corum","Christine Frantz"] },
+{ lookup:"30080", guests:["Summer Coley","Anselm Obi"] },
+{ lookup:"11670", guests:["Mr.Prince Boateng-Botwe","Mrs.Edith Boateng-Botwe"] },
+{ lookup:"55275", guests:["Lydia Opoku","Dennis Opoku"] },
+{ lookup:"58663", guests:["Toni Rogers","Rick Rogers"] },
+{ lookup:"77554", guests:["Jairo Castro Rivera","Tatiana Marquez"] },
+{ lookup:"58595", guests:["Tia Marshall","Donalto Marshall"] },
+{ lookup:"46245", guests:["Pranav Gangele","Gurpreet Mann"] },
+{ lookup:"18236", guests:["Kris McNeil","Dayna Tomayko"] },
+{ lookup:"07367", guests:["April Briddell","Reynard Ramos"] },
+{ lookup:"41382", guests:["Bridgette Tate","Alex Tate"] },
+{ lookup:"07960", guests:["Shavonne Richardson","Jonathan Jumi"] },
+{ lookup:"06914", guests:["Mr.James Starks","Mrs.Lori Starks"] },
+{ lookup:"73896", guests:["Mr.James H. Curtis","Mrs.Cecelia Y. Curtis"] },
+{ lookup:"43097", guests:["Mislyne Apollon","Moise Apollon"] },
+{ lookup:"52102", guests:["Markus Coley","Dominique Lowery"] },
+{ lookup:"23023", guests:["Mr.Nana Adu-Gyamfi","Mrs.Gina Morgan Adu-Gyamfi"] },
+{ lookup:"60276", guests:["Fidelia Fugar","Benedicta Ahiable"] },
+{ lookup:"91757", guests:["Mrs.Eva Yeboah"] },
+{ lookup:"41123", guests:["Juliana Copeman","Guest"] },
+{ lookup:"07361", guests:["Racheal Dejen","Robert Okolo"] },
+{ lookup:"58646", guests:["Cristen Harris","Mr.Stephon Harris","Mrs.Lynne Harris"] },
+{ lookup:"62990", guests:["Erleen Ellis"] },
+{ lookup:"93913", guests:["Shalaya Davis"] },
+{ lookup:"17308", guests:["Adrienne Hall"] },
+{ lookup:"68099", guests:["Kyra Williams"] },
+{ lookup:"64491", guests:["Josselyn Munoz"] },
+{ lookup:"25878", guests:["Kenya Thompson"] },
+{ lookup:"11935", guests:["Janelle Pace"] },
+{ lookup:"53566", guests:["Terrence Smith"] },
+{ lookup:"99411", guests:["Rashad Gadson"] },
+{ lookup:"10944", guests:["Nana K. Mainoo"] },
+{ lookup:"03880", guests:["Abena Gyebuaa Somiah"] },
+{ lookup:"40574", guests:["Whitney Amo"] },
+{ lookup:"35253", guests:["Jacob Greenspun"] },
+{ lookup:"23851", guests:["Lindeon S. Davis"] },
+{ lookup:"98209", guests:["Rhorie Williams"] },
+{ lookup:"29339", guests:["Toviya Nabugero"] },
+{ lookup:"88909", guests:["Keith Mills","Allison Watkins"] },
+{ lookup:"50254", guests:["Rachel Opoku"] },
+{ lookup:"57844", guests:["Mr.Charles Leslie Van Dyck"] },
+{ lookup:"96380", guests:["Kenny Funzamo"] },
+{ lookup:"24644", guests:["Stephen Wellington"] },
+{ lookup:"34560", guests:["Garry Turner Jr.","Vivien Tran"] },
+{ lookup:"77063", guests:["Arnell Opoku"] },
+{ lookup:"15662", guests:["Nan Osei Mainoo"] },
+{ lookup:"01267", guests:["Rhodalyn Darkoh Mills"] },
+{ lookup:"28461", guests:["Brian Wilson"] },
+{ lookup:"56784", guests:["Lilly Affranie"] },
+{ lookup:"39788", guests:["Kennedy Harris"] },
+{ lookup:"47330", guests:["Terri Smith"] },
+{ lookup:"32501", guests:["Darryl Appiah"] },
+{ lookup:"95570", guests:["Chris Yamoah"] },
+{ lookup:"77949", guests:["Vivi Luong"] },
+{ lookup:"28648", guests:["Josh Villapudua"] },
+{ lookup:"65720", guests:["Marlowe Coley"] },
+{ lookup:"42869", guests:["Kimara Coley"] },
+{ lookup:"12099", guests:["Mike Simmons"] },
+{ lookup:"11613", guests:["Juwan Middleton"] },
+{ lookup:"35649", guests:["Derick Jones"] },
+{ lookup:"32215", guests:["DeShaun Byrd"] },
+{ lookup:"05370", guests:["Cortinéy Lopez"] },
+{ lookup:"96969", guests:["Martina Tsibu-Gyan"] },
+{ lookup:"14517", guests:["Mary Nadutey"] },
+{ lookup:"84439", guests:["Kendra Wood"] },
+{ lookup:"88393", guests:["Cheryl Thomas"] },
+{ lookup:"60495", guests:["Mrs.Constance Bellamy"] },
+{ lookup:"40275", guests:["Chelsee Lisbon"] },
+{ lookup:"39850", guests:["Mr.Kenneth Knox","Mrs.Tukisha Knox"] },
+{ lookup:"37370", guests:["Mr.Vince Gaddis","Mrs.Cathy Gaddis"] },
+{ lookup:"78919", guests:["Allyson Abrams"] },
+{ lookup:"78785", guests:["Mr.Charles Kumi","Mrs.Gifty Kumi"] },
+{ lookup:"15885", guests:["Edwin Mensah","Essie Mensah"] },
+{ lookup:"16296", guests:["Martha Amoako"] },
+{ lookup:"96465", guests:["Tetebea Apea-Otu"] },
+{ lookup:"85266", guests:["Charles Van Dyck"] },
+{ lookup:"04895", guests:["Amma Serwah Aidoo"] },
+{ lookup:"35011", guests:["Akil Jones"] },
+{ lookup:"15175", guests:["Mahadi Farah"] },
+{ lookup:"54235", guests:["Vera Boadu"] },
+{ lookup:"43640", guests:["Isaiah Floyd"] },
+{ lookup:"69019", guests:["Tamara WIllaims"] },
+{ lookup:"74912", guests:["Adriana Copeman","Ronice Copeman"] },
+{ lookup:"12661", guests:["Debora Lype","Tony Lype"] },
+{ lookup:"92930", guests:["Nicole Lype","Guest"] },
+{ lookup:"20974", guests:["Mr.Samuel Barfi"] },
+{ lookup:"54089", guests:["Mr.Pipim Addo"] },
+{ lookup:"65051", guests:["Kelvin Sarkodie"] },
+{ lookup:"25389", guests:["Phyleen Mobley"] },
+{ lookup:"27731", guests:["Tyra Mitchell"] },
+{ lookup:"85612", guests:["Isata Jalloh"] },
+{ lookup:"38603", guests:["Chantal Kai Lewis"] },
+{ lookup:"94828", guests:["Vanessa Williams","Andrew Duncan"] },
+{ lookup:"42278", guests:["Lesley Sekyere"] }
+
 ];
 
-function findGuest(){
-    const lookup = document.getElementById('lookup').value.trim();
-    const match = guestData.find(g => g.lookup === lookup);
+
+/* =========================
+   FIND GUEST
+========================= */
+
+function findGuest() {
+
+    const lookup =
+        document.getElementById('lookup').value.trim();
+
+    const match =
+        guestData.find(g => g.lookup === lookup);
 
     document.getElementById('success').innerHTML = "";
 
-    if(!match){
+    if (!match) {
+
         alert("We couldn’t find your invitation code.");
+
         return;
     }
 
     let html = "";
 
     match.guests.forEach(name => {
+
         html += `
+
         <div class="guest-card">
+
             <h3>${name}</h3>
 
-            <label>RSVP</label>
-            <select class="response" data-name="${name}" required>
-                <option value="">Select</option>
-                <option value="Attending">Joyfully Accepts</option>
-                <option value="Declined">Regretfully Declines</option>
+            <label>
+                RSVP
+            </label>
+
+            <select
+                class="response"
+                data-name="${name}"
+                required
+            >
+
+                <option value="">
+                    Select
+                </option>
+
+                <option value="Attending">
+                    Joyfully Accepts
+                </option>
+
+                <option value="Declined">
+                    Regretfully Declines
+                </option>
+
             </select>
-        </div>`;
+
+        </div>
+
+        `;
+
     });
 
     document.getElementById('guestList').innerHTML = html;
-    document.getElementById('rsvpForm').classList.remove('hidden');
+
+    document
+        .getElementById('rsvpForm')
+        .classList.remove('hidden');
+
 }
 
-document.getElementById('hotel').addEventListener('change', function(){
+
+/* =========================
+   HOTEL / TRANSPORTATION
+========================= */
+
+document
+.getElementById('hotel')
+.addEventListener('change', function() {
+
     const shuttleHotels = [
+
         "Holiday Inn Leesburg",
         "Home2 Suites Leesburg",
         "Hotel Burg",
         "Lansdowne Resort"
+
     ];
 
-    document.getElementById('transportSection')
-        .classList.toggle('hidden', !shuttleHotels.includes(this.value));
+    document
+        .getElementById('transportSection')
+        .classList.toggle(
+            'hidden',
+            !shuttleHotels.includes(this.value)
+        );
 
-    document.getElementById('otherHotelSection')
-        .classList.toggle('hidden', this.value !== "Other");
+    document
+        .getElementById('otherHotelSection')
+        .classList.toggle(
+            'hidden',
+            this.value !== "Other"
+        );
+
 });
 
-document.getElementById('rsvpForm').addEventListener('submit', function(e){
+
+/* =========================
+   SUBMIT RSVP
+========================= */
+
+document
+.getElementById('rsvpForm')
+.addEventListener('submit', function(e) {
+
     e.preventDefault();
 
     const guestResponses = [];
 
-    document.querySelectorAll('.response').forEach(r => {
+    document
+    .querySelectorAll('.response')
+    .forEach(r => {
+
         guestResponses.push({
+
             name: r.dataset.name,
+
             response: r.value
+
         });
+
     });
+
 
     const payload = {
-        lookup: document.getElementById('lookup').value,
-        hotel: document.getElementById('hotel').value,
-        otherHotel: document.getElementById('otherHotel').value || "",
-        transportation: document.getElementById('transportation').value || "",
-        message: document.getElementById('message').value,
-        guestResponses: JSON.stringify(guestResponses)
+
+        lookup:
+            document.getElementById('lookup').value,
+
+        hotel:
+            document.getElementById('hotel').value,
+
+        otherHotel:
+            document.getElementById('otherHotel').value || "",
+
+        transportation:
+            document.getElementById('transportation').value || "",
+
+        message:
+            document.getElementById('message').value,
+
+        guestResponses:
+            JSON.stringify(guestResponses)
+
     };
 
+
     fetch(scriptURL, {
+
         method: "POST",
-        body: new URLSearchParams(payload)
+
+        body:
+            new URLSearchParams(payload)
+
     })
+
     .then(() => {
-        document.getElementById('success').innerHTML =
+
+        document
+        .getElementById('success')
+        .innerHTML =
         "Thank you! Your RSVP has been received.";
 
-        document.getElementById('rsvpForm').reset();
-        document.getElementById('guestList').innerHTML = "";
-        document.getElementById('rsvpForm').classList.add('hidden');
+        document
+        .getElementById('rsvpForm')
+        .reset();
+
+        document
+        .getElementById('guestList')
+        .innerHTML = "";
+
+        document
+        .getElementById('rsvpForm')
+        .classList.add('hidden');
+
     })
+
     .catch(() => {
-        alert("There was an error submitting your RSVP.");
+
+        alert(
+            "There was an error submitting your RSVP."
+        );
+
     });
+
 });
+
 </script>
-<!-- RSVP CLOSED POPUP -->
+
+
+<!-- =========================
+     RSVP CLOSED MESSAGE
+========================= -->
+
 <div id="rsvpClosedOverlay">
-  <div class="rsvpClosedPopup">
-    <div class="rsvpMonogram">N & K</div>
 
-    <h2>RSVPs Are Now Closed</h2>
+    <div class="rsvpClosedPopup">
 
-    <div class="rsvpDivider"></div>
+        <div class="rsvpMonogram">
+            N & K
+        </div>
 
-    <p>
-      Thank you to everyone who RSVP’d.
-    </p>
+        <h2>
+            RSVPs Are Now Closed
+        </h2>
 
-    <p>
-      All guests who did not submit an RSVP by the deadline
-      have been counted as <strong>declined</strong>.
-    </p>
+        <div class="rsvpDivider"></div>
 
-    <p class="rsvpThankYou">
-      We appreciate your understanding and look forward to celebrating
-      with everyone who will be joining us.
-    </p>
+        <p>
+            Thank you to everyone who RSVP’d.
+        </p>
 
-    <div class="rsvpNames">Kiara & Nana</div>
-  </div>
+        <p>
+            All guests who did not submit an RSVP by the deadline
+            have been counted as
+            <strong>declined</strong>.
+        </p>
+
+        <p class="rsvpThankYou">
+            We appreciate your understanding and look forward
+            to celebrating with everyone who will be joining us.
+        </p>
+
+        <div class="rsvpNames">
+            Kiara & Nana
+        </div>
+
+    </div>
+
 </div>
 
-<style>
-  #rsvpClosedOverlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(20, 8, 12, 0.82);
-    backdrop-filter: blur(7px);
-    -webkit-backdrop-filter: blur(7px);
-    z-index: 999999;
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    padding: 20px;
-    box-sizing: border-box;
-  }
-
-  .rsvpClosedPopup {
-    width: 100%;
-    max-width: 560px;
-    background: #fffdf9;
-    padding: 55px 45px;
-    text-align: center;
-    box-shadow: 0 20px 60px rgba(0,0,0,0.35);
-    border: 1px solid #d8c7b5;
-    box-sizing: border-box;
-  }
-
-  .rsvpMonogram {
-    font-family: Georgia, "Times New Roman", serif;
-    font-size: 18px;
-    letter-spacing: 4px;
-    color: #651525;
-    margin-bottom: 18px;
-  }
-
-  .rsvpClosedPopup h2 {
-    font-family: Georgia, "Times New Roman", serif;
-    font-weight: normal;
-    font-size: 34px;
-    color: #651525;
-    margin: 0;
-  }
-
-  .rsvpDivider {
-    width: 55px;
-    height: 1px;
-    background: #b69268;
-    margin: 25px auto;
-  }
-
-  .rsvpClosedPopup p {
-    font-family: Arial, sans-serif;
-    font-size: 15px;
-    line-height: 1.8;
-    color: #454545;
-    margin: 15px 0;
-  }
-
-  .rsvpClosedPopup strong {
-    color: #651525;
-  }
-
-  .rsvpThankYou {
-    margin-top: 25px !important;
-  }
-
-  .rsvpNames {
-    margin-top: 30px;
-    font-family: Georgia, "Times New Roman", serif;
-    font-style: italic;
-    font-size: 19px;
-    color: #651525;
-  }
-
-  /* Prevent scrolling behind popup */
-  body {
-    overflow: hidden;
-  }
-
-  @media (max-width: 600px) {
-    .rsvpClosedPopup {
-      padding: 40px 25px;
-    }
-
-    .rsvpClosedPopup h2 {
-      font-size: 28px;
-    }
-  }
-</style>
 </body>
 </html>
+```
